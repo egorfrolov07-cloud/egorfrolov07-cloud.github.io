@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тишь — архитектурный посёлок на берегу озера</title>
+  <!-- og -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="By Egor">
+  <meta property="og:title" content="Тишь — архитектурный посёлок на берегу озера">
+  <meta property="og:description" content="27 домов в сосновом лесу на берегу озера в Карелии. Концепт-проект.">
+  <meta property="og:url" content="https://byegor.ru/01-tish/">
+  <meta property="og:image" content="https://byegor.ru/01-tish/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://byegor.ru/01-tish/">
+  <!-- /og -->
+  <meta name="description" content="27 домов в сосновом лесу на берегу озера в Карелии. Концепт-проект.">
+  <meta name="theme-color" content="#0d0e0c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d0e0c'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' text-anchor='middle' fill='%23ebe6db'%3ET%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+  <div class="loader" aria-hidden="true">
+    <div class="loader__word"><span>Т</span><span>и</span><span>ш</span><span>ь</span></div>
+    <div class="loader__meta">
+      <span>Архитектурный посёлок</span>
+      <span class="loader__count"><b>0</b>%</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <a href="#top" class="logo" data-scroll>Тишь</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#about" data-scroll>Посёлок</a>
+      <a href="#architecture" data-scroll>Архитектура</a>
+      <a href="#houses" data-scroll>Дома</a>
+      <a href="#life" data-scroll>Жизнь</a>
+      <a href="#location" data-scroll>Локация</a>
+    </nav>
+    <a href="#visit" class="header__cta" data-scroll data-magnetic>Приватный показ</a>
+    <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__nav" aria-label="Мобильная навигация">
+      <a href="#about" data-scroll><span>01</span>Посёлок</a>
+      <a href="#architecture" data-scroll><span>02</span>Архитектура</a>
+      <a href="#houses" data-scroll><span>03</span>Дома</a>
+      <a href="#life" data-scroll><span>04</span>Жизнь</a>
+      <a href="#location" data-scroll><span>05</span>Локация</a>
+      <a href="#visit" data-scroll><span>06</span>Приватный показ</a>
+    </nav>
+    <div class="menu__foot">
+      <a href="tel:+78120000000">+7 812 000-00-00</a>
+      <span>Ежедневно, 9:00–21:00</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__media">
+        <img
+          src="img/u-1782827936547-97e3cf8ad991-w2200.webp"
+          srcset="img/u-1782827936547-97e3cf8ad991-w900.webp 900w,
+                  img/u-1782827936547-97e3cf8ad991-w1600.webp 1600w,
+                  img/u-1782827936547-97e3cf8ad991-w2400.webp 2400w"
+          sizes="100vw" alt="Дом с тёплым светом в окнах на берегу озера в сумерках" fetchpriority="high">
+      </div>
+      <div class="hero__shade"></div>
+
+      <div class="hero__top">
+        <p class="kicker">Карелия&nbsp;· Северный берег Ладоги</p>
+        <p class="kicker kicker--right">61°42′ с.ш.&nbsp;&nbsp;30°41′ в.д.</p>
+      </div>
+
+      <h1 class="hero__title" aria-label="Тишь"><span class="hero__word">Тишь</span></h1>
+
+      <div class="hero__bottom">
+        <p class="hero__lead">Архитектурный посёлок из&nbsp;27&nbsp;домов в&nbsp;сосновом лесу на&nbsp;берегу озера</p>
+        <div class="hero__meta">
+          <span>Вторая очередь</span>
+          <span>Старт продаж — осень 2026</span>
+        </div>
+        <a href="#about" class="scroll-hint" data-scroll><span>Листайте</span><i></i></a>
+      </div>
+    </section>
+
+    <!-- 01 ПОСЁЛОК -->
+    <section class="intro light" id="about">
+      <div class="container">
+        <div class="label"><span>01</span>Посёлок</div>
+        <p class="manifesto" data-words>Здесь слышно, как падает снег и&nbsp;как озеро дышит туманом по&nbsp;утрам. Мы&nbsp;сохранили каждую сосну, а&nbsp;дома поставили так, чтобы из&nbsp;окон были видны только лес и&nbsp;вода.</p>
+
+        <div class="stats">
+          <div class="stat" data-reveal>
+            <b><span data-count="27">27</span></b>
+            <span>домов на&nbsp;всей территории посёлка</span>
+          </div>
+          <div class="stat" data-reveal>
+            <b><span data-count="40">40</span><small>га</small></b>
+            <span>соснового леса без единой вырубки под&nbsp;застройку</span>
+          </div>
+          <div class="stat" data-reveal>
+            <b><span data-count="1.2" data-decimals="1">1,2</span><small>км</small></b>
+            <span>собственной береговой линии с&nbsp;песчаными пляжами</span>
+          </div>
+          <div class="stat" data-reveal>
+            <b><span data-count="60">60</span><small>м</small></b>
+            <span>минимум между соседними домами</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAND -->
+    <section class="band">
+      <figure class="band__media" data-clip>
+        <img src="img/u-1790886474871-99a891ebc852-w2200.webp"
+             srcset="img/u-1790886474871-99a891ebc852-w900.webp 900w,
+                     img/u-1790886474871-99a891ebc852-w1800.webp 1800w,
+                     img/u-1790886474871-99a891ebc852-w2600.webp 2600w"
+             sizes="100vw" alt="Туман над лесом на берегу озера" loading="lazy">
+      </figure>
+      <div class="band__caption container">
+        <span>Утро в «Тиши»</span>
+        <span>06:40&nbsp;· +4&nbsp;°C&nbsp;· штиль</span>
+      </div>
+    </section>
+
+    <!-- 02 АРХИТЕКТУРА -->
+    <section class="arch" id="architecture">
+      <div class="container arch__grid">
+        <div class="arch__text">
+          <div class="label"><span>02</span>Архитектура</div>
+          <h2 class="h2" data-lines>Архитектура, которая уступает место <em>природе</em></h2>
+          <p class="lead" data-reveal>Генплан создавали вокруг деревьев, а&nbsp;не&nbsp;вместо них. Каждый участок проектировали отдельно: под рельеф, солнце и&nbsp;вид на&nbsp;воду.</p>
+
+          <ol class="principles">
+            <li data-reveal><span>01</span><div><h3>Лес остаётся лесом</h3><p>Сохранено 94% деревьев. Дороги и&nbsp;сети проложены по&nbsp;существующим просекам.</p></div></li>
+            <li data-reveal><span>02</span><div><h3>Окна на&nbsp;воду</h3><p>Каждый дом развёрнут к&nbsp;озеру, остекление от&nbsp;пола до&nbsp;потолка.</p></div></li>
+            <li data-reveal><span>03</span><div><h3>Честные материалы</h3><p>Карельская сосна, гранит и&nbsp;патинированная медь. Ничего, что состарится некрасиво.</p></div></li>
+            <li data-reveal><span>04</span><div><h3>Приватность</h3><p>Участки от&nbsp;30&nbsp;соток. Дома не&nbsp;видят друг друга даже зимой.</p></div></li>
+          </ol>
+
+          <blockquote class="quote" data-reveal>
+            <p>«Мы не&nbsp;строили дома в&nbsp;лесу. Мы&nbsp;оставили лес и&nbsp;аккуратно вписали в&nbsp;него дома».</p>
+            <cite>Анна Вересова, главный архитектор бюро «Линия леса»</cite>
+          </blockquote>
+        </div>
+
+        <div class="arch__media">
+          <figure class="parallax arch__img arch__img--tall" data-clip>
+            <img src="img/u-1703782997446-fba282cbfce6-w1400.webp" alt="Деревянный настил ведёт к дому среди деревьев" loading="lazy">
+          </figure>
+          <figure class="parallax arch__img" data-clip>
+            <img src="img/u-1775907486229-c6c35193c8ee-w1200.webp" alt="Ритм деревянных ламелей фасада" loading="lazy">
+          </figure>
+          <figure class="parallax arch__img arch__img--wide" data-clip>
+            <img src="img/u-1764111691250-3557850d9a9b-w1600.webp" alt="Дом со светящимися окнами ночью" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Тишь</span><i></i><span>Карелия</span><i></i><span>27 домов</span><i></i><span>40 гектаров леса</span><i></i><span>Берег Ладоги</span><i></i>
+        <span>Тишь</span><i></i><span>Карелия</span><i></i><span>27 домов</span><i></i><span>40 гектаров леса</span><i></i><span>Берег Ладоги</span><i></i>
+      </div>
+    </div>
+
+    <!-- 03 ДОМА -->
+    <section class="houses light" id="houses">
+      <div class="houses__pin">
+        <div class="houses__head container">
+          <div class="label"><span>03</span>Дома</div>
+          <h2 class="h2" data-lines>Три дома&nbsp;— три способа <em>жить&nbsp;у&nbsp;воды</em></h2>
+          <div class="houses__progress"><i></i></div>
+        </div>
+
+        <div class="houses__track">
+          <article class="house">
+            <figure class="house__media" data-cursor="Планировка">
+              <img src="img/u-1724931282671-2d3bcd6de8f2-w1600.webp" alt="Тёмный дом в форме амбара с тёплым светом в окнах" loading="lazy">
+            </figure>
+            <div class="house__info">
+              <div class="house__top"><span class="house__num">01</span><span class="house__tag">Осталось 3</span></div>
+              <h3 class="house__name">Мох</h3>
+              <p class="house__desc">Тёмный дом-амбар для семьи с&nbsp;детьми. Камин, второй свет и&nbsp;терраса под соснами.</p>
+              <dl class="house__specs">
+                <div><dt>Площадь</dt><dd>145 м²</dd></div>
+                <div><dt>Спальни</dt><dd>3</dd></div>
+                <div><dt>Участок</dt><dd>30 сот.</dd></div>
+              </dl>
+              <div class="house__price">от 48 млн ₽</div>
+            </div>
+          </article>
+
+          <article class="house">
+            <figure class="house__media" data-cursor="Планировка">
+              <img src="img/u-1716077521105-f0d699ab2047-w1600.webp" alt="Белый минималистичный дом с панорамным остеклением в лесу" loading="lazy">
+            </figure>
+            <div class="house__info">
+              <div class="house__top"><span class="house__num">02</span><span class="house__tag">Осталось 5</span></div>
+              <h3 class="house__name">Гранит</h3>
+              <p class="house__desc">Белый двухуровневый дом с&nbsp;эксплуатируемой кровлей. Над лесом&nbsp;— терраса для закатов.</p>
+              <dl class="house__specs">
+                <div><dt>Площадь</dt><dd>220 м²</dd></div>
+                <div><dt>Спальни</dt><dd>4</dd></div>
+                <div><dt>Участок</dt><dd>40 сот.</dd></div>
+              </dl>
+              <div class="house__price">от 74 млн ₽</div>
+            </div>
+          </article>
+
+          <article class="house">
+            <figure class="house__media" data-cursor="Планировка">
+              <img src="img/u-1754962850942-5700d2939917-w1600.webp" alt="Современный дом из дерева и стекла у самой воды" loading="lazy">
+            </figure>
+            <div class="house__info">
+              <div class="house__top"><span class="house__num">03</span><span class="house__tag">Первая линия</span></div>
+              <h3 class="house__name">Берег</h3>
+              <p class="house__desc">Резиденция на&nbsp;первой линии: собственный причал, банный дом и&nbsp;гостевой флигель.</p>
+              <dl class="house__specs">
+                <div><dt>Площадь</dt><dd>310 м²</dd></div>
+                <div><dt>Спальни</dt><dd>5</dd></div>
+                <div><dt>Участок</dt><dd>60 сот.</dd></div>
+              </dl>
+              <div class="house__price">от 112 млн ₽</div>
+            </div>
+          </article>
+
+          <a href="#visit" class="house house--cta" data-scroll>
+            <span class="house--cta__small">Не&nbsp;нашли свой?</span>
+            <span class="house--cta__big">Спроектируем индивидуальный дом <em>на&nbsp;вашем участке</em></span>
+            <span class="house--cta__arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 ИНТЕРЬЕРЫ -->
+    <section class="interiors">
+      <div class="container">
+        <div class="interiors__head">
+          <div class="label"><span>04</span>Интерьеры</div>
+          <h2 class="h2" data-lines>Свет, дерево <em>и&nbsp;вид, который не&nbsp;надоедает</em></h2>
+          <p class="lead" data-reveal>Дома передаются с&nbsp;чистовой отделкой в&nbsp;одной из&nbsp;трёх палитр: «Мох», «Гранит» или «Лён». Мебель и&nbsp;свет бюро подбирает вместе с&nbsp;вами.</p>
+        </div>
+
+        <div class="gallery">
+          <figure class="g g--1 parallax" data-clip data-cursor="Гостиная">
+            <img src="img/u-1781328487854-07a1600ab0a8-w1800.webp" alt="Гостиная с панорамными окнами в лес" loading="lazy">
+          </figure>
+          <figure class="g g--2 parallax" data-clip data-cursor="Спальня">
+            <img src="img/u-1768077710231-f3a256362553-w1200.webp" alt="Спальня под двускатной крышей с видом на туман" loading="lazy">
+          </figure>
+          <figure class="g g--3 parallax" data-clip data-cursor="Каминная">
+            <img src="img/u-1762545078318-8443881c2d83-w1200.webp" alt="Светлая гостиная с камином и видом на лес" loading="lazy">
+          </figure>
+          <figure class="g g--4 parallax" data-clip data-cursor="Столовая">
+            <img src="img/u-1774095147477-7ec6948f209b-w1400.webp" alt="Обеденный стол у окна с видом на деревья" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 ЖИЗНЬ -->
+    <section class="life" id="life">
+      <div class="container">
+        <div class="life__head">
+          <div class="label"><span>05</span>Жизнь в&nbsp;посёлке</div>
+          <h2 class="h2" data-lines>Всё, что нужно,&nbsp;— <em>в&nbsp;пяти минутах пешком</em></h2>
+        </div>
+
+        <ul class="amenities">
+          <li class="amenity" data-img="img/u-1788161558367-b97d8dadd3bc-w900.webp">
+            <span class="amenity__n">01</span><span class="amenity__t">Частный пирс</span><span class="amenity__d">Причал на&nbsp;14&nbsp;лодок и&nbsp;место для утреннего кофе над водой</span>
+          </li>
+          <li class="amenity" data-img="img/u-1713270176378-45fbf4a27099-w900.webp">
+            <span class="amenity__n">02</span><span class="amenity__t">Баня на&nbsp;воде</span><span class="amenity__d">Финская сауна, хаммам и&nbsp;купель с&nbsp;озёрной водой</span>
+          </li>
+          <li class="amenity" data-img="img/u-1786636082283-a8d3239167f1-w900.webp">
+            <span class="amenity__n">03</span><span class="amenity__t">Лесные тропы</span><span class="amenity__d">12&nbsp;км маршрутов для бега, лыж и&nbsp;прогулок с&nbsp;собакой</span>
+          </li>
+          <li class="amenity" data-img="img/u-1782226796423-8d72656a332c-w900.webp">
+            <span class="amenity__n">04</span><span class="amenity__t">Клубный дом</span><span class="amenity__d">Вечера у&nbsp;огня, кино под открытым небом, ужины от&nbsp;шефа</span>
+          </li>
+          <li class="amenity" data-img="img/u-1781846551391-0916dd9e877a-w900.webp">
+            <span class="amenity__n">05</span><span class="amenity__t">Лодочная станция</span><span class="amenity__d">Каяки, сапы и&nbsp;парусная школа для детей</span>
+          </li>
+          <li class="amenity" data-img="img/u-1768551631543-4bf09da9a7f4-w900.webp">
+            <span class="amenity__n">06</span><span class="amenity__t">Сервис 24/7</span><span class="amenity__d">Охрана, уборка снега, консьерж и&nbsp;управляющая компания</span>
+          </li>
+        </ul>
+      </div>
+      <div class="float" aria-hidden="true"><img alt=""></div>
+    </section>
+
+    <!-- 06 ЛОКАЦИЯ -->
+    <section class="location light" id="location">
+      <div class="container location__grid">
+        <div class="location__text">
+          <div class="label"><span>06</span>Локация</div>
+          <h2 class="h2" data-lines>Далеко от&nbsp;шума. <em>Близко ко&nbsp;всему важному</em></h2>
+          <p class="lead" data-reveal>Посёлок в&nbsp;Приладожье, в&nbsp;двух с&nbsp;половиной часах от&nbsp;Петербурга. Последние четыре километра&nbsp;— собственная дорога через лес.</p>
+          <ul class="routes">
+            <li data-reveal><span>Санкт-Петербург</span><b>2 ч 30 мин</b></li>
+            <li data-reveal><span>Сортавала</span><b>25 мин</b></li>
+            <li data-reveal><span>Ладожские шхеры</span><b>15 мин</b></li>
+            <li data-reveal><span>Вертолётная площадка</span><b>на территории</b></li>
+          </ul>
+        </div>
+        <figure class="location__media parallax" data-clip>
+          <img src="img/u-1764416756521-f039ff3263f1-w1600.webp" alt="Дорога через сосновый лес, вид сверху" loading="lazy">
+          <figcaption>Собственная дорога к&nbsp;посёлку, 4&nbsp;км</figcaption>
+        </figure>
+      </div>
+
+      <div class="container">
+        <div class="timeline">
+          <div class="timeline__item is-done" data-reveal><b>2025</b><span>Первая очередь: 9&nbsp;домов сданы, в&nbsp;них уже живут</span></div>
+          <div class="timeline__item is-now" data-reveal><b>2026</b><span>Вторая очередь: 11&nbsp;домов, старт продаж</span></div>
+          <div class="timeline__item" data-reveal><b>2027</b><span>Баня на&nbsp;воде, клубный дом и&nbsp;пирс</span></div>
+          <div class="timeline__item" data-reveal><b>2028</b><span>Третья очередь: последние 7&nbsp;домов</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 ПОКАЗ -->
+    <section class="visit" id="visit">
+      <div class="visit__media parallax">
+        <img src="img/u-1782226796423-8d72656a332c-w2200.webp" alt="" loading="lazy">
+      </div>
+      <div class="visit__shade"></div>
+      <div class="container visit__grid">
+        <div class="visit__text">
+          <div class="label"><span>07</span>Приватный показ</div>
+          <h2 class="visit__title" data-lines>Приезжайте <em>в&nbsp;тишину</em></h2>
+          <p class="lead" data-reveal>Покажем посёлок лично в&nbsp;удобный для вас день. Трансфер из&nbsp;Петербурга за&nbsp;наш счёт.</p>
+        </div>
+
+        <form class="form" novalidate data-reveal>
+          <label class="field">
+            <input type="text" name="name" autocomplete="name" placeholder=" " required>
+            <span>Имя</span>
+          </label>
+          <label class="field">
+            <input type="tel" name="phone" autocomplete="tel" placeholder=" " required>
+            <span>Телефон</span>
+          </label>
+          <fieldset class="choice">
+            <legend>Когда удобно</legend>
+            <label><input type="radio" name="when" value="weekdays" checked><span>Будни</span></label>
+            <label><input type="radio" name="when" value="weekend"><span>Выходные</span></label>
+          </fieldset>
+          <button class="btn" type="submit" data-magnetic><span>Записаться на&nbsp;показ</span><i>→</i></button>
+          <p class="form__note">Нажимая кнопку, вы&nbsp;соглашаетесь с&nbsp;политикой обработки персональных данных.</p>
+          <div class="form__done" role="status" aria-live="polite">
+            <b>Спасибо!</b>
+            <span>Менеджер свяжется с&nbsp;вами в&nbsp;течение 15&nbsp;минут.<br>Это концепт-проект: заявка никуда не&nbsp;отправляется.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <p class="footer__label">Отдел продаж</p>
+        <a href="tel:+78120000000">+7 812 000-00-00</a>
+        <a href="mailto:hello@tish.example">hello@tish.example</a>
+      </div>
+      <div>
+        <p class="footer__label">Офис</p>
+        <p>Санкт-Петербург,<br>показы по&nbsp;записи</p>
+      </div>
+      <div>
+        <p class="footer__label">Соцсети</p>
+        <a href="#top" data-scroll>Telegram</a>
+        <a href="#top" data-scroll>ВКонтакте</a>
+      </div>
+      <div class="footer__up">
+        <a href="#top" data-scroll data-magnetic>Наверх ↑</a>
+      </div>
+    </div>
+    <div class="footer__word" aria-hidden="true">Тишь</div>
+    <div class="container footer__bottom">
+      <span>© 2026 «Тишь». Концепт-проект, не&nbsp;является публичной офертой</span>
+      <span>Фотографии — Unsplash</span>
+      <span>Дизайн и&nbsp;разработка — Егор Фролов</span>
+    </div>
+  </footer>
+
+  <script src="../vendor/gsap/gsap.min.js"></script>
+  <script src="../vendor/gsap/ScrollTrigger.min.js"></script>
+  <script src="../vendor/lenis/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

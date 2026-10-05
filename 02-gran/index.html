@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Грань — мы строим места, где хочется остаться</title>
+<!-- og -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="By Egor">
+<meta property="og:title" content="Грань — мы строим места, где хочется остаться">
+<meta property="og:description" content="Двадцать лет «Грань» создаёт жилые и загородные проекты, где архитектура, природа и жизнь работают как одно целое. Концепт-проект.">
+<meta property="og:url" content="https://byegor.ru/02-gran/">
+<meta property="og:image" content="https://byegor.ru/02-gran/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://byegor.ru/02-gran/">
+<!-- /og -->
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.className="anim";setTimeout(function(){document.documentElement.classList.remove("anim")},3200);}</script>
+<meta name="description" content="Двадцать лет «Грань» создаёт жилые и загородные проекты, где архитектура, природа и жизнь работают как одно целое. Концепт-проект.">
+<meta name="theme-color" content="#04070d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%2304070d'/%3E%3Cpath d='M4 3.5H12V5.5H6V12.5H4Z' fill='%23e8d1cb'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="fonts.css">
+<link rel="preload" as="image" href="img/u-1773338359299-65d368f01897-w2400.webp">
+<style>
+/* ==========================================================================
+   Грань — концепт-сайт девелопера.
+   Система построена на референсном холсте 1280×800: --u — один референсный
+   пиксель, масштабируется вместе с окном; --t — единица типографики.
+   ========================================================================== */
+:root{
+  --u: clamp(0.68px, min(100vw / 1280, 100vh / 800), 1.72px);
+  --t: var(--u);
+  --u: clamp(0.68px, min(100vw / 1280, 100dvh / 800), 1.72px);
+  --line: rgba(255,255,255,.13);
+  --cream:#e8d1cb;
+  --ink:#15131b;
+  --hair: max(1px, calc(1 * var(--u)));
+  --nudge: calc(1 * var(--t));
+  --e-mask: cubic-bezier(.16,1,.3,1);
+  --e-line: cubic-bezier(.65,0,.35,1);
+  --e-soft: cubic-bezier(.22,.61,.36,1);
+  --label: 'Tektur','Inter',sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:#04070d;overflow:hidden;
+  font-family:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:geometricPrecision;
+}
+.stage{position:fixed;inset:0;overflow:hidden}
+
+/* ---------- сцены: по одной на главу, выбранная проявляется поверх ---------- */
+.bg{position:absolute;inset:0;background:#04070d;
+    will-change:transform;transform-origin:50% 50%;backface-visibility:hidden}
+.bg .scene{position:absolute;inset:0;width:100%;height:100%;display:block;
+           object-fit:cover;opacity:0;transition:opacity .9s ease}
+.bg .scene.on{opacity:1}
+/* фото «дышат»: медленный наезд камеры вместо видео */
+.bg img.scene{transform-origin:50% 55%;animation:breathe 22s ease-in-out infinite alternate;animation-play-state:paused}
+.bg img.scene.on{animation-play-state:running}
+@keyframes breathe{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.1) translate3d(-1.2%,-.8%,0)}}
+/* общий ночной грейдинг: разные фото звучат как одна серия */
+.bg .scene{filter:brightness(.82) contrast(1.06) saturate(.9)}
+.tint{position:absolute;inset:0;pointer-events:none;background:#16264a;mix-blend-mode:multiply;
+      opacity:var(--tone,.55);transition:opacity .9s ease}
+/* затемнение под интерфейс: верх для навигации, низ для заголовка */
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(4,7,13,.62) 0%,rgba(4,7,13,0) 22%),
+    linear-gradient(0deg,rgba(4,7,13,.9) 0%,rgba(4,7,13,.55) 28%,rgba(4,7,13,0) 58%),
+    radial-gradient(120% 90% at 50% 45%,rgba(4,7,13,0) 55%,rgba(4,7,13,.45) 100%)}
+
+/* смена главы: заголовок уходит обратно в маску, абзац оседает */
+.hero .hrise{transition:transform .5s var(--e-mask)}
+.hero .blurb{transition:opacity .4s ease, transform .4s ease}
+.swapping .hrise{transform:translateY(112%)}
+.swapping .blurb{opacity:0;transform:translateY(calc(7*var(--t)))}
+
+/* ---------- рамка: отступ 30u, волосяная линия, срез 26u на углах ---------- */
+.frame{position:absolute;left:calc(30*var(--u));top:calc(30*var(--u));
+       right:calc(30*var(--u));bottom:calc(31*var(--u))}
+.ln{position:absolute;background:var(--line)}
+.ln-t{left:calc(26*var(--u));right:calc(26*var(--u));top:0;height:var(--hair)}
+.ln-b{left:calc(26*var(--u));right:calc(26*var(--u));bottom:0;height:var(--hair)}
+.ln-l{top:calc(26*var(--u));bottom:calc(26*var(--u));left:0;width:var(--hair)}
+.ln-r{top:calc(26*var(--u));bottom:calc(26*var(--u));right:0;width:var(--hair)}
+.cn{position:absolute;width:calc(26*var(--u));height:calc(26*var(--u))}
+.cn-tl{left:0;top:0;background:linear-gradient(to bottom right,transparent calc(50% - .65px),var(--line) calc(50% - .65px),var(--line) calc(50% + .65px),transparent calc(50% + .65px))}
+.cn-br{right:0;bottom:0;background:linear-gradient(to bottom right,transparent calc(50% - .65px),var(--line) calc(50% - .65px),var(--line) calc(50% + .65px),transparent calc(50% + .65px))}
+.cn-tr{right:0;top:0;background:linear-gradient(to bottom left,transparent calc(50% - .65px),var(--line) calc(50% - .65px),var(--line) calc(50% + .65px),transparent calc(50% + .65px))}
+.cn-bl{left:0;bottom:0;background:linear-gradient(to bottom left,transparent calc(50% - .65px),var(--line) calc(50% - .65px),var(--line) calc(50% + .65px),transparent calc(50% + .65px))}
+
+/* ---------- общий шрифт подписей ---------- */
+.lbl{font-family:var(--label);font-weight:600;
+     font-size:calc(10*var(--t));line-height:1;white-space:nowrap}
+.t{position:relative;top:var(--nudge);display:inline-block;text-align:left;white-space:pre}
+
+/* ---------- шапка ---------- */
+.logo{position:absolute;left:calc(24*var(--t));top:calc(22*var(--t));
+      width:calc(110*var(--t));height:calc(19*var(--t));display:block}
+.logo svg{width:100%;height:100%;display:block;fill:#fff}
+
+.masthead{position:absolute;right:calc(11*var(--t));top:calc(12*var(--t));
+          height:calc(41*var(--t));display:flex;align-items:center}
+.navset{display:contents}
+.links{display:flex;align-items:center;gap:calc(14.4*var(--t));margin-right:calc(18*var(--t))}
+.links a{color:#e3e8f2;text-decoration:none;letter-spacing:calc(.6*var(--t));
+         padding-left:calc(.1*var(--t));opacity:.94;transition:opacity .25s ease,color .25s ease}
+.links a:hover{opacity:1;color:#fff}
+
+.pill{height:calc(41*var(--t));display:flex;align-items:center;text-decoration:none;
+      position:relative;cursor:pointer;border:0;padding:0}
+.pill .ico{flex:none;display:block}
+.enter{padding:0 calc(19*var(--t)) 0 calc(21*var(--t));
+       background:rgba(255,250,246,.05);
+       -webkit-backdrop-filter:blur(calc(12*var(--t)));backdrop-filter:blur(calc(12*var(--t)));
+       transition:background .3s ease}
+.enter:hover{background:rgba(255,250,246,.075)}
+.enter .ico{width:calc(7*var(--t));height:calc(11*var(--t));fill:#f4f7ff}
+.enter span{color:rgba(255,255,255,.93);margin-left:calc(7*var(--t));letter-spacing:calc(.6*var(--t))}
+
+.menu{padding:0 calc(24*var(--t)) 0 calc(21*var(--t));background:var(--cream);
+      clip-path:polygon(0 0, calc(100% - 15*var(--t)) 0, 100% calc(15*var(--t)), 100% 100%, 0 100%);
+      transition:background .3s ease}
+.menu .ico{width:calc(10*var(--t));height:calc(10*var(--t));fill:var(--ink)}
+.menu span{color:var(--ink);margin-left:calc(7*var(--t));letter-spacing:calc(.4*var(--t))}
+
+/* ---------- оглавление глав ---------- */
+.index{position:absolute;left:calc(10.5*var(--t));top:50%;transform:translateY(calc(-50% + 1.5*var(--t)));
+       list-style:none;margin:0;padding:0}
+.index li{height:calc(26.6*var(--t));display:flex;align-items:center;position:relative}
+.index a{font-family:var(--label);font-weight:600;font-size:calc(10*var(--t));
+         line-height:1;letter-spacing:calc(1.3*var(--t));text-decoration:none;white-space:nowrap;
+         color:rgba(232,238,250,.3);transition:color .3s ease}
+.index a:hover{color:#e6eaf5}
+.index .on a{color:#e6eaf5}
+.index .on::before{content:"";position:absolute;left:calc(-13.5*var(--t));top:50%;
+                   width:calc(6*var(--t));height:calc(7*var(--t));
+                   transform:translateY(-50%);background:#fff}
+.index .num{display:inline-block;width:calc(22*var(--t));opacity:.55}
+
+/* ---------- главный блок ---------- */
+.hero{position:absolute;left:0;right:0;bottom:max(7.98%, calc(59*var(--t)));
+      display:flex;flex-direction:column;align-items:center;text-align:center}
+.headline{margin:0;font-weight:700;font-size:calc(31.5*var(--t));line-height:calc(33*var(--t));
+          letter-spacing:calc(1.2*var(--t));padding-left:calc(1.2*var(--t));
+          color:#fff;text-transform:uppercase}
+.blurb{margin:calc(15.56*var(--t)) 0 0;font-weight:400;font-size:calc(11.1*var(--t));
+       line-height:calc(19.7*var(--t));color:rgba(224,232,245,.74);
+       max-width:calc(440*var(--t))}
+.cta{margin-top:calc(23*var(--t));position:relative;height:calc(41*var(--t));padding:0 calc(19*var(--t));
+     display:flex;align-items:center;justify-content:center;text-decoration:none}
+.cta-glass{position:absolute;inset:0;background:rgba(255,255,255,.035);
+  -webkit-backdrop-filter:blur(calc(12*var(--t)));backdrop-filter:blur(calc(12*var(--t)));
+  clip-path:polygon(calc(3*var(--t)) 0, calc(100% - 10*var(--t)) 0, 100% calc(10*var(--t)),
+                    100% calc(100% - 3*var(--t)), calc(100% - 3*var(--t)) 100%,
+                    calc(10*var(--t)) 100%, 0 calc(100% - 10*var(--t)), 0 calc(3*var(--t)));
+  transition:background .3s ease}
+.cta:hover .cta-glass{background:rgba(255,255,255,.075)}
+.cta-edge{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cta-edge path{fill:none;stroke:rgba(255,255,255,.12);stroke-width:1;transition:stroke .3s ease}
+.cta:hover .cta-edge path{stroke:rgba(255,255,255,.26)}
+.cta-in{position:relative;display:flex;align-items:center}
+.cta .ico{width:calc(7*var(--t));height:calc(11*var(--t));fill:#f2f6ff;flex:none}
+.cta .t{margin-left:calc(6*var(--t));color:#e9eef7;letter-spacing:calc(.7*var(--t))}
+
+/* ---------- нижняя панель ---------- */
+.dock{position:absolute;left:0;right:0;bottom:0;height:calc(47*var(--t));--nudge:calc(1.6*var(--t))}
+.dock .rule{position:absolute;left:0;right:0;top:0;height:var(--hair);background:var(--line)}
+/* прогресс автопоказа бежит по верхней линии панели */
+.dock .prog{position:absolute;left:0;right:0;top:0;height:var(--hair);background:rgba(232,209,203,.7);
+            transform:scaleX(0);transform-origin:left center;opacity:0;transition:opacity .4s ease}
+.dock .prog.run{opacity:1;animation:prog var(--dur,9s) linear both}
+@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.dock .div{position:absolute;top:0;bottom:0;width:var(--hair);background:rgba(255,255,255,.21)}
+.dock .div-l{left:calc(150*var(--t))}
+.dock .div-r{right:calc(139*var(--t))}
+.dock a,.dock button{display:flex;align-items:center;text-decoration:none;background:none;
+      border:0;padding:0;cursor:pointer;color:rgba(255,255,255,.82);transition:color .3s ease}
+.dock a:hover,.dock button:hover{color:#fff}
+.auto{position:absolute;left:calc(26*var(--t));top:0;bottom:0}
+.auto .ico{width:calc(11*var(--t));height:calc(11*var(--t));flex:none;fill:currentColor}
+.auto .bars,.auto .play{transition:opacity .25s ease}
+.auto .play{opacity:0}
+.auto.paused .bars{opacity:0}
+.auto.paused .play{opacity:1}
+.auto span{margin-left:calc(10*var(--t));letter-spacing:calc(.3*var(--t))}
+.scroll{position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0}
+.scroll .ico{width:calc(5*var(--t));height:calc(7*var(--t));flex:none;fill:currentColor;position:relative;top:calc(-1*var(--t))}
+.scroll span{margin-left:calc(10*var(--t));letter-spacing:calc(.3*var(--t))}
+.talk{position:absolute;right:calc(24*var(--t));top:0;bottom:0}
+.talk span{letter-spacing:calc(.3*var(--t))}
+.talk .ico{width:calc(16*var(--t));height:calc(15*var(--t));margin-left:calc(11*var(--t));
+           flex:none;fill:none;stroke:currentColor;stroke-width:1.6}
+
+/* ================= ВХОД =================
+   Одна последовательность при загрузке. Фото — сцена, и оно не двигается.
+     ЧЕРТЁЖ   линии рамки и панели вырастают от своих углов
+     МАСКА    логотип и заголовок поднимаются из маски
+     ДЕКОДЕР  каждая подпись «расшифровывается» (JS)
+     ОСАДКА   остальное приходит с подъёмом на 7 единиц
+   Последнее движение заканчивается около 1,52 с. */
+@keyframes drawX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes drawY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes maskUp{from{transform:translateY(112%)}to{transform:translateY(0)}}
+@keyframes settle{from{opacity:0;transform:translateY(calc(7*var(--t)))}to{opacity:1;transform:none}}
+@keyframes markIn{from{transform:translateY(-50%) scaleX(0)}to{transform:translateY(-50%) scaleX(1)}}
+@keyframes settleC{from{opacity:0;transform:translate(-50%,calc(7*var(--t)))}to{opacity:1;transform:translateX(-50%)}}
+
+.anim .ln-t{transform-origin:left center;animation:drawX .5s var(--e-line) .04s both}
+.anim .ln-l{transform-origin:center top;animation:drawY .5s var(--e-line) .04s both}
+.anim .ln-b{transform-origin:right center;animation:drawX .5s var(--e-line) .2s both}
+.anim .ln-r{transform-origin:center bottom;animation:drawY .5s var(--e-line) .2s both}
+.anim .cn{animation:fadeIn .3s linear .55s both}
+
+.anim .logo{overflow:hidden}
+.anim .logo svg{animation:maskUp .8s var(--e-mask) .16s both}
+
+.anim .enter{animation:settle .56s var(--e-soft) .3s both}
+.anim .menu{animation:settle .56s var(--e-soft) .36s both}
+.anim .links{animation:fadeIn .4s linear .34s both}
+
+.headline .hrow{display:block;overflow:hidden}
+.headline .hrise{display:block}
+.anim .headline .hrise{animation:maskUp .9s var(--e-mask) both}
+.anim .headline .hrow:first-child .hrise{animation-delay:.42s}
+.anim .headline .hrow+.hrow .hrise{animation-delay:.52s}
+
+.anim .index{animation:fadeIn .45s linear .6s both}
+.anim .index .on::before{animation:markIn .42s var(--e-soft) .64s both}
+
+.anim .blurb{animation:settle .72s var(--e-soft) .7s both}
+.anim .cta{animation:settle .62s var(--e-soft) .86s both}
+
+.anim .dock .rule{transform-origin:left center;animation:drawX .52s var(--e-line) .92s both}
+.anim .dock .div{transform-origin:center top;animation:drawY .36s var(--e-line) 1.06s both}
+.anim .auto{animation:settle .52s var(--e-soft) .96s both}
+.anim .scroll{animation:settleC .52s var(--e-soft) 1.02s both}
+.anim .talk{animation:settle .52s var(--e-soft) 1.08s both}
+
+/* ---------- доступность ---------- */
+a:focus-visible,button:focus-visible{outline:calc(1.5*var(--t)) solid #e8d1cb;outline-offset:calc(3*var(--t))}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- планшет ---------- */
+@media (max-width: 1152px){
+  :root{
+    --u: clamp(.8px, min(100vw / 1280, 100vh / 800), 1.1px);
+    --u: clamp(.8px, min(100vw / 1280, 100dvh / 800), 1.1px);
+    --t: max(var(--u), clamp(.9px, calc(.9px + (1152px - 100vw) * .00042), 1.12px));
+  }
+  .dock{display:flex;justify-content:space-between;align-items:stretch}
+  .dock .div{display:none}
+  .auto,.talk{position:static;height:auto}
+  .auto{padding:0 min(calc(20*var(--t)),5vw) 0 min(calc(26*var(--t)),6vw);
+        border-right:var(--hair) solid rgba(255,255,255,.21)}
+  .talk{padding:0 min(calc(24*var(--t)),6vw) 0 min(calc(20*var(--t)),5vw);
+        border-left:var(--hair) solid rgba(255,255,255,.21)}
+  .links{gap:calc(17*var(--t));align-self:stretch}
+  .links a{display:flex;align-items:center;align-self:stretch}
+  .index a{padding:calc(7*var(--t)) 0}
+}
+@media (max-width: 1152px) and (min-aspect-ratio: 6/5){
+  .hero{padding-inline:calc(150*var(--t))}
+}
+@media (max-width: 1152px) and (max-aspect-ratio: 6/5){
+  .index{top:32%}
+  .hero{padding-inline:calc(22*var(--t))}
+}
+
+/* ---------- навигация сворачивается в панель под кнопкой МЕНЮ ---------- */
+@media (max-width: 900px){
+  .navset{
+    display:flex;flex-direction:column;align-items:stretch;
+    position:absolute;top:calc(52*var(--t));right:0;min-width:calc(210*var(--t));
+    padding:calc(16*var(--t)) calc(20*var(--t)) calc(18*var(--t));
+    gap:calc(4*var(--t));
+    background:rgba(11,16,26,.74);
+    -webkit-backdrop-filter:blur(calc(16*var(--t)));backdrop-filter:blur(calc(16*var(--t)));
+    clip-path:polygon(0 0, calc(100% - 15*var(--t)) 0, 100% calc(15*var(--t)), 100% 100%,
+                      calc(15*var(--t)) 100%, 0 calc(100% - 15*var(--t)));
+    opacity:0;visibility:hidden;transform:translateY(calc(-6*var(--t)));
+    transition:opacity .34s ease, transform .34s cubic-bezier(.22,.61,.36,1), visibility .34s;
+    z-index:6;
+  }
+  .nav-open .navset{opacity:1;visibility:visible;transform:none}
+  .links{flex-direction:column;align-items:stretch;gap:0;margin-right:0;align-self:auto}
+  .links a{padding:calc(9*var(--t)) 0;justify-content:flex-start}
+  .navset .enter{align-self:stretch;justify-content:flex-start;
+    margin-top:calc(10*var(--t));height:calc(38*var(--t));
+    padding:0 calc(16*var(--t));background:rgba(255,250,246,.07)}
+}
+
+/* ---------- телефон ---------- */
+@media (max-width: 548px){
+  :root{
+    --u: clamp(.62px, min(100vw / 500, 100vh / 820), 1.1px);
+    --u: clamp(.62px, min(100vw / 500, 100dvh / 820), 1.1px);
+    --t: clamp(1.06px, calc(100vw / 489), 1.12px);
+  }
+  .frame{left:calc(22*var(--u));right:calc(22*var(--u));
+         top:calc(22*var(--u));bottom:calc(22*var(--u))}
+  .logo{left:calc(16*var(--t));top:calc(22*var(--t));
+        width:min(calc(110*var(--t)), 34vw);height:auto;aspect-ratio:110 / 19}
+  .masthead{right:calc(9*var(--t));top:calc(12*var(--t))}
+  .index{top:calc(70*var(--t));transform:none}
+  .index li{height:calc(24*var(--t))}
+  .index a{color:rgba(232,238,250,.42)}
+  .hero{bottom:max(9%, calc(59*var(--t)));padding-inline:calc(18*var(--t))}
+  .headline{text-wrap:balance;font-size:calc(22*var(--t));line-height:calc(25*var(--t));letter-spacing:calc(.8*var(--t))}
+  .blurb{max-width:calc(400*var(--t))}
+  .blurb br{display:none}
+  .headline .hrow{display:inline;overflow:visible}
+  .headline .hrise{display:inline}
+  .anim .headline .hrise{animation:none}
+  .anim .headline{animation:settle .8s var(--e-mask) .42s both}
+  .hero .headline{transition:opacity .4s ease}
+  .swapping .headline{opacity:0}
+  .bg .scene{object-position:var(--pos-m,50% 50%)}
+  /* русские подписи длиннее: на телефоне панель всегда в две строки —
+     управление делит верхнюю, «листайте» получает свою */
+  .dock{height:auto;flex-wrap:wrap}
+  .auto,.talk{flex:1 1 0;justify-content:center;height:calc(44*var(--t))}
+  .scroll{position:static;transform:none;order:1;flex:1 0 100%;
+          justify-content:center;height:calc(40*var(--t));
+          border-top:var(--hair) solid rgba(255,255,255,.13)}
+  .anim .scroll{animation-name:settle}
+  .hero{bottom:calc(100*var(--t))}
+}
+@media (max-height: 560px),
+       (max-width: 370px) and (max-height: 640px){ .blurb{display:none} }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="bg" role="img" aria-label="Здание с колоннадой отражается в тёмной воде бассейна ночью">
+    <img class="scene on" data-chapter="idea" alt="" aria-hidden="true" style="--pos-m:52% 50%"
+         src="img/u-1773338359299-65d368f01897-w2400.webp">
+    <img class="scene" data-chapter="form" alt="" aria-hidden="true" style="--pos-m:62% 50%"
+         data-src="img/u-1761442137960-a89d97ab6b27-w2400.webp">
+    <img class="scene" data-chapter="matter" alt="" aria-hidden="true" style="--pos-m:40% 50%"
+         data-src="img/u-1789683629532-feab8124be9c-w2400.webp">
+    <img class="scene" data-chapter="light" alt="" aria-hidden="true" style="--pos-m:45% 50%"
+         data-src="img/u-1787555807438-5276f4badd9c-w2400.webp">
+    <img class="scene" data-chapter="balance" alt="" aria-hidden="true" style="--pos-m:50% 50%"
+         data-src="img/u-1706009731352-60c8115a09dd-w2400.webp">
+    <img class="scene" data-chapter="origin" alt="" aria-hidden="true" style="--pos-m:50% 50%"
+         data-src="img/u-1764416756709-a260debcb296-w2400.webp">
+    <!-- чтобы заменить фото на видео главы, поставьте вместо <img> так:
+         <video class="scene" data-chapter="form" data-src="video/form.mp4" muted loop playsinline preload="none" aria-hidden="true"></video> -->
+  </div>
+  <div class="tint"></div>
+  <div class="shade"></div>
+
+  <div class="frame">
+    <span class="ln ln-t"></span><span class="ln ln-b"></span>
+    <span class="ln ln-l"></span><span class="ln ln-r"></span>
+    <span class="cn cn-tl"></span><span class="cn cn-tr"></span>
+    <span class="cn cn-bl"></span><span class="cn cn-br"></span>
+
+    <a class="logo" href="#" aria-label="Грань — на главную">
+      <svg viewBox="0 0 110 19" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill-rule="evenodd">
+        <path d="M2 2H14V5H3V17H0V4Z"/>
+        <path d="M23 2H36L38 4V11H26V17H23ZM26 5V8H35V5Z"/>
+        <path d="M47 17V4L49 2H60L62 4V17H59V12H50V17ZM50 5V9H59V5Z"/>
+        <path d="M71 2H74V8H83V2H86V17H83V11H74V17H71Z"/>
+        <path d="M95 2H98V8H108L110 10V17H95ZM98 11V14H107V11Z"/>
+      </svg>
+    </a>
+
+    <nav class="masthead" aria-label="Основная навигация">
+      <div class="navset" id="navset">
+      <div class="links lbl">
+        <a href="#company"><span class="t">КОМПАНИЯ</span></a><a href="../01-tish/"><span class="t">ПРОЕКТЫ</span></a><a href="#approach"><span class="t">ПОДХОД</span></a><a href="#contacts"><span class="t">КОНТАКТЫ</span></a><a href="#film"><span class="t">ФИЛЬМ</span></a>
+      </div>
+      <a class="pill enter lbl" href="#cabinet">
+        <svg class="ico" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="4" height="5"/><rect x="3" y="4" width="4" height="4"/><rect x="0" y="7" width="4" height="4"/></svg>
+        <span class="t">КАБИНЕТ</span>
+      </a>
+      </div>
+      <button class="pill menu lbl" type="button" aria-expanded="false" aria-controls="navset">
+        <svg class="ico" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="4" height="4" rx=".8"/><rect x="6" y="0" width="4" height="4" rx=".8"/><rect x="0" y="6" width="4" height="4" rx=".8"/><rect x="6" y="6" width="4" height="4" rx=".8"/></svg>
+        <span class="t" data-alt="ЗАКРЫТЬ">МЕНЮ</span>
+      </button>
+    </nav>
+
+    <ul class="index" aria-label="Главы">
+      <li class="on"><a href="#idea" aria-current="true"><span class="t">ЗАМЫСЕЛ</span></a></li>
+      <li><a href="#form"><span class="t">ФОРМА</span></a></li>
+      <li><a href="#matter"><span class="t">МАТЕРИАЛ</span></a></li>
+      <li><a href="#light"><span class="t">СВЕТ</span></a></li>
+      <li><a href="#balance"><span class="t">БАЛАНС</span></a></li>
+      <li><a href="#origin"><span class="t">ИСТОКИ</span></a></li>
+    </ul>
+
+    <div class="hero">
+      <h1 class="headline"><span class="hrow"><span class="hrise">Мы строим места, </span></span><span class="hrow"><span class="hrise">где хочется остаться</span></span></h1>
+      <p class="blurb">Двадцать лет «Грань» создаёт жилые и загородные проекты, в которых<br>
+        архитектура, природа и повседневная жизнь работают как одно целое.<br>
+        От первого эскиза до передачи ключей мы ведём каждый проект сами<br>
+        и отвечаем за результат.</p>
+      <a class="cta lbl" href="../01-tish/">
+        <span class="cta-glass"></span>
+        <svg class="cta-edge" viewBox="0 0 190 41" preserveAspectRatio="none" aria-hidden="true"><path d="M3.5.5 H179.5 L189.5 10.5 V37.5 L186.5 40.5 H10.5 L.5 30.5 V3.5 Z" vector-effect="non-scaling-stroke"/></svg>
+        <span class="cta-in">
+          <svg class="ico" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="4" height="5"/><rect x="3" y="4" width="4" height="4"/><rect x="0" y="7" width="4" height="4"/></svg>
+          <span class="t">СМОТРЕТЬ ПРОЕКТЫ</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="dock">
+      <span class="rule"></span><span class="prog"></span><span class="div div-l"></span><span class="div div-r"></span>
+
+      <button class="auto lbl" type="button" aria-pressed="true">
+        <svg class="ico" viewBox="0 0 11 11" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g class="bars"><rect x="1.5" y="1" width="3" height="9"/><rect x="6.5" y="1" width="3" height="9"/></g>
+          <path class="play" d="M2 1 L10 5.5 L2 10 Z"/>
+        </svg>
+        <span class="t" data-alt="АВТОПОКАЗ ВЫКЛ">АВТОПОКАЗ ВКЛ</span>
+      </button>
+
+      <a class="scroll lbl" href="#next">
+        <svg class="ico" viewBox="0 0 5 7" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 0 H5 L2.5 3 Z"/><path d="M0 4 H5 L2.5 7 Z"/></svg>
+        <span class="t">ЛИСТАЙТЕ ДАЛЬШЕ</span>
+      </a>
+
+      <a class="talk lbl" href="mailto:hello@gran.example">
+        <span class="t">НАПИСАТЬ НАМ</span>
+        <svg class="ico" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8 .8 C12 .8 15.2 3.8 15.2 7.4 C15.2 11 12 14 8 14 C6.6 14 5.3 13.6 4.2 13 L.9 13.9 L1.9 10.9 C1.2 9.9 .8 8.7 .8 7.4 C.8 3.8 4 .8 8 .8 Z"/>
+          <g fill="currentColor" stroke="none"><circle cx="5.2" cy="7.4" r=".95"/><circle cx="8" cy="7.4" r=".95"/><circle cx="10.8" cy="7.4" r=".95"/></g>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CH = 'АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЭЮЯ';
+  var DUR = 400;      /* каждая подпись расшифровывается за одно и то же время */
+  var AUTO_MS = 9000; /* длительность главы в автопоказе */
+
+  /* ---------------------------------------------------------------
+     1. ДЕКОДЕР ПОДПИСЕЙ
+     Подпись проявляется слева направо, перед ней бежит полоса из
+     случайных букв, дальше полосы ничего нет. Ширина каждой подписи
+     закрепляется заранее (по самому длинному варианту текста), чтобы
+     строка не прыгала во время расшифровки.
+  ---------------------------------------------------------------- */
+  var labels = [].slice.call(document.querySelectorAll('.t'));
+  labels.forEach(function(el){ el.dataset.text = el.textContent; });
+
+  function reserve(){
+    var w = [];
+    labels.forEach(function(el){ el.style.width = ''; });
+    labels.forEach(function(el){
+      var cur = el.textContent, max = el.getBoundingClientRect().width;
+      if (el.dataset.alt){
+        el.textContent = el.dataset.alt;
+        max = Math.max(max, el.getBoundingClientRect().width);
+        el.textContent = cur;
+      }
+      w.push(max);
+    });
+    labels.forEach(function(el,i){ el.style.width = (Math.ceil(w[i]*100)/100) + 'px'; });
+  }
+
+  function settle(el){
+    if (el._raf){ cancelAnimationFrame(el._raf); el._raf = 0; }
+    if (el._t){ clearTimeout(el._t); el._t = 0; }
+    el.textContent = el.dataset.text;
+  }
+
+  function decode(el, dur){
+    var text = el.dataset.text, n = text.length;
+    if (RM){ settle(el); return; }
+    settle(el);
+    var D = dur || DUR;
+    var t0 = performance.now(), lastRoll = 0;
+    var rand = new Array(n);
+    function roll(){ for (var i=0;i<n;i++) rand[i] = CH.charAt((Math.random()*CH.length)|0); }
+    roll();
+    function step(now){
+      var p = Math.min(1, (now - t0) / D), front = p * n, out = '', i;
+      if (now - lastRoll > 45){ roll(); lastRoll = now; }
+      for (i = 0; i < n; i++){
+        var c = text.charAt(i);
+        if (i < front) out += c;
+        else if (i < front + 3.6) out += (c === ' ' ? ' ' : rand[i]);
+        else break;
+      }
+      el.textContent = out;
+      if (p < 1) el._raf = requestAnimationFrame(step); else settle(el);
+    }
+    el._raf = requestAnimationFrame(step);
+    el._t = setTimeout(function(){ settle(el); }, D + 500);
+  }
+
+  [].forEach.call(document.querySelectorAll('a, button'), function(el){
+    var t = el.querySelector('.t');
+    if (!t) return;
+    el.addEventListener('pointerenter', function(){ decode(t); });
+  });
+
+  /* ---------------------------------------------------------------
+     2. ПАРАЛЛАКС СЦЕНЫ
+     Фон плавно уходит против курсора и чуть приближается, когда курсор
+     опускается к низу экрана. Без курсора кадр стоит на месте.
+  ---------------------------------------------------------------- */
+  var bg = document.querySelector('.bg');
+  var tx = 0, ty = 0, cx = 0, cy = 0, running = false;
+
+  function tick(){
+    cx += (tx - cx) * 0.045;
+    cy += (ty - cy) * 0.045;
+    var w = innerWidth, h = innerHeight;
+    var dx = -cx * w * 0.0156, dy = -cy * h * 0.015;
+    var cover = 2 * Math.max(Math.abs(dx) / w, Math.abs(dy) / h);
+    var sc = 1 + cover + 0.014 * Math.max(0, cy);
+    bg.style.transform = 'translate3d(' + dx.toFixed(2) + 'px,' + dy.toFixed(2) + 'px,0) scale(' + sc.toFixed(4) + ')';
+    if (Math.abs(tx - cx) < 0.0004 && Math.abs(ty - cy) < 0.0004){ running = false; return; }
+    requestAnimationFrame(tick);
+  }
+  function wake(){ if (!running && !RM){ running = true; requestAnimationFrame(tick); } }
+
+  window.addEventListener('pointermove', function(e){
+    if (e.pointerType === 'touch') return;
+    tx = (e.clientX / innerWidth) * 2 - 1;
+    ty = (e.clientY / innerHeight) * 2 - 1;
+    wake();
+  }, {passive:true});
+  document.addEventListener('pointerleave', function(){ tx = 0; ty = 0; wake(); });
+
+  /* ---------------------------------------------------------------
+     3. ГЛАВЫ
+     У каждой главы своя сцена, заголовок и абзац. Следующая сцена
+     грузится по запросу и проявляется, когда готова; текст уходит,
+     меняется и возвращается. Более новый выбор всегда побеждает.
+  ---------------------------------------------------------------- */
+  var COPY = {
+    idea: [['Мы строим места, ', 'где хочется остаться'],
+      ['Двадцать лет «Грань» создаёт жилые и загородные проекты, в которых',
+       'архитектура, природа и повседневная жизнь работают как одно целое.',
+       'От первого эскиза до передачи ключей мы ведём каждый проект сами',
+       'и отвечаем за результат.']],
+    form: [['Каждый фасад ', 'говорит сам за себя'],
+      ['Архитектура — это то, как место знакомится с людьми. Мы даём',
+       'каждому дому ясный характер, который рождается из рельефа, климата',
+       'и образа жизни будущих жителей, чтобы его узнавали и спустя',
+       'десятилетия.']],
+    matter: [['Сделано руками, ', 'чтобы служить долго'],
+      ['Камень, дерево и металл мы проверяем так, как мастер проверяет',
+       'единственную вещь: каждый узел и каждую поверхность, пока деталь',
+       'не станет безупречной — от фундамента до последнего штриха',
+       'в отделке.']],
+    light: [['Свет — главный ', 'строительный материал'],
+      ['Мы проектируем окна раньше стен. Каждая комната получает свой',
+       'сценарий солнца: утренний свет в спальнях, вечерний в гостиной,',
+       'мягкий рассеянный там, где работают и читают. Дом живёт',
+       'вместе с днём.']],
+    balance: [['Ничего лишнего, ', 'ничего недостающего'],
+      ['Каждый план проходит через много рук, прежде чем стать последним.',
+       'Мы убираем то, что отвлекает, и усиливаем главное, пока здание',
+       'не начинает казаться единственно возможным — спокойным и цельным',
+       'с любой стороны.']],
+    origin: [['Всё начинается ', 'с земли под ногами'],
+      ['«Грань» выросла из простой мысли: хорошие дома создают хорошие',
+       'места, а хорошие места меняют жизнь людей. Наш первый посёлок —',
+       '«Тишь» на берегу Ладоги. С этой мысли начинается каждый проект,',
+       'который мы берём в работу.']]
+  };
+  var ORDER = ['idea', 'form', 'matter', 'light', 'balance', 'origin'];
+  /* сила ночной тонировки: тёплым сценам — меньше, чтобы свет не гас */
+  var TONE = { idea: .55, form: .5, matter: .28, light: .2, balance: .45, origin: .5 };
+  var stage = document.querySelector('.stage');
+
+  var hero = document.querySelector('.hero');
+  var rises = [].slice.call(hero.querySelectorAll('.hrise'));
+  var blurb = hero.querySelector('.blurb');
+  var scenes = [].slice.call(document.querySelectorAll('.bg .scene'));
+  var links = [].slice.call(document.querySelectorAll('.index a'));
+  var chapter = 'idea', swapT = 0;
+
+  function sceneOf(id){ for (var i=0;i<scenes.length;i++) if (scenes[i].dataset.chapter === id) return scenes[i]; }
+  function isVideo(el){ return el.tagName === 'VIDEO'; }
+
+  function load(el){
+    if (el.getAttribute('src') || !el.dataset.src) return;
+    if (isVideo(el)){ el.preload = 'auto'; el.src = el.dataset.src; el.load(); }
+    else { el.src = el.dataset.src; }
+  }
+  function whenReady(el, cb){
+    if (isVideo(el)){
+      if (el.readyState >= 3) cb(); else el.addEventListener('canplay', cb, { once: true });
+    } else {
+      if (el.complete && el.naturalWidth) cb();
+      else { el.addEventListener('load', cb, { once: true }); el.addEventListener('error', cb, { once: true }); }
+    }
+  }
+
+  function showScene(v){
+    load(v);
+    whenReady(v, function(){
+      if (v.dataset.chapter !== chapter) return;
+      if (isVideo(v)){
+        try { v.currentTime = 0; } catch(err){}
+        var pr = v.play(); if (pr && pr.catch) pr.catch(function(){});
+      }
+      stage.style.setProperty('--tone', TONE[chapter]);
+      scenes.forEach(function(o){
+        if (o === v){ o.classList.add('on'); return; }
+        if (!o.classList.contains('on')) return;
+        o.classList.remove('on');
+        if (isVideo(o)) setTimeout(function(){ if (!o.classList.contains('on')) o.pause(); }, 950);
+      });
+      /* заранее подгружаем следующую сцену, чтобы смена была мгновенной */
+      var next = sceneOf(ORDER[(ORDER.indexOf(chapter) + 1) % ORDER.length]);
+      if (next && !isVideo(next)) load(next);
+    });
+  }
+
+  function markRail(id){
+    links.forEach(function(a){
+      var on = a.getAttribute('href').slice(1) === id;
+      a.parentNode.classList.toggle('on', on);
+      if (on){ a.setAttribute('aria-current', 'true'); decode(a.querySelector('.t')); }
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  function showChapter(id){
+    /* только свои главы: #constructor и т. п. из адреса не должны находить встроенные свойства объекта */
+    if (!Object.hasOwn(COPY, id) || id === chapter) return;
+    chapter = id;
+    markRail(id);
+    showScene(sceneOf(id));
+    var c = COPY[id];
+    clearTimeout(swapT);
+    hero.classList.add('swapping');
+    swapT = setTimeout(function(){
+      rises[0].textContent = c[0][0];
+      rises[1].textContent = c[0][1];
+      blurb.textContent = '';
+      c[1].forEach(function(line, i){
+        if (i) blurb.appendChild(document.createElement('br'));
+        blurb.appendChild(document.createTextNode(i ? '\n        ' + line : line));
+      });
+      void hero.offsetWidth;
+      hero.classList.remove('swapping');
+    }, RM ? 0 : 500);
+    restartAuto();
+  }
+
+  function step(dir){
+    var i = ORDER.indexOf(chapter);
+    showChapter(ORDER[(i + dir + ORDER.length) % ORDER.length]);
+  }
+
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      showChapter(a.getAttribute('href').slice(1));
+    });
+  });
+
+  /* «Листайте дальше»: кнопка, колесо, свайп и стрелки листают главы */
+  document.querySelector('.scroll').addEventListener('click', function(e){ e.preventDefault(); step(1); });
+
+  var wheelLock = 0;
+  window.addEventListener('wheel', function(e){
+    if (Math.abs(e.deltaY) < 24) return;
+    var now = Date.now();
+    if (now < wheelLock) return;
+    wheelLock = now + 1100;
+    step(e.deltaY > 0 ? 1 : -1);
+  }, { passive: true });
+
+  var touchY = null;
+  window.addEventListener('touchstart', function(e){ touchY = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener('touchend', function(e){
+    if (touchY === null) return;
+    var dy = touchY - e.changedTouches[0].clientY;
+    touchY = null;
+    if (Math.abs(dy) > 50 && !root.classList.contains('nav-open')) step(dy > 0 ? 1 : -1);
+  }, { passive: true });
+
+  document.addEventListener('keydown', function(e){
+    if (e.target.closest && e.target.closest('input, textarea')) return;
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); step(1); }
+    if (e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); step(-1); }
+  });
+
+  /* ---------------------------------------------------------------
+     4. АВТОПОКАЗ
+     Главы сменяются сами; прогресс бежит по линии панели. Кнопка
+     ставит показ на паузу, при скрытой вкладке он тоже ждёт.
+  ---------------------------------------------------------------- */
+  var auto = document.querySelector('.auto');
+  var autoLabel = auto.querySelector('.t');
+  var prog = document.querySelector('.dock .prog');
+  /* ?static — без автопоказа (для скриншотов); #глава — открыть сразу нужную главу */
+  var STATIC = /[?&]static\b/.test(location.search);
+  var autoOn = !RM && !STATIC, autoT = 0;
+  if (STATIC){ auto.classList.add('paused'); auto.setAttribute('aria-pressed', 'false'); autoLabel.dataset.text = autoLabel.textContent = 'АВТОПОКАЗ ВЫКЛ'; }
+  prog.style.setProperty('--dur', AUTO_MS + 'ms');
+
+  function restartAuto(){
+    clearTimeout(autoT);
+    prog.classList.remove('run');
+    if (!autoOn || document.hidden) return;
+    void prog.offsetWidth;
+    prog.classList.add('run');
+    autoT = setTimeout(function(){ step(1); }, AUTO_MS);
+  }
+  function setAuto(on){
+    autoOn = on;
+    auto.setAttribute('aria-pressed', String(on));
+    auto.classList.toggle('paused', !on);
+    autoLabel.dataset.text = on ? 'АВТОПОКАЗ ВКЛ' : 'АВТОПОКАЗ ВЫКЛ';
+    decode(autoLabel);
+    restartAuto();
+  }
+  auto.addEventListener('click', function(){ setAuto(!autoOn); });
+  document.addEventListener('visibilitychange', restartAuto);
+  if (RM) setAuto(false);
+
+  /* ---------------------------------------------------------------
+     5. МЕНЮ: на узких экранах кнопка МЕНЮ открывает ту же навигацию
+     панелью. Подпись расшифровывается между МЕНЮ и ЗАКРЫТЬ.
+  ---------------------------------------------------------------- */
+  var menu = document.querySelector('.menu');
+  var navset = document.getElementById('navset');
+  var menuLabel = menu.querySelector('.t');
+  var root = document.documentElement;
+
+  function setMenu(open){
+    root.classList.toggle('nav-open', open);
+    menu.setAttribute('aria-expanded', String(open));
+    menuLabel.dataset.text = open ? 'ЗАКРЫТЬ' : 'МЕНЮ';
+    decode(menuLabel);
+    if (open) requestAnimationFrame(function(){
+      var first = navset.querySelector('a');
+      if (first) try { first.focus(); } catch(err){}
+    });
+  }
+  menu.addEventListener('click', function(e){
+    e.stopPropagation();
+    setMenu(!root.classList.contains('nav-open'));
+  });
+  navset.addEventListener('click', function(e){
+    if (e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && root.classList.contains('nav-open')){ setMenu(false); menu.focus(); }
+  });
+  document.addEventListener('click', function(e){
+    if (root.classList.contains('nav-open') && !navset.contains(e.target) && e.target !== menu)
+      setMenu(false);
+  });
+  addEventListener('resize', function(){
+    if (innerWidth > 900 && root.classList.contains('nav-open')) setMenu(false);
+  });
+
+  /* ---------------------------------------------------------------
+     6. СТАРТ: закрепляем ширины, когда шрифт готов, и проводим один
+     проход декодера, пока поднимается заголовок.
+  ---------------------------------------------------------------- */
+  function boot(){
+    reserve();
+    restartAuto();
+    if (RM) return;
+    function at(sel, t0, gap){
+      [].slice.call(document.querySelectorAll(sel)).forEach(function(el, i){
+        setTimeout(function(){ decode(el); }, t0 + i * (gap || 0));
+      });
+    }
+    at('.enter .t', 330);
+    at('.menu .t', 390);
+    at('.links a .t', 360, 45);
+    at('.index li.on .t', 660);
+    at('.index li:not(.on) .t', 720, 55);
+    at('.cta .t', 900);
+    at('.dock .t', 1000, 60);
+    setTimeout(function(){ document.documentElement.classList.remove('anim'); }, 2200);
+    setTimeout(function(){ labels.forEach(settle); }, 2600);
+    /* вторая сцена подгружается сразу после старта */
+    setTimeout(function(){ load(sceneOf(ORDER[1])); }, 1600);
+    var start = location.hash.slice(1);
+    if (start && start !== chapter) setTimeout(function(){ showChapter(start); }, 1200);
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(boot); else addEventListener('load', boot);
+
+  var rt;
+  addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(reserve, 160); });
+})();
+</script>
+</body>
+</html>

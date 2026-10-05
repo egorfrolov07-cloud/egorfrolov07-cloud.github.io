@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Апекс — электрический GT-e в Москве</title>
+  <!-- og -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="By Egor">
+  <meta property="og:title" content="Апекс — электрический GT-e в Москве">
+  <meta property="og:description" content="Концепт сайта автосалона: 3D-машина, разбор на детали по прокрутке, конфигуратор, кредит и тест-драйв. Портфолио By Egor.">
+  <meta property="og:url" content="https://byegor.ru/05-apex/">
+  <meta property="og:image" content="https://byegor.ru/05-apex/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://byegor.ru/05-apex/">
+  <!-- /og -->
+  <meta name="description" content="Концепт сайта автосалона: 3D-машина, разбор на детали по прокрутке, конфигуратор, кредит и тест-драйв. Портфолио By Egor.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0b0d'/%3E%3Cpath d='M14 46 32 14l18 32' fill='none' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M20 40q12 6 24 0' fill='none' stroke='%23e2213c' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "../vendor/three/build/three.module.js",
+        "three/addons/": "../vendor/three/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- одна 3D-сцена на всю страницу: секции прокручиваются поверх неё -->
+  <canvas class="scene" aria-hidden="true"></canvas>
+
+  <div class="loader" aria-hidden="true">
+    <svg class="gauge" viewBox="0 0 200 200">
+      <path class="gauge__track" d="M44 156a80 80 0 1 1 112 0" pathLength="1"/>
+      <path class="gauge__val" d="M44 156a80 80 0 1 1 112 0" pathLength="1"/>
+    </svg>
+    <p class="loader__speed"><b>0</b><span>км/ч</span></p>
+    <p class="loader__cap">Загружаем 97 деталей</p>
+  </div>
+
+  <header class="hdr">
+    <a class="logo" href="#top" data-scroll aria-label="Апекс — наверх">
+      <svg viewBox="0 0 40 32" aria-hidden="true"><path d="M5 28 20 4l15 24" fill="none" stroke="currentColor" stroke-width="3.4"/><path d="M10 22q10 5 20 0" fill="none" stroke="var(--acc)" stroke-width="2.6"/></svg>
+      <span>Апекс</span>
+    </a>
+    <nav class="hdr__nav" aria-label="Разделы">
+      <a href="#model" data-scroll>Модель</a>
+      <a href="#parts" data-scroll>Разбор</a>
+      <a href="#config" data-scroll>Конфигуратор</a>
+      <a href="#stock" data-scroll>В наличии</a>
+      <a href="#credit" data-scroll>Кредит</a>
+    </nav>
+    <a class="btn btn--sm" href="#test" data-scroll>Тест-драйв</a>
+  </header>
+
+  <main id="top">
+    <!-- 01 · первый экран: машина проявляется полосой света -->
+    <section class="hero" data-cam="hero">
+      <p class="hero__word" aria-hidden="true">GT-e</p>
+      <div class="hero__content">
+        <p class="eyebrow">Дилерский центр «Апекс» · Москва</p>
+        <h1 class="hero__title speed">
+          <span class="ln"><span>Новый GT-e.</span></span>
+          <span class="ln"><span class="acc">Уже в шоуруме</span></span>
+        </h1>
+        <p class="hero__lead">До 1 020 л. с., 0–100 км/ч за 2,1 с и 620 км на одной зарядке. Приезжайте посмотреть вживую — или разберите его прямо на этой странице.</p>
+        <div class="hero__cta">
+          <a class="btn" href="#test" data-scroll>Записаться на тест-драйв</a>
+          <a class="btn btn--ghost" href="#config" data-scroll>Собрать свой</a>
+        </div>
+      </div>
+      <dl class="hero__specs">
+        <div><dt>Мощность</dt><dd>1 020 <small>л. с.</small></dd></div>
+        <div><dt>0–100 км/ч</dt><dd>2,1 <small>с</small></dd></div>
+        <div><dt>Запас хода</dt><dd>620 <small>км</small></dd></div>
+      </dl>
+      <p class="hero__hint" aria-hidden="true">Листайте</p>
+    </section>
+
+    <!-- 02 · облёт: камера показывает машину с четырёх ракурсов -->
+    <section class="drive" id="model">
+      <article class="shot shot--r" data-cam="light">
+        <p class="shot__n">01 / 04</p>
+        <h2 class="h2 speed">Свет</h2>
+        <p>Матричные фары видят дорогу на 600 метров и сами уводят луч от встречных машин — дальний можно не выключать.</p>
+        <p class="shot__stat"><b class="cnt" data-to="600">0</b><span>м — дальность фар</span></p>
+      </article>
+      <article class="shot shot--r" data-cam="wheel">
+        <p class="shot__n">02 / 04</p>
+        <h2 class="h2 speed">Колёса</h2>
+        <p>Кованые диски 21″ и карбон-керамические тормоза. С 200 км/ч до полной остановки — меньше четырёх секунд.</p>
+        <p class="shot__stat"><b class="cnt" data-to="3.9" data-dec="1">0</b><span>с — торможение с 200 км/ч</span></p>
+      </article>
+      <article class="shot shot--l" data-cam="side">
+        <p class="shot__n">03 / 04</p>
+        <h2 class="h2 speed">Профиль</h2>
+        <p>Низкий силуэт и закрытое днище: машина режет воздух как лезвие и тратит меньше энергии на скорости.</p>
+        <p class="shot__stat"><b class="cnt" data-to="0.21" data-dec="2">0</b><span>Cx — сопротивление воздуха</span></p>
+      </article>
+      <article class="shot shot--r" data-cam="rear">
+        <p class="shot__n">04 / 04</p>
+        <h2 class="h2 speed">Корма</h2>
+        <p>Сплошная световая полоса и активный спойлер: он выдвигается сам и прижимает машину к дороге.</p>
+        <p class="shot__stat"><b class="cnt" data-to="120">0</b><span>км/ч — спойлер выдвигается</span></p>
+      </article>
+    </section>
+
+    <!-- 03 · разбор на детали по прокрутке -->
+    <section class="parts" id="parts" data-cam="parts" data-cam-span>
+      <div class="parts__stage" data-drag>
+        <div class="parts__head">
+          <p class="eyebrow">Разбор</p>
+          <h2 class="h2 speed">Разберите его <em>до винтика</em></h2>
+          <p>Листайте — 97 деталей разлетятся и соберутся обратно. Тяните, чтобы повернуть.</p>
+        </div>
+        <div class="labels" aria-hidden="true"><svg class="labels__lines"></svg></div>
+        <div class="parts__meter" aria-hidden="true"><span>Разобрано</span><b data-explode>0%</b><i><i></i></i></div>
+      </div>
+    </section>
+
+    <!-- 04 · конфигуратор -->
+    <section class="config" id="config" data-cam="config">
+      <div class="config__stage" data-drag>
+        <p class="inside-hint" aria-hidden="true"><b>Вы за рулём GT-e</b>Тяните, чтобы осмотреться</p>
+        <form class="cfg" aria-label="Конфигуратор">
+          <p class="eyebrow">Конфигуратор</p>
+          <h2 class="h2 speed">Соберите <em>свой GT-e</em></h2>
+
+          <fieldset class="cfg__grp">
+            <legend>Цвет кузова</legend>
+            <div class="swatches">
+              <label class="sw-col"><input type="radio" name="paint" value="Carmine Candy" checked data-acc="#e2213c" data-add="0"><i style="--c:#b3122a"></i><span>Красный кэнди<small>в цене</small></span></label>
+              <label class="sw-col"><input type="radio" name="paint" value="Pearly Swirly" data-acc="#ece6d8" data-add="350000"><i style="--c:#e6e1d6"></i><span>Белый перламутр<small>+350 000 ₽</small></span></label>
+              <label class="sw-col"><input type="radio" name="paint" value="Torched Graphite" data-acc="#9ba5b1" data-add="490000"><i style="--c:#3b3f45"></i><span>Графит<small>+490 000 ₽</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="cfg__grp">
+            <legend>Версия</legend>
+            <div class="trims">
+              <label><input type="radio" name="trim" value="14900000" checked><span><b>GT-e</b><small>760 л. с. · 0–100 за 2,8 с</small></span></label>
+              <label><input type="radio" name="trim" value="17400000"><span><b>Performance</b><small>1 020 л. с. · 0–100 за 2,1 с</small></span></label>
+              <label><input type="radio" name="trim" value="19900000"><span><b>Launch Edition</b><small>1 020 л. с. · карбон снаружи и внутри</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="cfg__grp">
+            <legend>Посмотреть</legend>
+            <div class="toggles">
+              <button type="button" class="tgl" data-tgl="doors" aria-pressed="false">Открыть двери</button>
+              <button type="button" class="tgl" data-tgl="lights" aria-pressed="true">Фары</button>
+              <button type="button" class="tgl" data-tgl="interior" aria-pressed="false">Вид из салона</button>
+              <button type="button" class="tgl" data-tgl="explode" aria-pressed="false">Разобрать</button>
+            </div>
+          </fieldset>
+
+          <div class="cfg__price">
+            <p><span>Итого</span><b data-price>14 900 000 ₽</b></p>
+            <p class="cfg__month">или <b data-month>от 0 ₽</b> в месяц в кредит</p>
+            <a class="btn" href="#test" data-scroll>Забронировать за 100 000 ₽</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 05 · в наличии: картинки — снимки той же 3D-модели -->
+    <section class="solid stock" id="stock">
+      <div class="sec-head">
+        <p class="eyebrow">В наличии</p>
+        <h2 class="h2 speed">Шесть машин <em>ждут в шоуруме</em></h2>
+      </div>
+      <div class="filters" role="group" aria-label="Фильтр">
+        <button type="button" class="chip is-on" data-f="all">Все</button>
+        <button type="button" class="chip" data-f="now">В наличии</button>
+        <button type="button" class="chip" data-f="way">В пути</button>
+        <span class="filters__sep" aria-hidden="true"></span>
+        <button type="button" class="chip chip--dot" data-c="Carmine Candy" style="--c:#b3122a">Красный</button>
+        <button type="button" class="chip chip--dot" data-c="Pearly Swirly" style="--c:#e6e1d6">Перламутр</button>
+        <button type="button" class="chip chip--dot" data-c="Torched Graphite" style="--c:#3b3f45">Графит</button>
+      </div>
+      <div class="cars"></div>
+    </section>
+
+    <!-- 06 · кредит и трейд-ин -->
+    <section class="solid money" id="credit">
+      <div class="sec-head">
+        <p class="eyebrow">Кредит и трейд-ин</p>
+        <h2 class="h2 speed">Платёж — <em>до визита в салон</em></h2>
+      </div>
+      <div class="money__grid">
+        <form class="card credit" novalidate>
+          <h3>Кредит</h3>
+          <p class="credit__car">Апекс GT-e · <span data-credit-price>14 900 000 ₽</span></p>
+          <label class="slider"><span>Первый взнос <output data-out="down">30% · 4 470 000 ₽</output></span><input type="range" name="down" min="10" max="70" step="5" value="30"></label>
+          <label class="slider"><span>Срок <output data-out="term">60 мес.</output></span><input type="range" name="term" min="12" max="84" step="12" value="60"></label>
+          <div class="credit__res">
+            <p><span>Платёж в месяц</span><b data-out="month">0 ₽</b></p>
+            <p class="credit__note">Ставка 9,9% — условия партнёрских банков вымышлены.</p>
+          </div>
+        </form>
+        <form class="card trade" novalidate>
+          <h3>Трейд-ин</h3>
+          <p class="trade__lead">Оценим ваш автомобиль и зачтём в первый взнос.</p>
+          <label class="field"><span>Марка и модель</span><input type="text" name="model" placeholder="Например, BMW X5" autocomplete="off"></label>
+          <label class="field"><span>Год выпуска</span><select name="year"></select></label>
+          <label class="slider"><span>Пробег <output data-out="km">60 000 км</output></span><input type="range" name="km" min="0" max="250000" step="5000" value="60000"></label>
+          <div class="credit__res">
+            <p><span>Предварительная оценка</span><b data-out="trade">—</b></p>
+            <p class="credit__note">Точную цену назовём после осмотра — 30 минут в шоуруме.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 07 · тест-драйв -->
+    <section class="solid test" id="test">
+      <div class="sec-head">
+        <p class="eyebrow">Тест-драйв</p>
+        <h2 class="h2 speed">Почувствуйте <em>2,1 секунды</em></h2>
+        <p class="sec-head__lead">Выберите день, время и маршрут — менеджер подтвердит запись в течение 15 минут.</p>
+      </div>
+      <form class="book card" novalidate>
+        <fieldset class="book__grp"><legend>День</legend><div class="days" role="radiogroup"></div></fieldset>
+        <fieldset class="book__grp"><legend>Время</legend>
+          <div class="chips" role="radiogroup">
+            <label class="chip-r"><input type="radio" name="time" value="10:00"><span>10:00</span></label>
+            <label class="chip-r"><input type="radio" name="time" value="12:00" checked><span>12:00</span></label>
+            <label class="chip-r"><input type="radio" name="time" value="14:00"><span>14:00</span></label>
+            <label class="chip-r"><input type="radio" name="time" value="16:00"><span>16:00</span></label>
+            <label class="chip-r"><input type="radio" name="time" value="18:00"><span>18:00</span></label>
+            <label class="chip-r"><input type="radio" name="time" value="20:00"><span>20:00</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="book__grp"><legend>Маршрут</legend>
+          <div class="routes" role="radiogroup">
+            <label class="route"><input type="radio" name="route" value="Город" checked><span><b>Город</b><small>30 минут · Ленинградка и центр</small></span></label>
+            <label class="route"><input type="radio" name="route" value="Трасса"><span><b>Трасса</b><small>60 минут · М-11 и разгон на закрытом участке</small></span></label>
+          </div>
+        </fieldset>
+        <div class="book__row">
+          <label class="field"><span>Имя</span><input type="text" name="name" autocomplete="given-name" required></label>
+          <label class="field"><span>Телефон</span><input type="tel" name="phone" autocomplete="tel" placeholder="+7" required></label>
+          <button class="btn" type="submit">Записаться</button>
+        </div>
+        <p class="book__err" hidden>Укажите имя и телефон — без них менеджер не сможет подтвердить запись.</p>
+        <p class="book__done" hidden></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="solid foot" id="contacts">
+    <div class="foot__grid">
+      <div><p class="eyebrow">Шоурум</p><p>Москва, Ленинградское шоссе, 0<br>Ежедневно 9:00–21:00</p></div>
+      <div><p class="eyebrow">Телефон</p><a class="foot__big" href="tel:+70000000000">+7 (000) 000-00-00</a></div>
+      <div><p class="eyebrow">Сервис</p><p>Гарантия 4 года · зарядка на территории<br>Эвакуатор и подменный автомобиль</p></div>
+    </div>
+    <p class="foot__word speed" aria-hidden="true">АПЕКС</p>
+    <p class="foot__note">Концепт-проект By Egor: автосалон, модель, цены и контакты вымышлены.
+      3D-модель — <a href="https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CarConcept" target="_blank" rel="noreferrer">Car Concept</a>, Eric Chadwick / Darmstadt Graphics Group, CC BY 4.0, на основе CC0-модели Unity Fan; логотип на модели заменён.</p>
+  </footer>
+
+  <script src="../vendor/lenis/lenis.min.js"></script>
+  <script src="main.js"></script>
+  <script type="module" src="car.js"></script>
+</body>
+</html>

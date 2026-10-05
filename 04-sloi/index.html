@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Слои — ресторан, где блюдо собирают слоями</title>
+  <!-- og -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="By Egor">
+  <meta property="og:title" content="Слои — ресторан, где блюдо собирают слоями">
+  <meta property="og:description" content="Ресторан авторской кухни в Санкт-Петербурге. Концепт-проект.">
+  <meta property="og:url" content="https://byegor.ru/04-sloi/">
+  <meta property="og:image" content="https://byegor.ru/04-sloi/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://byegor.ru/04-sloi/">
+  <!-- /og -->
+  <meta name="description" content="Ресторан авторской кухни в Санкт-Петербурге. Концепт-проект.">
+  <meta name="theme-color" content="#120e0b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23120e0b'/%3E%3Crect x='14' y='18' width='36' height='7' rx='3.5' fill='%23f2b134'/%3E%3Crect x='14' y='29' width='36' height='7' rx='3.5' fill='%23e4572e'/%3E%3Crect x='14' y='40' width='36' height='7' rx='3.5' fill='%23f3e9db'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="importmap">
+    { "imports": {
+      "three": "../vendor/three/build/three.module.js",
+      "three/addons/": "../vendor/three/examples/jsm/"
+    } }
+  </script>
+</head>
+<body>
+
+  <!-- «Капли соуса»: gooey-фильтр для курсора -->
+  <svg class="defs" aria-hidden="true">
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b" />
+      <feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" />
+    </filter>
+  </svg>
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__goo"><i></i><i></i><i></i><i></i><i></i></div>
+    <span class="cursor__label"></span>
+  </div>
+
+  <!-- Заставка: «лестница» из полос -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="loader__mark">
+      <span class="loader__word"><b>С</b><b>Л</b><b>О</b><b>И</b></span>
+      <span class="loader__count"><em>0</em>%</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <a href="#top" class="logo" data-scroll><span class="logo__mark"><i></i><i></i><i></i></span>Слои</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#menu" data-scroll>Меню</a>
+      <a href="#hall" data-scroll>Зал</a>
+      <a href="#sets" data-scroll>Сеты</a>
+      <a href="#season" data-scroll>Сезон</a>
+    </nav>
+    <a href="#book" class="btn btn--sm" data-scroll data-magnetic><span>Забронировать</span></a>
+  </header>
+
+  <main>
+    <!-- 01 · Стирание фона -->
+    <section class="hero" id="top">
+      <img class="hero__img" src="img/u-1544857083-7ac978ef18cb-w2400.webp" alt="Яркое блюдо с авокадо и гранатом, вид сверху" crossorigin="anonymous" fetchpriority="high">
+      <canvas class="hero__veil" aria-hidden="true"></canvas>
+      <div class="hero__content">
+        <p class="eyebrow">Ресторан авторской кухни · Санкт-Петербург</p>
+        <h1 class="hero__title" aria-label="Слои"><span>С</span><span>л</span><span>о</span><span>и</span></h1>
+        <p class="hero__lead">Кухня, которую разбирают на&nbsp;ингредиенты&nbsp;— и&nbsp;собирают заново</p>
+      </div>
+      <p class="hero__hint"><span class="hint-fine">Проведите курсором&nbsp;— сотрите темноту</span><span class="hint-touch">Проведите пальцем&nbsp;— сотрите темноту</span></p>
+      <div class="hero__meta"><span>Ежедневно 12:00–00:00</span><span>40 мест · открытая кухня</span></div>
+    </section>
+
+    <!-- 02 · 3D-меню: блюда раскрываются слоями -->
+    <section class="menu3d" id="menu">
+      <div class="menu3d__stage">
+        <canvas class="menu3d__canvas" aria-label="Трёхмерные блюда, раскладывающиеся на слои"></canvas>
+        <div class="menu3d__labels" aria-hidden="true"></div>
+        <div class="menu3d__head">
+          <p class="eyebrow">Меню в разрезе</p>
+          <h2 class="h2">Каждое блюдо&nbsp;— <em>слоями</em></h2>
+        </div>
+        <div class="menu3d__info">
+          <div class="dish is-on" data-dish="0">
+            <span class="dish__n">01 / 03</span>
+            <h3 class="dish__name">Бургер шефа</h3>
+            <p class="dish__desc">Мраморная говядина, чеддер 12&nbsp;месяцев и&nbsp;бриошь, которую печём каждое утро.</p>
+            <span class="dish__price">1&nbsp;450&nbsp;₽</span>
+          </div>
+          <div class="dish" data-dish="1">
+            <span class="dish__n">02 / 03</span>
+            <h3 class="dish__name">Медовик, 12&nbsp;слоёв</h3>
+            <p class="dish__desc">Шесть коржей на&nbsp;гречишном мёде и&nbsp;крем на&nbsp;сметане. Собираем руками, пропитываем сутки.</p>
+            <span class="dish__price">690&nbsp;₽</span>
+          </div>
+          <div class="dish" data-dish="2">
+            <span class="dish__n">03 / 03</span>
+            <h3 class="dish__name">Тартар-башня</h3>
+            <p class="dish__desc">Вырезка, рубленная ножом, авокадо с&nbsp;лаймом и&nbsp;желток, томлённый в&nbsp;масле.</p>
+            <span class="dish__price">1&nbsp;290&nbsp;₽</span>
+          </div>
+        </div>
+        <div class="menu3d__progress"><i></i></div>
+        <p class="menu3d__hint">Листайте&nbsp;— блюдо раскроется. Тяните, чтобы повернуть</p>
+      </div>
+    </section>
+
+    <!-- 03 · Зум сквозь слово -->
+    <section class="zoom" id="hall">
+      <div class="zoom__stage">
+        <img class="zoom__img" src="img/u-1552960226-639240203497-w2400.webp" alt="Зал ресторана в тёплом свете ламп" loading="lazy">
+        <div class="zoom__mask"><span class="zoom__word">ВКУС</span></div>
+        <div class="zoom__after">
+          <p class="eyebrow">Зал</p>
+          <p class="zoom__text">Сорок мест, открытая кухня и&nbsp;тёплый свет. Ужин, который хочется растянуть до&nbsp;ночи.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Манифест шефа в перспективе -->
+    <section class="crawl">
+      <div class="crawl__stage">
+        <p class="eyebrow crawl__eyebrow">Манифест шефа</p>
+        <div class="crawl__plane">
+          <p class="crawl__text">Мы не&nbsp;прячем, из&nbsp;чего сделано блюдо. Каждый слой&nbsp;— отдельная история: мука смолота в&nbsp;Псковской области, мёд&nbsp;— с&nbsp;пасеки под Лугой, говядина&nbsp;— с&nbsp;фермы в&nbsp;Ленобласти. Мы&nbsp;разбираем привычные блюда на&nbsp;части и&nbsp;собираем заново, чтобы каждый слой звучал отдельно и&nbsp;вместе. <span>— Антон Ветлугин, шеф</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Стопка карточек -->
+    <section class="stack" id="sets">
+      <div class="stack__head">
+        <p class="eyebrow">Сеты и&nbsp;вечера</p>
+        <h2 class="h2">Больше, чем <em>ужин</em></h2>
+      </div>
+      <div class="stack__pin">
+        <article class="card">
+          <img src="img/u-1663530761401-15eefb544889-w1600.webp" alt="Шеф поливает соусом блюдо" loading="lazy">
+          <div class="card__body"><span class="card__n">01</span><h3>Дегустация</h3><p>9&nbsp;подач за&nbsp;вечер, от&nbsp;закусок до&nbsp;медовика</p><b>6&nbsp;900&nbsp;₽</b></div>
+        </article>
+        <article class="card">
+          <img src="img/u-1577106263724-2c8e03bfe9cf-w1600.webp" alt="Повар выкладывает блюдо на тарелку" loading="lazy">
+          <div class="card__body"><span class="card__n">02</span><h3>Шеф-стол</h3><p>8&nbsp;гостей у&nbsp;открытой кухни, шеф готовит при вас</p><b>от&nbsp;9&nbsp;500&nbsp;₽</b></div>
+        </article>
+        <article class="card">
+          <img src="img/u-1788764532109-2bf3ac465990-w1600.webp" alt="Винный стеллаж с подсветкой" loading="lazy">
+          <div class="card__body"><span class="card__n">03</span><h3>Винные пары</h3><p>120&nbsp;этикеток и&nbsp;сомелье, который подберёт к&nbsp;каждому слою</p><b>от&nbsp;3&nbsp;200&nbsp;₽</b></div>
+        </article>
+        <article class="card">
+          <img src="img/u-1772311698901-fe3fa07141be-w1600.webp" alt="Три коктейля на тёмной стойке" loading="lazy">
+          <div class="card__body"><span class="card__n">04</span><h3>Поздний бар</h3><p>По&nbsp;пятницам до&nbsp;02:00, авторские коктейли на&nbsp;настойках</p><b>от&nbsp;750&nbsp;₽</b></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 06 · Бегущая строка, реагирует на скорость скролла -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Сезонное меню</span><i>✦</i><span>Дегустация</span><i>✦</i><span>Винная карта</span><i>✦</i><span>Поздний бар</span><i>✦</i>
+        <span>Сезонное меню</span><i>✦</i><span>Дегустация</span><i>✦</i><span>Винная карта</span><i>✦</i><span>Поздний бар</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- 07 · Параллакс-колонки -->
+    <section class="cols">
+      <div class="cols__title"><p class="eyebrow">Атмосфера</p><h2 class="h2">Свет, дым <em>и&nbsp;фарфор</em></h2></div>
+      <div class="cols__grid">
+        <div class="col" data-speed="-0.12">
+          <img src="img/u-1593854989775-ae5e4d9e49e9-w800.webp" alt="" loading="lazy">
+          <img src="img/u-1709548145082-04d0cde481d4-w800.webp" alt="" loading="lazy">
+          <img src="img/u-1458253756247-1e4ed949191b-w800.webp" alt="" loading="lazy">
+        </div>
+        <div class="col" data-speed="-0.34">
+          <img src="img/u-1689672234865-aac481f62587-w800.webp" alt="" loading="lazy">
+          <img src="img/u-1705917893168-e03c7da62577-w800.webp" alt="" loading="lazy">
+          <img src="img/u-1629272040444-2f7553ec7466-w800.webp" alt="" loading="lazy">
+        </div>
+        <div class="col" data-speed="-0.06">
+          <img src="img/u-1780181612148-20a394ff0dff-w800.webp" alt="" loading="lazy">
+          <img src="img/u-1788228110704-fcecd70fc46a-w800.webp" alt="" loading="lazy">
+          <img src="img/u-1577219491135-ce391730fb2c-w800.webp" alt="" loading="lazy">
+        </div>
+        <div class="col" data-speed="-0.26">
+          <img src="img/u-1566553637229-0efa14d0d2e6-w800.webp" alt="" loading="lazy">
+          <img src="img/u-1766832255363-c9f060ade8b0-w800.webp" alt="" loading="lazy">
+          <img src="img/u-1706650616334-97875fae8521-w800.webp" alt="" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · След из фото за курсором -->
+    <section class="trail" data-cursor="Ведите">
+      <div class="trail__imgs" aria-hidden="true"></div>
+      <h2 class="trail__title">Приходите <em>голодными</em></h2>
+      <p class="trail__hint"><span class="hint-fine">Поводите курсором</span><span class="hint-touch">Проведите пальцем</span></p>
+    </section>
+
+    <!-- 09 · Физика: ингредиенты недели -->
+    <section class="season" id="season">
+      <div class="season__head">
+        <p class="eyebrow">Сезон</p>
+        <h2 class="h2">Из&nbsp;чего готовим <em>на&nbsp;этой неделе</em></h2>
+        <p class="season__hint">Ингредиенты можно хватать и&nbsp;бросать</p>
+      </div>
+      <div class="season__box"></div>
+    </section>
+
+    <!-- 10 · Бронь на шейдерном фоне -->
+    <section class="book" id="book">
+      <canvas class="book__bg" aria-hidden="true"></canvas>
+      <div class="book__inner">
+        <div class="book__text">
+          <p class="eyebrow">Бронь</p>
+          <h2 class="h2">Стол <em>ждёт вас</em></h2>
+          <p class="lead">Подтвердим бронь сообщением в&nbsp;течение 10&nbsp;минут. Для компаний больше 8&nbsp;человек&nbsp;— позвоните.</p>
+        </div>
+        <form class="form" novalidate>
+          <fieldset class="chips" data-name="day"><legend>День</legend></fieldset>
+          <fieldset class="chips" data-name="time"><legend>Время</legend></fieldset>
+          <div class="guests">
+            <span class="legend">Гостей</span>
+            <div class="stepper">
+              <button type="button" data-step="-1" aria-label="Меньше гостей">−</button>
+              <output>2</output>
+              <button type="button" data-step="1" aria-label="Больше гостей">+</button>
+            </div>
+          </div>
+          <label class="field"><input name="name" placeholder=" " autocomplete="name" required><span>Имя</span></label>
+          <label class="field"><input name="phone" type="tel" placeholder=" " autocomplete="tel" required><span>Телефон</span></label>
+          <button class="btn btn--wide" type="submit" data-magnetic><span>Забронировать стол</span></button>
+          <div class="form__done" role="status" aria-live="polite"><b>Стол ждёт вас</b><span></span><small>Это концепт-проект: бронь никуда не&nbsp;отправляется.</small></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__row">
+      <div><span class="eyebrow">Адрес</span><p>Санкт-Петербург</p></div>
+      <div><span class="eyebrow">Телефон</span><p><a href="tel:+78120000000">+7 812 000-00-00</a></p></div>
+      <div><span class="eyebrow">Сейчас</span><p class="open-status">Ежедневно 12:00–00:00</p></div>
+    </div>
+    <div class="footer__word" aria-hidden="true"><span>С</span><span>Л</span><span>О</span><span>И</span></div>
+    <p class="footer__note">© 2026 «Слои». Концепт-проект, ресторан вымышлен. Фотографии&nbsp;— Unsplash.</p>
+  </footer>
+
+  <script src="../vendor/gsap/gsap.min.js"></script>
+  <script src="../vendor/gsap/ScrollTrigger.min.js"></script>
+  <script src="../vendor/lenis/lenis.min.js"></script>
+  <script src="../vendor/matter/matter.min.js"></script>
+  <script src="main.js"></script>
+  <script type="module" src="dishes.js"></script>
+</body>
+</html>

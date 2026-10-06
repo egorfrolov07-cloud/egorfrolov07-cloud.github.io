@@ -172,10 +172,18 @@
     b.addEventListener('click', function () {
       if (b.dataset.f) {
         fSt = b.dataset.f;
-        $$('.filters [data-f]').forEach(function (x) { x.classList.toggle('is-on', x === b); });
+        $$('.filters [data-f]').forEach(function (x) {
+          var on = x === b;
+          x.classList.toggle('is-on', on);
+          x.setAttribute('aria-pressed', String(on));
+        });
       } else {
         fC = fC === b.dataset.c ? null : b.dataset.c;
-        $$('.filters [data-c]').forEach(function (x) { x.classList.toggle('is-on', x.dataset.c === fC); });
+        $$('.filters [data-c]').forEach(function (x) {
+          var on = x.dataset.c === fC;
+          x.classList.toggle('is-on', on);
+          x.setAttribute('aria-pressed', String(on));
+        });
       }
       applyFilter();
     });
@@ -228,7 +236,7 @@
     $('.book__err', book).hidden = !!ok;
     if (!ok) return;
     var done = $('.book__done', book);
-    done.textContent = who + ', записали вас на ' + book.day.value + ', ' + book.time.value + ' — маршрут «' + book.route.value + '». Менеджер позвонит в течение 15 минут.';
+    done.textContent = who + ', так выглядела бы запись на ' + book.day.value + ', ' + book.time.value + ' — маршрут «' + book.route.value + '». Это концепт-проект: заявка никуда не отправляется.';
     done.hidden = false;
     $('.book__row', book).hidden = true;
   });

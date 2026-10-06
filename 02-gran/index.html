@@ -378,11 +378,11 @@ a:focus-visible,button:focus-visible{outline:calc(1.5*var(--t)) solid #e8d1cb;ou
     <nav class="masthead" aria-label="Основная навигация">
       <div class="navset" id="navset">
       <div class="links lbl">
-        <a href="#company"><span class="t">КОМПАНИЯ</span></a><a href="../01-tish/"><span class="t">ПРОЕКТЫ</span></a><a href="#approach"><span class="t">ПОДХОД</span></a><a href="#contacts"><span class="t">КОНТАКТЫ</span></a><a href="#film"><span class="t">ФИЛЬМ</span></a>
+        <a href="#idea"><span class="t">ЗАМЫСЕЛ</span></a><a href="../01-tish/"><span class="t">ПРОЕКТЫ</span></a><a href="#form"><span class="t">ФОРМА</span></a><a href="#matter"><span class="t">МАТЕРИАЛ</span></a><a href="#light"><span class="t">СВЕТ</span></a>
       </div>
-      <a class="pill enter lbl" href="#cabinet">
+      <a class="pill enter lbl" href="#origin">
         <svg class="ico" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="4" height="5"/><rect x="3" y="4" width="4" height="4"/><rect x="0" y="7" width="4" height="4"/></svg>
-        <span class="t">КАБИНЕТ</span>
+        <span class="t">ИСТОКИ</span>
       </a>
       </div>
       <button class="pill menu lbl" type="button" aria-expanded="false" aria-controls="navset">
@@ -668,6 +668,12 @@ a:focus-visible,button:focus-visible{outline:calc(1.5*var(--t)) solid #e8d1cb;ou
   }
 
   links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      showChapter(a.getAttribute('href').slice(1));
+    });
+  });
+  [].slice.call(document.querySelectorAll('.navset a[href^="#"]')).forEach(function(a){
     a.addEventListener('click', function(e){
       e.preventDefault();
       showChapter(a.getAttribute('href').slice(1));

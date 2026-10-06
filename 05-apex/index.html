@@ -177,13 +177,13 @@
         <h2 class="h2 speed">Шесть машин <em>ждут в шоуруме</em></h2>
       </div>
       <div class="filters" role="group" aria-label="Фильтр">
-        <button type="button" class="chip is-on" data-f="all">Все</button>
-        <button type="button" class="chip" data-f="now">В наличии</button>
-        <button type="button" class="chip" data-f="way">В пути</button>
+        <button type="button" class="chip is-on" data-f="all" aria-pressed="true">Все</button>
+        <button type="button" class="chip" data-f="now" aria-pressed="false">В наличии</button>
+        <button type="button" class="chip" data-f="way" aria-pressed="false">В пути</button>
         <span class="filters__sep" aria-hidden="true"></span>
-        <button type="button" class="chip chip--dot" data-c="Carmine Candy" style="--c:#b3122a">Красный</button>
-        <button type="button" class="chip chip--dot" data-c="Pearly Swirly" style="--c:#e6e1d6">Перламутр</button>
-        <button type="button" class="chip chip--dot" data-c="Torched Graphite" style="--c:#3b3f45">Графит</button>
+        <button type="button" class="chip chip--dot" data-c="Carmine Candy" aria-pressed="false" style="--c:#b3122a">Красный</button>
+        <button type="button" class="chip chip--dot" data-c="Pearly Swirly" aria-pressed="false" style="--c:#e6e1d6">Перламутр</button>
+        <button type="button" class="chip chip--dot" data-c="Torched Graphite" aria-pressed="false" style="--c:#3b3f45">Графит</button>
       </div>
       <div class="cars"></div>
     </section>
@@ -224,7 +224,7 @@
       <div class="sec-head">
         <p class="eyebrow">Тест-драйв</p>
         <h2 class="h2 speed">Почувствуйте <em>2,1 секунды</em></h2>
-        <p class="sec-head__lead">Выберите день, время и маршрут — менеджер подтвердит запись в течение 15 минут.</p>
+        <p class="sec-head__lead">Выберите день, время и маршрут — это демонстрация записи, данные никуда не отправляются.</p>
       </div>
       <form class="book card" novalidate>
         <fieldset class="book__grp"><legend>День</legend><div class="days" role="radiogroup"></div></fieldset>

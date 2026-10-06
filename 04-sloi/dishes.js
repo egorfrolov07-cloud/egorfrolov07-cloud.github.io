@@ -398,20 +398,28 @@ dishes.forEach((d) => {
 });
 
 /* ---------- прокрутка → состояние ---------- */
-let target = 0, prog = 0, visible = false, W = 1, H = 1;
+let target = 0, prog = 0, visible = false, raf = 0, W = 1, H = 1;
 const ease = (t) => t * t * t * (t * (t * 6 - 15) + 10);           /* smootherstep */
 const range = (x, a, b) => Math.min(1, Math.max(0, (x - a) / (b - a)));
+
+function syncLoop() {
+  if (!visible || document.hidden) {
+    if (raf) cancelAnimationFrame(raf);
+    raf = 0;
+  } else if (!raf) raf = requestAnimationFrame(frame);
+}
 
 if (window.gsap && window.ScrollTrigger) {
   ScrollTrigger.create({
     trigger: '.menu3d', start: 'top top', end: 'bottom bottom',
     onUpdate: (s) => { target = s.progress; },
   });
-  ScrollTrigger.create({
-    trigger: '.menu3d', start: 'top bottom', end: 'bottom top',
-    onToggle: (s) => { visible = s.isActive; },
-  });
-} else { visible = true; target = 0.2; }
+} else target = 0.2;
+new IntersectionObserver(([entry]) => {
+  visible = entry.isIntersecting;
+  syncLoop();
+}).observe(document.querySelector('.menu3d'));
+document.addEventListener('visibilitychange', syncLoop);
 
 /* перетаскивание — поворот блюда с инерцией */
 let drag = 0, dragVel = 0, down = false, lastX = 0;
@@ -434,9 +442,9 @@ const v3 = new THREE.Vector3(), clock = new THREE.Clock();
 let active = -1;
 
 function frame() {
-  requestAnimationFrame(frame);
+  raf = 0;
+  if (!visible || document.hidden) return;
   const dt = Math.min(clock.getDelta(), 0.05);
-  if (!visible) return;
   prog += (target - prog) * (RM ? 1 : 0.12);
   const P = Math.min(0.9999, Math.max(0, prog));
   const seg = Math.min(2, Math.floor(P * 3));
@@ -502,5 +510,5 @@ function frame() {
   });
 
   if (bar) bar.style.transform = `scaleX(${P.toFixed(4)})`;
+  syncLoop();
 }
-requestAnimationFrame(frame);

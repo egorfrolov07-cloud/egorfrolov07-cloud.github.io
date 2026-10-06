@@ -463,6 +463,7 @@ loader.load('model/CarConcept.gltf', async (gltf) => {
   resize();
   ready = true;
   readyAt = performance.now();
+  syncLoop();
   emit('ready', { snaps });
 }, undefined, () => emit('error'));
 
@@ -558,13 +559,20 @@ const right = new THREE.Vector3(), upV = new THREE.Vector3(), proj = new THREE.V
 let headRight = 0;
 const meterB = $('[data-explode]'), meterBar = $('.parts__meter > i > i');
 const clock = new THREE.Clock();
+let raf = 0;
+
+function syncLoop() {
+  if (!ready || document.hidden || scrollY > endY) {
+    if (raf) cancelAnimationFrame(raf);
+    raf = 0;
+  } else if (!raf) raf = requestAnimationFrame(frame);
+}
 
 function frame() {
-  requestAnimationFrame(frame);
+  raf = 0;
+  if (!ready || document.hidden || scrollY > endY) return;
   const dt = Math.min(clock.getDelta(), 0.05);
-  if (!ready || document.hidden) return;
   const y = scrollY;
-  if (y > endY) return; /* сцену закрыли плотные секции — не рисуем */
   const W = innerWidth, H = innerHeight;
 
   /* появление: полоса света проходит слева направо, потом загораются фары */
@@ -651,6 +659,7 @@ function frame() {
 
   R.render(scene, camera);
   placeLabels(W, H, pr);
+  syncLoop();
 }
 
 /* подписи: точка у детали, текст — в стороне; подписи одной стороны не налезают друг на друга */
@@ -696,9 +705,10 @@ function resize() {
   const head = $('.parts__head');
   headRight = head ? head.getBoundingClientRect().right : 0;
 }
-addEventListener('resize', resize);
+addEventListener('resize', () => { resize(); syncLoop(); });
+addEventListener('scroll', syncLoop, { passive: true });
+document.addEventListener('visibilitychange', syncLoop);
 addEventListener('load', () => ready && buildAnchors());
 document.fonts && document.fonts.ready.then(() => ready && buildAnchors());
 A.relayout = () => ready && buildAnchors();
 resize();
-requestAnimationFrame(frame);

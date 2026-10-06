@@ -338,13 +338,13 @@ em { font-style: italic; }
 .parallax { overflow: hidden; }
 .parallax img { height: 118%; margin-top: -9%; will-change: transform; }
 
-/* Параллакс средствами браузера: класс .sda ставит main.js, если есть animation-timeline.
+/* Параллакс средствами браузера: класс .sda ставит main.js, если есть animation-timeline. 1ms — Firefox без длительности такие анимации не применяет.
    Двигаем свойством translate — оно складывается с transform, который GSAP задаёт при раскрытии фото */
 .sda .hero { view-timeline: --hero block; }
-.sda .hero__media { animation: hero-media linear both; animation-timeline: --hero; animation-range: exit 0% exit 100%; }
-.sda .hero__title { animation: hero-title linear both; animation-timeline: --hero; animation-range: exit 0% exit 100%; }
+.sda .hero__media { animation: hero-media 1ms linear both; animation-timeline: --hero; animation-range: exit 0% exit 100%; }
+.sda .hero__title { animation: hero-title 1ms linear both; animation-timeline: --hero; animation-range: exit 0% exit 100%; }
 .sda .parallax { view-timeline: --parallax block; }
-.sda .parallax img { animation: parallax linear both; animation-timeline: --parallax; }
+.sda .parallax img { animation: parallax 1ms linear both; animation-timeline: --parallax; }
 @keyframes hero-media { to { translate: 0 22%; } }
 @keyframes hero-title { to { translate: 0 -30%; opacity: .2; } }
 @keyframes parallax { from { translate: 0 -7%; } to { translate: 0 7%; } }
@@ -551,7 +551,8 @@ em { font-style: italic; }
 
 /* ---------- 07 показ ---------- */
 
-.visit { position: relative; overflow: hidden; padding: clamp(110px, 14vw, 200px) 0; color: #f3efe6; }
+/* clip, а не hidden: hidden делает блок контейнером прокрутки, и параллакс фото внутри (view-timeline) перестаёт двигаться */
+.visit { position: relative; overflow: hidden; overflow: clip; padding: clamp(110px, 14vw, 200px) 0; color: #f3efe6; }
 .visit__media { position: absolute; inset: 0; }
 .visit__media img { height: 118%; margin-top: -9%; }
 .visit__shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8, 9, 8, .88) 0%, rgba(8, 9, 8, .6) 55%, rgba(8, 9, 8, .45) 100%); }

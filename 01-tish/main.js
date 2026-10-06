@@ -117,6 +117,10 @@
 
   gsap.registerPlugin(ScrollTrigger);
   var ease = 'expo.out';
+  /* Параллакс от прокрутки браузер умеет считать сам (CSS animation-timeline: Chrome, Safari 26+).
+     Тогда он идёт вместе со скроллом и на iPhone не дёргается; GSAP — только там, где этого нет */
+  var SDA = !!(window.CSS && CSS.supports('animation-timeline: view()'));
+  root.classList.toggle('sda', SDA);
 
   /* ---------- подготовка текста ---------- */
 
@@ -171,14 +175,16 @@
 
   /* ---------- hero на скролле ---------- */
 
-  gsap.to('.hero__media', {
-    yPercent: 22, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-  });
-  gsap.to('.hero__title', {
-    yPercent: -30, autoAlpha: .2, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-  });
+  if (!SDA) {
+    gsap.to('.hero__media', {
+      yPercent: 22, ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+    gsap.to('.hero__title', {
+      yPercent: -30, autoAlpha: .2, ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+  }
 
   /* ---------- шапка: прячется при скролле вниз ---------- */
 
@@ -233,7 +239,7 @@
 
   /* ---------- параллакс ---------- */
 
-  $$('.parallax').forEach(function (box) {
+  if (!SDA) $$('.parallax').forEach(function (box) {
     var img = $('img', box);
     gsap.fromTo(img, { yPercent: -7 }, {
       yPercent: 7, ease: 'none',

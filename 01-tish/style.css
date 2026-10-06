@@ -220,7 +220,8 @@ em { font-style: italic; }
   position: relative; height: 100vh; height: 100svh; min-height: 560px;
   overflow: hidden; color: #f3efe6;
 }
-.hero__media { position: absolute; inset: 0; }
+/* свой слой: параллакс двигает фото, не перерисовывая весь первый экран */
+.hero__media { position: absolute; inset: 0; will-change: transform; }
 .hero__media img { transform-origin: 50% 60%; }
 .hero__shade {
   position: absolute; inset: 0;
@@ -254,10 +255,11 @@ em { font-style: italic; }
 }
 .scroll-hint i { position: relative; width: 1px; height: 46px; background: rgba(243, 239, 230, .25); overflow: hidden; }
 .scroll-hint i::after {
-  content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: #f3efe6;
-  animation: drip 2.2s var(--ease-io) infinite;
+  content: ""; position: absolute; left: 0; top: 0; width: 1px; height: 40%; background: #f3efe6;
+  transform: translateY(-100%); animation: drip 2.2s var(--ease-io) infinite;
 }
-@keyframes drip { to { top: 100%; } }
+/* transform, а не top: анимация top перерисовывала весь первый экран с фото на каждом кадре */
+@keyframes drip { to { transform: translateY(250%); } }
 
 @media (max-width: 720px) {
   .hero__media img { object-position: 28% 50%; }

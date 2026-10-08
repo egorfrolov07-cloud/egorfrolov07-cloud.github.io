@@ -1,4 +1,4 @@
-/* CHINGATE — главная: рентген X-RAY, панель покупки, лукбук, каталог */
+/* CHINGATE — главная: сканер X-RAY, блок покупки, лукбук, каталог с быстрым выбором размера */
 (function () {
   'use strict';
   var CG = window.CG, $ = CG.$, $$ = CG.$$, RM = CG.RM;
@@ -23,51 +23,27 @@
   ];
 
   CG.ready.then(function () {
-    stage(CG.model('x-ray-puffer-jacket'));
+    scan(CG.model('x-ray-puffer-jacket'));
     look();
     catalog();
   });
 
-  /* ---------- рентген и покупка ---------- */
-  function stage(model) {
-    var frame = $('[data-lens-area]'), film = $('[data-film]'), img = $('[data-stage-img]'), xray = $('[data-stage-xray]');
-    var toggle = $('[data-xray-toggle]'), hint = $('[data-hint]'), spots = $('[data-spots]');
-    var color = model.colors.filter(function (c) { return c.name === 'белый'; })[0] || model.colors[0];
+  /* ---------- сканер и покупка ---------- */
+  function scan(model) {
+    var section = $('.scan'), img = $('[data-stage-img]'), xray = $('[data-stage-xray]'), notes = $('[data-notes]');
+    var toggle = $('[data-xray-toggle]'), frame = $('[data-scan-frame]');
+    var white = model.colors.filter(function (c) { return c.name === 'белый'; })[0] || model.colors[0];
+    /* снимок всегда по белому: крой у всех цветов один, а прозрачный рипстоп «просвечивается» лучше всего */
+    xray.src = CG.img(white.images[0]);
+    if (RM || !CSS.supports('animation-timeline: view()') || innerHeight <= 560) $('[data-hint]').textContent = 'Нажмите «Весь снимок», чтобы просветить пуховик';
 
-    if (matchMedia('(hover: none)').matches) hint.textContent = 'Нажмите «Рентген» или проведите пальцем по куртке';
-
-    /* линза: следует за указателем мягко, при «уменьшить движение» — сразу */
-    var target = { x: 50, y: 45 }, pos = { x: 50, y: 45 }, scanning = false, raf = 0;
-    function draw() {
-      pos.x += (target.x - pos.x) * (RM ? 1 : 0.22);
-      pos.y += (target.y - pos.y) * (RM ? 1 : 0.22);
-      if (!frame.classList.contains('is-full')) film.style.clipPath = 'circle(' + (scanning ? '22%' : '0%') + ' at ' + pos.x + '% ' + pos.y + '%)';
-      raf = Math.abs(target.x - pos.x) + Math.abs(target.y - pos.y) > 0.1 ? requestAnimationFrame(draw) : 0;
-    }
-    function aim(e) {
-      var r = frame.getBoundingClientRect();
-      target.x = (e.clientX - r.left) / r.width * 100;
-      target.y = (e.clientY - r.top) / r.height * 100;
-      if (!raf) raf = requestAnimationFrame(draw);
-    }
-    frame.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { scanning = true; pos.x = target.x; pos.y = target.y; aim(e); } });
-    frame.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse' || e.buttons) { scanning = true; aim(e); } });
-    frame.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse' && !e.target.closest('.spot, .detail')) { scanning = true; pos.x = target.x = 0; aim(e); pos.x = target.x; pos.y = target.y; } });
-    function release() { scanning = false; if (!raf) raf = requestAnimationFrame(draw); }
-    frame.addEventListener('pointerleave', release);
-    frame.addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse') release(); });
-    frame.addEventListener('pointercancel', release);
-
-    /* кнопка: весь снимок в рентгене — для телефона и клавиатуры */
-    function setFull(on) {
+    toggle.addEventListener('click', function () {
+      var on = toggle.getAttribute('aria-pressed') !== 'true';
       toggle.setAttribute('aria-pressed', on);
-      frame.classList.toggle('is-full', on);
-      film.style.clipPath = on ? 'circle(150% at 50% 45%)' : 'circle(0% at 50% 45%)';
-    }
-    toggle.addEventListener('click', function () { setFull(toggle.getAttribute('aria-pressed') !== 'true'); });
-    $('[data-xray-jump]').addEventListener('click', function () { setTimeout(function () { setFull(true); }, RM ? 0 : 700); });
+      section.classList.toggle('is-full', on);
+    });
 
-    /* точки деталей: макро — то же фото, увеличенное в нужном месте */
+    /* подписи деталей: появляются, когда луч доходит до их высоты; по нажатию — макро и текст */
     var detail = document.createElement('div');
     detail.className = 'detail';
     detail.setAttribute('role', 'region');
@@ -75,14 +51,14 @@
     detail.innerHTML = '<div class="detail__macro"></div><div><p class="detail__title"></p><p class="detail__text"></p></div>';
     frame.append(detail);
     var open = null;
-    SPOTS.forEach(function (s, i) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'spot';
-      b.style.left = s.x + '%';
-      b.style.top = s.y + '%';
-      b.setAttribute('aria-label', s.title);
-      b.setAttribute('aria-expanded', 'false');
+    SPOTS.forEach(function (s) {
+      var li = document.createElement('li');
+      var from = 8 + 74 * s.y / 100 - 1;
+      li.className = 'note' + (s.x > 60 ? ' note--left' : '');
+      li.style.cssText = '--x:' + s.x + '%;--y:' + s.y + '%;--from:' + from + '%;--to:' + (from + 5) + '%';
+      li.innerHTML = '<button class="note__btn" type="button" aria-expanded="false"><span class="note__dot"></span><span class="note__label"></span></button>';
+      var b = $('button', li);
+      $('.note__label', li).textContent = s.title;
       b.addEventListener('click', function () {
         if (open === b) return closeDetail();
         if (open) open.setAttribute('aria-expanded', 'false');
@@ -91,12 +67,12 @@
         $('.detail__title', detail).textContent = s.title;
         $('.detail__text', detail).textContent = s.text;
         var macro = $('.detail__macro', detail);
-        macro.style.backgroundImage = `url(${img.currentSrc})`;
+        macro.style.backgroundImage = `url(${img.currentSrc || img.src})`;
         macro.style.backgroundSize = '420%';
         macro.style.backgroundPosition = s.x + '% ' + s.y + '%';
         detail.classList.add('is-open');
       });
-      spots.append(b);
+      notes.append(li);
     });
     function closeDetail() {
       if (open) open.setAttribute('aria-expanded', 'false');
@@ -105,13 +81,13 @@
     }
     addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDetail(); });
 
-    /* панель покупки — общая (app.js); здесь только фото и рентген при смене цвета */
-    CG.buy($('[data-buy]'), model, color, function (c) {
-      /* смена цвета — короткое затухание, чтобы было видно, что поменялось */
-      if (!RM && window.gsap && img.src) gsap.fromTo([img, xray], { opacity: 0.35 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
-      img.src = xray.src = CG.img(c.images[0]);
+    /* покупка — общая панель (app.js); при смене цвета меняются фото снаружи и в блоке покупки, снимок — нет */
+    var buyImg = $('[data-buy-img]');
+    CG.buy($('[data-buy]'), model, white, function (c) {
+      img.src = CG.img(c.images[0]);
       img.alt = model.name + ', цвет ' + c.name;
-      xray.classList.toggle('is-dark', /черн|зелен/.test(c.name));
+      buyImg.src = CG.img(c.images[1] || c.images[0]);
+      buyImg.alt = model.name + ', цвет ' + c.name + ', другой ракурс';
       $('[data-more]').href = 'product.html?m=' + model.key + '&c=' + model.colors.indexOf(c);
       closeDetail();
     });
@@ -133,7 +109,7 @@
       var m = f.key && CG.model(f.key);
       var fig = document.createElement('figure');
       fig.className = 'frame';
-      fig.innerHTML = '<img loading="lazy" decoding="async" alt="" width="900" height="1200"><figcaption></figcaption>';
+      fig.innerHTML = '<div class="frame__img"><img loading="lazy" decoding="async" alt="" width="900" height="1200"></div><figcaption></figcaption>';
       $('img', fig).src = f.src;
       $('img', fig).alt = f.alt;
       var cap = $('figcaption', fig);
@@ -147,41 +123,68 @@
     });
   }
 
-  /* ---------- каталог: одна карточка на модель, цвета — точками ---------- */
+  /* ---------- каталог: одна карточка на модель; цвет и «Размер» — отдельные кнопки, не внутри ссылки ---------- */
   function catalog() {
-    var grid = $('[data-grid]'), chips = $('[data-chips]');
+    var grid = $('[data-grid]'), chips = $('[data-chips]'), count = $('[data-count]');
     var cats = ['Все'].concat(CG.models.map(function (m) { return m.category; }).filter(function (c, i, a) { return a.indexOf(c) === i; }));
     cats.forEach(function (c, i) {
+      var n = CG.models.filter(function (m) { return c === 'Все' || m.category === c; }).length;
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'chip';
-      b.textContent = c;
+      b.innerHTML = c + ' <small>' + n + '</small>';
       b.setAttribute('aria-pressed', i === 0);
       b.addEventListener('click', function () {
         $$('.chip', chips).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
         show(c);
+        /* к началу сетки, если она ушла вверх */
+        if (CG.lenis) CG.lenis.resize();
+        if ($('.catalog').getBoundingClientRect().top < 0) CG.scrollTo($('.catalog'));
       });
       chips.append(b);
     });
+
+    function card(m) {
+      var li = document.createElement('li');
+      li.className = 'card';
+      li.innerHTML = '<a class="card__link"><div class="card__img"><img class="card__a" loading="lazy" decoding="async" alt="" width="1100" height="1100"><img class="card__b" loading="lazy" decoding="async" alt="" width="1100" height="1100"></div><p class="card__name"></p></a>' +
+        '<div class="card__row"><p class="card__price"></p><button class="card__add" type="button">Размер</button></div><div class="card__colors" role="group"></div><p class="card__note"></p>';
+      $('.card__name', li).textContent = m.name;
+      $('.card__add', li).setAttribute('aria-label', 'Выбрать размер: ' + m.name);
+      $('.card__colors', li).setAttribute('aria-label', 'Цвет: ' + m.name);
+      var current;
+      function set(c) {
+        current = c;
+        $('.card__link', li).href = 'product.html?m=' + m.key + '&c=' + m.colors.indexOf(c);
+        $('.card__a', li).src = CG.img(c.images[0]);
+        $('.card__a', li).alt = m.name + ', ' + c.name;
+        var second = CG.img(c.images[1] || '');
+        $('.card__b', li).src = second || CG.img(c.images[0]);
+        li.classList.toggle('has-b', !!second);
+        $('.card__price', li).textContent = CG.rub(CG.price(c));
+        $('.card__note', li).textContent = !CG.hasStock(c) ? 'Нет в наличии' : c.preorder.enabled ? 'Предзаказ' : '';
+        $('.card__add', li).disabled = !CG.hasStock(c);
+        $$('.card__color', li).forEach(function (b, i) { b.setAttribute('aria-pressed', m.colors[i] === c); });
+      }
+      if (m.colors.length > 1) m.colors.forEach(function (c) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'card__color';
+        b.style.setProperty('--c', CG.swatch(c.name));
+        b.setAttribute('aria-label', c.name);
+        b.addEventListener('click', function () { set(c); });
+        $('.card__colors', li).append(b);
+      });
+      $('.card__add', li).addEventListener('click', function (e) { CG.quick(m, current, e.currentTarget); });
+      set(m.colors.filter(CG.hasStock)[0] || m.colors[0]);
+      return li;
+    }
+
     function show(cat) {
       grid.innerHTML = '';
-      CG.models.filter(function (m) { return cat === 'Все' || m.category === cat; }).forEach(function (m) {
-        var lead = m.colors.filter(CG.hasStock)[0] || m.colors[0];
-        var li = document.createElement('li');
-        li.className = 'card';
-        li.innerHTML = '<a><div class="card__img"><img loading="lazy" decoding="async" alt="" width="1100" height="1100"></div><div class="card__dots"></div><p class="card__name"></p><p class="card__price"></p><p class="card__note"></p></a>';
-        $('a', li).href = 'product.html?m=' + m.key + '&c=' + m.colors.indexOf(lead);
-        $('img', li).src = CG.img(lead.images[0]);
-        $('img', li).alt = m.name;
-        $('.card__name', li).textContent = m.name;
-        $('.card__price', li).textContent = CG.rub(CG.price(lead));
-        var dots = $('.card__dots', li);
-        m.colors.forEach(function (c) { var i = document.createElement('i'); i.style.setProperty('--c', CG.swatch(c.name)); i.title = c.name; dots.append(i); });
-        dots.setAttribute('aria-label', 'Цвета: ' + m.colors.map(function (c) { return c.name; }).join(', '));
-        var any = m.colors.some(CG.hasStock), allPre = m.colors.every(function (c) { return c.preorder.enabled; });
-        $('.card__note', li).textContent = !any ? 'Нет в наличии' : allPre ? 'Предзаказ' : '';
-        grid.append(li);
-      });
+      var list = CG.models.filter(function (m) { return cat === 'Все' || m.category === cat; });
+      list.forEach(function (m) { grid.append(card(m)); });
+      count.textContent = 'Показано моделей: ' + list.length;
     }
     show('Все');
   }

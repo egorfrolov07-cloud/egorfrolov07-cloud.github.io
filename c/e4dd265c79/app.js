@@ -158,7 +158,8 @@
     save(); render();
     CG.toast('Добавили в корзину: ' + item.name + ', ' + item.size);
   };
-  function behind(on) { CG.$$('body > *').forEach(function (el) { if (el !== drawer && el.tagName !== 'SCRIPT') el.inert = on; }); }
+  /* пока открыт диалог (корзина или выбор размера), страница под ним недоступна с клавиатуры и для экранного диктора */
+  function behind(on, keep) { keep = keep || drawer; CG.$$('body > *').forEach(function (el) { if (el !== keep && el.tagName !== 'SCRIPT') el.inert = on; }); }
   function open() {
     lastFocus = document.activeElement;
     drawer.hidden = false;
@@ -180,6 +181,46 @@
   addEventListener('keydown', function (e) { if (e.key === 'Escape' && !drawer.hidden) close(); });
   render();
 
+  /* ---------- быстрый выбор размера из каталога: снизу на телефоне, по центру на компьютере ---------- */
+  var sheet = CG.$('[data-sheet]'), sheetFrom = null;
+  CG.quick = function (model, color, opener) {
+    sheetFrom = opener;
+    CG.$('[data-sheet-title]').textContent = model.name;
+    CG.$('[data-sheet-meta]').textContent = color.name + ' · ' + CG.rub(CG.price(color)) + (CG.shipping(model, color) ? '. ' + CG.shipping(model, color) : '');
+    var box = CG.$('[data-sheet-sizes]');
+    box.innerHTML = '';
+    color.sizes.forEach(function (s) {
+      var label = s.size ? s.size.replace(/-предзаказ/i, '') : 'Один размер';
+      var pre = /предзаказ/i.test(s.size || '') || (color.preorder.enabled && !s.available);
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'size';
+      b.innerHTML = label + (pre ? '<small>предзаказ</small>' : '');
+      b.disabled = !s.available && !pre;
+      b.addEventListener('click', function () {
+        CG.add({ variantId: s.variantId, name: model.name, color: color.name, size: s.size ? label : 'один размер', price: s.priceRub, img: CG.img(color.images[0]) });
+        closeSheet();
+      });
+      box.append(b);
+    });
+    sheet.hidden = false;
+    behind(true, sheet);
+    if (CG.lenis) CG.lenis.stop();
+    requestAnimationFrame(function () { sheet.classList.add('is-open'); });
+    (box.querySelector('.size:not(:disabled)') || CG.$('[data-sheet-close]')).focus();
+  };
+  function closeSheet() {
+    sheet.classList.remove('is-open');
+    behind(false, sheet);
+    if (CG.lenis) CG.lenis.start();
+    setTimeout(function () { sheet.hidden = true; }, RM ? 0 : 220);
+    if (sheetFrom) sheetFrom.focus();
+  }
+  if (sheet) {
+    CG.$$('[data-sheet-close]').forEach(function (b) { b.addEventListener('click', closeSheet); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sheet.hidden) closeSheet(); });
+  }
+
   var toast = CG.$('[data-toast]'), toastTimer;
   CG.toast = function (text) {
     toast.textContent = text;
@@ -194,7 +235,8 @@
     (function raf(t) { CG.lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
   }
   CG.scrollTo = function (target) {
-    if (CG.lenis) CG.lenis.scrollTo(target, { offset: -8, duration: 1.1 });
+    /* отступ на высоту закреплённой шапки, чтобы она не закрывала начало раздела */
+    if (CG.lenis) CG.lenis.scrollTo(target, { offset: -64, duration: 1.1 });
     else target.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' });
   };
   CG.$$('a[href^="#"]').forEach(function (a) {

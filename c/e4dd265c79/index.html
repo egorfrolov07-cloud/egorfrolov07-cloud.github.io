@@ -40,28 +40,35 @@
       <h1 class="hero__title">X-RAY</h1>
       <p class="hero__lead">Пуховик из прозрачного европейского рипстопа. Прошит в три слоя, держит до −30.</p>
       <div class="hero__actions">
-        <a class="btn btn--light" href="#xray">Выбрать цвет и размер</a>
+        <a class="btn btn--light" href="#buy">Выбрать цвет и размер</a>
         <a class="btn btn--ghost" href="#xray" data-xray-jump>Посмотреть насквозь</a>
       </div>
     </div>
   </section>
 
-  <!-- рентген: главный момент сайта -->
-  <section class="stage" id="xray" aria-labelledby="stage-title">
-    <div class="stage__view" data-stage>
-      <div class="stage__frame" data-lens-area>
-        <img class="stage__img" data-stage-img alt="" width="1100" height="1100">
-        <div class="stage__film" data-film aria-hidden="true">
-          <img class="stage__img stage__img--xray" data-stage-xray alt="" width="1100" height="1100">
+  <!-- сканер: блок закреплён, пока его листают; луч сверху вниз открывает рентген, подписи деталей появляются по пути -->
+  <section class="scan" id="xray" aria-labelledby="scan-title">
+    <div class="scan__stage">
+      <div class="scan__dark" aria-hidden="true"></div>
+      <div class="scan__head">
+        <h2 class="scan__title" id="scan-title">X-RAY изнутри</h2>
+        <p class="scan__hint" data-hint>Листайте — луч просветит пуховик</p>
+      </div>
+      <div class="scan__frame" data-scan-frame>
+        <div class="scan__clip">
+          <img class="stage__img" data-stage-img alt="" width="1100" height="1100">
+          <div class="scan__film" data-film aria-hidden="true">
+            <img class="stage__img stage__img--xray" data-stage-xray alt="" width="1100" height="1100">
+          </div>
         </div>
-        <div class="stage__spots" data-spots></div>
+        <ul class="scan__notes" data-notes></ul>
       </div>
-      <div class="stage__tools">
-        <button class="toggle" type="button" aria-pressed="false" data-xray-toggle>Рентген</button>
-        <p class="stage__hint" data-hint>Наведите на куртку, чтобы увидеть её устройство</p>
-      </div>
+      <button class="toggle scan__toggle" type="button" aria-pressed="false" data-xray-toggle>Весь снимок</button>
     </div>
+  </section>
 
+  <section class="stage" id="buy" aria-labelledby="stage-title">
+    <figure class="stage__photo"><img data-buy-img alt="" width="1100" height="1100" loading="lazy" decoding="async"></figure>
     <div class="buy" data-buy>
       <h2 class="buy__name" id="stage-title" data-name>X-RAY PUFFER JACKET</h2>
       <p class="buy__price" data-price></p>
@@ -86,10 +93,9 @@
   </section>
 
   <section class="catalog" id="catalog" aria-labelledby="catalog-title">
-    <div class="catalog__head">
-      <h2 class="catalog__title" id="catalog-title">Каталог</h2>
-      <div class="chips" role="group" aria-label="Категории" data-chips></div>
-    </div>
+    <h2 class="catalog__title" id="catalog-title">Каталог</h2>
+    <div class="chips" role="group" aria-label="Категории" data-chips></div>
+    <p class="catalog__count" data-count aria-live="polite"></p>
     <ul class="grid" data-grid></ul>
   </section>
 </main>
@@ -119,6 +125,18 @@
       <p class="drawer__note">Это концепт: заказ оформляется в настоящем магазине.</p>
     </div>
   </aside>
+</div>
+
+<div class="sheet" data-sheet hidden>
+  <div class="sheet__shade" data-sheet-close></div>
+  <div class="sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet__head">
+      <div><h2 class="sheet__title" id="sheet-title" data-sheet-title></h2><p class="sheet__meta" data-sheet-meta></p></div>
+      <button class="drawer__close" type="button" data-sheet-close aria-label="Закрыть выбор размера">Закрыть</button>
+    </div>
+    <div class="sizes" data-sheet-sizes></div>
+    <p class="sheet__hint">Нажмите на размер — вещь сразу попадёт в корзину.</p>
+  </div>
 </div>
 
 <p class="toast" role="status" aria-live="polite" data-toast></p>

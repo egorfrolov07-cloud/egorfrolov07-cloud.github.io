@@ -70,33 +70,84 @@ legend { padding: 0; }
 .hero__lead { max-width: 32ch; margin-top: 18px; font-size: clamp(17px, 2vw, 21px); line-height: 1.4; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 
-/* рентген */
-.stage { display: grid; gap: 28px; padding: 56px var(--pad) 72px; scroll-margin-top: 56px; }
-.stage__frame { position: relative; aspect-ratio: 1 / 1; background: var(--ripstop); overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+/* ---------- сканер X-RAY ----------
+   Секция выше экрана, сцена внутри закреплена. Пока сцену листают (диапазон contain),
+   луч идёт сверху вниз и открывает снимок, фон темнеет до «плёнки», подписи деталей появляются по пути. */
+.scan { position: relative; height: 210svh; background: var(--fog); view-timeline: --scan block; scroll-margin-top: 0; }
+.scan__stage { position: sticky; top: 0; height: 100svh; display: grid; grid-template-rows: auto auto auto; align-content: center; justify-items: center; align-items: center; gap: 14px; padding: 76px var(--pad) max(20px, env(safe-area-inset-bottom)); overflow: hidden; }
+.scan__dark { position: absolute; inset: 0; background: var(--film); opacity: 0; }
+.scan__head, .scan__frame, .scan__toggle { position: relative; }
+.scan__head { text-align: center; color: var(--ink); }
+.scan__title { font-size: clamp(30px, 6vw, 64px); font-weight: 800; font-style: oblique 12deg; line-height: 1; letter-spacing: -.02em; }
+.scan__hint { margin-top: 8px; font-size: 14px; opacity: .7; }
+.scan__frame { width: min(100%, 62svh, 720px); aspect-ratio: 1 / 1; }
 .stage__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
-/* белый фон предметной съёмки растворяется в цвете рамки, чёрный фон негатива — в синеве плёнки */
-.stage__img--xray { mix-blend-mode: screen; }
-/* «плёнка»: тот же снимок в негативе, видна только внутри круга-линзы или целиком по кнопке */
-.stage__film { position: absolute; inset: 0; background: var(--film); clip-path: circle(0 at var(--lx, 50%) var(--ly, 50%)); }
-.stage__film .stage__img--xray { filter: grayscale(1) invert(1) contrast(1.55) brightness(1.05) sepia(.3) hue-rotate(170deg) saturate(1.5); }
-.stage__film .stage__img--xray.is-dark { filter: grayscale(1) brightness(2.4) contrast(1.7) sepia(.3) hue-rotate(170deg) saturate(1.5); }
-.stage__frame.is-scanning .stage__film { clip-path: circle(var(--lr, 22%) at var(--lx, 50%) var(--ly, 50%)); }
-.stage__frame.is-full .stage__film { clip-path: circle(150% at var(--lx, 50%) var(--ly, 50%)); transition: clip-path .7s var(--ease-wipe); }
-.stage__frame.is-closing .stage__film { transition: clip-path .35s var(--ease-out); }
-.stage__tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 14px; }
-.toggle { min-height: 44px; padding: 0 18px; border: 1px solid var(--ink); border-radius: 99px; background: transparent; cursor: pointer; transition: background-color .2s var(--ease-out), color .2s var(--ease-out); }
-.toggle[aria-pressed='true'] { background: var(--film); border-color: var(--film); color: var(--glow); }
-.stage__hint { font-size: 14px; color: var(--sand); }
+/* снимок открывается только сдвигами (transform — считает видеокарта): «плёнка» съезжает сверху,
+   снимок внутри едет навстречу и стоит на месте; нижний край плёнки — луч.
+   Белый фон съёмки растворяется в фоне, чёрный фон негатива — в синеве плёнки. */
+/* рамка — светлая, как негатоскоп в рентген-кабинете: на ней обычное фото видно и в тёмной комнате */
+.scan__clip { position: absolute; inset: 0; overflow: hidden; background: var(--ripstop); box-shadow: 0 0 0 1px rgba(214, 236, 255, .14), 0 30px 80px rgba(0, 0, 0, .35); }
+.scan__film { position: absolute; inset: 0; overflow: hidden; background: var(--film); transform: translateY(-100%); }
+.scan__film .stage__img--xray { mix-blend-mode: screen; transform: translateY(100%); filter: grayscale(1) invert(1) contrast(1.55) brightness(1.05) sepia(.3) hue-rotate(170deg) saturate(1.5); }
+.scan__film::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--glow); box-shadow: 0 0 16px 3px rgba(150, 210, 255, .6); }
+.scan.is-full .scan__film, .scan.is-full .scan__film .stage__img--xray { transform: none; animation: none; }
+.scan.is-full .scan__film::after { display: none; }
+.scan.is-full .note, .note:focus-within { opacity: 1 !important; }
+.toggle { min-height: 44px; padding: 0 18px; border: 1px solid currentColor; border-radius: 99px; background: transparent; color: inherit; cursor: pointer; transition: background-color .2s var(--ease-out), color .2s var(--ease-out); }
+.scan__toggle { color: var(--ink); }
+.toggle[aria-pressed='true'] { background: var(--glow); border-color: var(--glow); color: var(--film); }
 
-/* точки деталей на куртке: крупная область касания, видимая точка внутри */
-.spot { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; }
-.spot::before { content: ''; position: absolute; inset: 14px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, .55), 0 0 0 6px rgba(255, 255, 255, .32); transition: transform .2s var(--ease-out); }
-.spot:hover::before, .spot[aria-expanded='true']::before { transform: scale(1.25); }
-.detail { position: absolute; z-index: 2; left: 12px; right: 12px; bottom: 12px; display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; padding: 10px; background: rgba(255, 255, 255, .94); box-shadow: 0 10px 30px rgba(0, 0, 0, .14); opacity: 0; transform: translateY(8px); filter: blur(4px); pointer-events: none; transition: opacity .2s var(--ease-out), transform .2s var(--ease-out), filter .2s var(--ease-out); }
+/* подписи деталей: точка на вещи и ярлык; появляются, когда до них доходит луч */
+.scan__notes { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; }
+.note { position: absolute; left: var(--x); top: var(--y); opacity: 0; }
+.note__btn { display: flex; align-items: center; gap: 8px; min-height: 44px; margin: -22px 0 0 -9px; padding: 0 10px 0 0; border: 0; background: none; cursor: pointer; }
+.note--left .note__btn { flex-direction: row-reverse; margin-left: auto; transform: translateX(calc(-100% + 18px)); padding: 0 0 0 10px; }
+.note__dot { flex: none; width: 18px; height: 18px; border-radius: 50%; background: var(--glow); box-shadow: 0 0 0 1px rgba(0, 0, 0, .4), 0 0 0 5px rgba(214, 236, 255, .3); }
+.note__label { max-width: min(11em, 36vw); padding: 5px 10px; border-radius: 2px; background: rgba(255, 255, 255, .94); color: #000; font-size: 13px; line-height: 1.2; text-align: left; }
+.note__btn:hover .note__label, .note__btn[aria-expanded='true'] .note__label { background: var(--glow); }
+
+/* карточка детали: макро-фрагмент того же фото и две строки */
+.detail { position: absolute; z-index: 2; left: 8px; right: 8px; bottom: 8px; display: grid; grid-template-columns: 88px 1fr; gap: 12px; align-items: center; padding: 10px; background: rgba(255, 255, 255, .96); box-shadow: 0 10px 30px rgba(0, 0, 0, .2); opacity: 0; transform: translateY(8px); filter: blur(4px); pointer-events: none; transition: opacity .2s var(--ease-out), transform .2s var(--ease-out), filter .2s var(--ease-out); }
 .detail.is-open { opacity: 1; transform: none; filter: none; pointer-events: auto; transition-duration: .35s; }
-.detail__macro { width: 96px; height: 96px; background-color: var(--ripstop); background-repeat: no-repeat; }
+.detail__macro { width: 88px; height: 88px; background-color: var(--ripstop); background-repeat: no-repeat; }
 .detail__title { font-weight: 600; }
 .detail__text { margin-top: 2px; font-size: 14px; line-height: 1.4; color: var(--sand); }
+
+@supports (animation-timeline: view()) {
+  .scan__film { animation: scan-film 1ms linear both; animation-timeline: --scan; animation-range: contain 8% contain 82%; }
+  .scan__film .stage__img--xray { animation: scan-film-in 1ms linear both; animation-timeline: --scan; animation-range: contain 8% contain 82%; }
+  .scan__dark { animation: scan-dark 1ms linear both; animation-timeline: --scan; animation-range: contain 0% contain 12%; }
+  .scan__head, .scan__toggle { animation: scan-ink 1ms linear both; animation-timeline: --scan; animation-range: contain 0% contain 12%; }
+  .note { animation: note 1ms linear both; animation-timeline: --scan; animation-range: contain var(--from) contain var(--to); }
+}
+@keyframes scan-film { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+@keyframes scan-film-in { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .frame__img img { animation: frame-par 1ms linear both; animation-timeline: view(inline); }
+  }
+}
+@keyframes frame-par { from { transform: translateX(5%); } to { transform: translateX(-5%); } }
+/* без scroll-driven animations и на низких экранах — статичный блок: без закрепления, снимок по кнопке, подписи видны */
+@supports not (animation-timeline: view()) {
+  .scan { height: auto; }
+  .scan__stage { position: relative; height: auto; }
+  .note { opacity: 1; }
+}
+@media (max-height: 560px) {
+  .scan { height: auto; }
+  .scan__stage { position: relative; height: auto; }
+  .scan__film, .scan__film .stage__img--xray, .scan__dark, .scan__head, .scan__toggle, .note { animation: none !important; }
+  .note { opacity: 1; }
+}
+@keyframes scan-dark { to { opacity: 1; } }
+@keyframes scan-ink { to { color: #fff; } }
+@keyframes note { from { opacity: 0; translate: 0 6px; } to { opacity: 1; translate: 0 0; } }
+
+/* блок покупки после сканера */
+.stage { display: grid; gap: 24px; padding: 56px var(--pad) 72px; scroll-margin-top: 64px; }
+.stage__photo { margin: 0; background: var(--ripstop); }
+.stage__photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; mix-blend-mode: multiply; }
 
 /* панель покупки */
 .buy { align-self: start; }
@@ -122,28 +173,53 @@ legend { padding: 0; }
 .look__track { display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 460px); gap: 12px; margin-top: 24px; padding: 0 var(--pad); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--pad); scrollbar-width: none; }
 .look__track::-webkit-scrollbar { display: none; }
 .frame { scroll-snap-align: start; margin: 0; }
-.frame img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #c9ccc6; }
+/* фото внутри рамки чуть шире её — при листании оно сдвигается медленнее рамки (параллакс, как у Horizon) */
+.frame__img { aspect-ratio: 3 / 4; overflow: hidden; overflow: clip; background: #c9ccc6; }
+.frame__img img { width: 112%; max-width: none; height: 100%; margin-left: -6%; object-fit: cover; }
 .frame figcaption { margin-top: 10px; font-size: 14px; }
 .frame figcaption a { text-underline-offset: 3px; }
 
 /* каталог */
 .catalog { padding: 0 var(--pad) 88px; scroll-margin-top: 56px; }
-.catalog__head { display: grid; gap: 18px; }
+/* строка категорий прилипает под шапкой — переключать можно из любого места сетки */
+.catalog__count { margin-top: 6px; font-size: 13px; color: var(--sand); }
 .catalog__title { padding: 0; }
-.chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--pad) * -1); padding: 0 var(--pad); }
+.chips { position: sticky; top: 56px; z-index: 10; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 14px calc(var(--pad) * -1) 0; padding: 10px var(--pad); background: rgba(221, 224, 218, .94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .chips::-webkit-scrollbar { display: none; }
-.chip { flex: none; min-height: 40px; padding: 0 16px; border: 1px solid rgba(0, 0, 0, .25); border-radius: 99px; background: transparent; cursor: pointer; }
+.chip small { margin-left: 4px; font-size: 12px; opacity: .6; }
+.chip { flex: none; min-height: 44px; padding: 0 16px; border: 1px solid rgba(0, 0, 0, .25); border-radius: 99px; background: transparent; cursor: pointer; }
 .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: #fff; }
 .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 12px; margin: 26px 0 0; padding: 0; list-style: none; }
-.card a { display: block; text-decoration: none; }
-.card__img { aspect-ratio: 4 / 5; background: var(--ripstop); overflow: hidden; }
-.card__img img { width: 100%; height: 100%; object-fit: contain; transition: transform .4s var(--ease-out); }
-.card a:hover .card__img img { transform: scale(1.03); }
-.card__dots { display: flex; gap: 5px; margin-top: 10px; }
-.card__dots i { width: 12px; height: 12px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); }
-.card__name { margin-top: 8px; font-size: 14px; font-weight: 600; line-height: 1.25; }
-.card__price { margin-top: 4px; font-size: 14px; font-variant-numeric: tabular-nums; }
-.card__note { margin-top: 2px; font-size: 13px; color: var(--sand); }
+.card__link { display: block; text-decoration: none; }
+.card__img { position: relative; aspect-ratio: 4 / 5; background: var(--ripstop); overflow: hidden; }
+.card__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+/* второе фото — при наведении, только там, где есть мышь */
+.card__b { opacity: 0; transition: opacity .25s var(--ease-out); }
+@media (hover: hover) { .card.has-b .card__link:hover .card__b { opacity: 1; } }
+.card__name { margin-top: 10px; font-size: 14px; font-weight: 600; line-height: 1.25; }
+.card__row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 2px; }
+.card__price { font-size: 14px; font-variant-numeric: tabular-nums; }
+.card__add { min-height: 36px; padding: 0 12px; border: 1px solid rgba(0, 0, 0, .3); border-radius: 99px; background: transparent; font-size: 13px; cursor: pointer; }
+.card__add:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+.card__add:disabled { opacity: .4; cursor: not-allowed; background: transparent; color: inherit; }
+/* кружки цвета: видимая точка 14 px, область касания 32 px */
+.card__colors { display: flex; flex-wrap: wrap; margin: 4px 0 0 -9px; }
+.card__color { width: 32px; height: 32px; padding: 0; border: 0; background: none; cursor: pointer; }
+.card__color::before { content: ''; display: block; width: 14px; height: 14px; margin: auto; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); }
+.card__color[aria-pressed='true']::before { box-shadow: 0 0 0 2px var(--fog), 0 0 0 3px var(--ink); }
+.card__note { font-size: 13px; color: var(--sand); }
+
+/* быстрый выбор размера */
+.sheet { position: fixed; inset: 0; z-index: 55; display: flex; align-items: flex-end; justify-content: center; }
+.sheet[hidden] { display: none; }
+.sheet__shade { position: absolute; inset: 0; background: rgba(0, 0, 0, .35); opacity: 0; transition: opacity .25s var(--ease-out); }
+.sheet__panel { position: relative; width: min(480px, 100%); padding: 16px var(--pad) max(18px, env(safe-area-inset-bottom)); background: var(--fog); transform: translateY(100%); transition: transform .3s var(--ease-out); }
+.sheet.is-open .sheet__shade { opacity: 1; }
+.sheet.is-open .sheet__panel { transform: none; }
+.sheet__head { display: flex; justify-content: space-between; align-items: start; gap: 12px; margin-bottom: 14px; }
+.sheet__title { font-size: 18px; font-weight: 800; font-style: oblique 12deg; line-height: 1.1; }
+.sheet__meta { margin-top: 4px; font-size: 13px; color: var(--sand); }
+.sheet__hint { margin-top: 12px; font-size: 13px; color: var(--sand); }
 
 /* подвал */
 .foot { display: grid; gap: 20px; padding: 48px var(--pad) max(48px, env(safe-area-inset-bottom)); background: var(--ink); color: #fff; }
@@ -183,12 +259,14 @@ legend { padding: 0; }
   .hdr__logo { width: 64px; }
   .hero__text { display: grid; grid-template-columns: 1fr minmax(300px, 380px); align-items: end; gap: 0 48px; padding-bottom: 48px; }
   .hero__title { grid-row: span 2; }
-  .stage { grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 56px; padding-top: 88px; padding-bottom: 104px; }
+  .stage { grid-template-columns: minmax(0, 1fr) minmax(320px, 420px); align-items: start; gap: 56px; padding-top: 88px; padding-bottom: 104px; }
   .buy { position: sticky; top: 96px; }
-  .detail { left: auto; width: 360px; }
+  .detail { left: auto; width: 340px; }
   .grid { grid-template-columns: repeat(4, 1fr); gap: 40px 20px; }
-  .catalog__head { grid-template-columns: auto 1fr; align-items: end; gap: 32px; }
-  .chips { margin: 0; padding: 0; justify-content: flex-end; flex-wrap: wrap; }
+  .chips { top: 64px; }
+  .sheet { align-items: center; }
+  .sheet__panel { transform: translateY(16px); opacity: 0; transition: transform .25s var(--ease-out), opacity .25s var(--ease-out); }
+  .sheet.is-open .sheet__panel { opacity: 1; }
   .look__track { grid-auto-columns: 380px; }
   .foot { grid-template-columns: auto 1fr; align-items: start; }
   .foot__note { grid-column: 2; }
@@ -196,6 +274,10 @@ legend { padding: 0; }
 
 /* «уменьшить движение»: всё меняется сразу, без анимации */
 @media (prefers-reduced-motion: reduce) {
+  .scan { height: auto; }
+  .scan__stage { position: relative; height: auto; }
+  .scan__film, .scan__film .stage__img--xray, .scan__dark, .scan__head, .scan__toggle, .note { animation: none !important; }
+  .note { opacity: 1; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; }
 }
 
@@ -212,7 +294,6 @@ legend { padding: 0; }
 .bar[hidden] { display: none; }
 .bar__text { font-size: 14px; line-height: 1.25; }
 .bar__text b { display: block; }
-.card__img img { mix-blend-mode: multiply; }
 
 @media (min-width: 900px) {
   .pdp { grid-template-columns: minmax(0, 1.3fr) minmax(320px, .7fr); gap: 56px; padding: 32px var(--pad) 104px; }

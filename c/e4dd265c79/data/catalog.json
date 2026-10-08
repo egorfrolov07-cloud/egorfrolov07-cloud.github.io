@@ -1,0 +1,2569 @@
+{
+  "snapshot": {
+    "source": "Публичный каталог chingate.store: products-limit-100.json и categories.json",
+    "takenAt": "2026-10-08",
+    "note": "снимок, не актуальные остатки"
+  },
+  "models": [
+    {
+      "key": "x-ray-puffer-jacket",
+      "name": "X-RAY PUFFER JACKET",
+      "category": "Пуховики",
+      "facts": [
+        "Для данного пуховика была подобрана и заказана из Европы прозрачная водоотталкивающая ткань рип-стоп плетения в 5 цветах.",
+        "Прошили их в 3 слоя, чтобы наполнитель не лез наружу и точно обезопасить вас от промокания.",
+        "На съёмном капюшоне располагается шерстяной козырек с нанесением логотипа бренда, который можно легко отстегнуть. Держится на кнопках и защищает ваше лицо от попадания снега и ветра.",
+        "По классике, все молнии и кнопки выполнены в форме нашего логотипа из окисленного металла. А также на пуховке присутствуют фиксаторы на поясе для регулировки ширины.",
+        "Плотность наполнения 600 гр",
+        "В пуховике используется искусственный наполнитель, выдерживающий температуру до -30 градусов.",
+        "бежевый, зеленый, белый, серый: Отправка через 5-8 недель.",
+        "Отсчет от 21.09",
+        "Рост модели М - 186 L",
+        "Рост модели Ж - 172 S",
+        "черный: Отправка 1-5 дней, кроме размера XL",
+        "черный: Размеры XL доступны только для предзаказа",
+        "черный: Срок отправки предзаказа 5-8 недель"
+      ],
+      "colors": [
+        {
+          "name": "бежевый",
+          "productId": "b135b32f-1dfe-4c22-84bf-65801df8efc8",
+          "images": [
+            "/api/product-images/523e5909-670b-4448-9650-37becd415047.webp",
+            "/api/product-images/84a8b430-ed0b-4b11-8651-a114a8bceb57.webp",
+            "/api/product-images/50acdc2a-0b13-48f6-867e-3724251f98ae.webp",
+            "/api/product-images/484214f3-8b6d-438b-af41-f3b96953ad63.webp",
+            "/api/product-images/33bebf3e-e4d4-4ef8-90ad-d56ab6f9c6b9.webp",
+            "/api/product-images/d6b9c31b-00bc-4074-a321-a3a49a28b6a2.webp",
+            "/api/product-images/51d0c457-8a1b-4c07-978c-60cfffafce76.webp",
+            "/api/product-images/2ab4a7c5-9d22-472f-8ffd-60da08db3a7e.webp"
+          ],
+          "preorder": {
+            "enabled": true,
+            "shippingText": "Отправка через 5-8 недель.; Отсчет от 21.09",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "daba316e-b755-48c4-bc56-d79bc0091364",
+              "priceRub": 14990,
+              "available": 17
+            },
+            {
+              "size": "M",
+              "variantId": "21e5ccee-c276-4cdd-ae9c-fb9f0f44c0ed",
+              "priceRub": 14990,
+              "available": 19
+            },
+            {
+              "size": "L",
+              "variantId": "90a433a7-f3ec-4ae3-8aa6-1c23c1a8130f",
+              "priceRub": 14990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "89b495cf-bfcf-4361-b787-ab7fe1aafa83",
+              "priceRub": 14990,
+              "available": 9
+            }
+          ]
+        },
+        {
+          "name": "зеленый",
+          "productId": "0ba29f9f-fbc5-40f2-8c90-39fbd5c55f53",
+          "images": [
+            "/api/product-images/0ff07b36-458d-4403-9b51-d86e9cb6ed4c.webp",
+            "/api/product-images/c56a1d05-b258-412a-ae19-3f159ebf31df.webp",
+            "/api/product-images/dd600530-7f29-4793-93dd-d22de19d194d.webp",
+            "/api/product-images/24a38633-a1a0-4058-91a7-52a0aa36ac3e.webp",
+            "/api/product-images/91a1c5c6-edef-4445-83c9-3cc1487479fa.webp",
+            "/api/product-images/a16daedb-dcd1-49aa-bd0e-dcb31907ac52.webp",
+            "/api/product-images/a2375c1c-39e0-40be-8546-45cab4149d15.webp",
+            "/api/product-images/cda0dc52-bacc-4e8f-ba2b-f12534c81b38.webp"
+          ],
+          "preorder": {
+            "enabled": true,
+            "shippingText": "Отправка через 5-8 недель.; Отсчет от 21.09",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "b0f5900a-e87b-4c55-8f7a-3e504b61e0b2",
+              "priceRub": 14990,
+              "available": 8
+            },
+            {
+              "size": "M",
+              "variantId": "2f0dbc27-8e91-4d6c-8e83-c32ffcd74b24",
+              "priceRub": 14990,
+              "available": 29
+            },
+            {
+              "size": "L",
+              "variantId": "efed0126-8da1-4b1f-a876-a06a86209145",
+              "priceRub": 14990,
+              "available": 9
+            },
+            {
+              "size": "XL",
+              "variantId": "125d7256-25a9-44de-87c7-cd77ec88f7ed",
+              "priceRub": 14990,
+              "available": 12
+            }
+          ]
+        },
+        {
+          "name": "белый",
+          "productId": "7a7274f9-8915-48cb-825f-d76ca1e50cfe",
+          "images": [
+            "/api/product-images/8298387a-ef5c-4be4-80b1-4315f7422703.webp",
+            "/api/product-images/9a989c5e-5c24-47e2-91bb-dd5bcbde6111.webp",
+            "/api/product-images/69afa334-56df-4d05-a6fe-f73afd7b64f0.webp",
+            "/api/product-images/38bcbeb7-404b-4182-9615-358537d83f06.webp",
+            "/api/product-images/00b03f65-6b5d-4148-b512-60df5ac43202.webp",
+            "/api/product-images/53e69889-b852-47ce-9a5e-c96d90f69b2f.webp",
+            "/api/product-images/dcf9882e-0de6-40df-a10e-4b2c6099cc43.webp",
+            "/api/product-images/f4017f52-711c-4294-8ab8-88c41d430c7a.webp",
+            "/api/product-images/de9d2421-0f4c-4ace-b4cb-1bc45028619f.webp",
+            "/api/product-images/aeb60c2b-a307-481f-a131-fd1e45d45198.webp"
+          ],
+          "preorder": {
+            "enabled": true,
+            "shippingText": "Отправка через 5-8 недель.; Отсчет от 21.09",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "3b48c230-78da-4a68-958f-bd71f14ee656",
+              "priceRub": 14990,
+              "available": 14
+            },
+            {
+              "size": "M",
+              "variantId": "958740ce-6ed2-42ca-bd65-2df9c9acc457",
+              "priceRub": 14990,
+              "available": 29
+            },
+            {
+              "size": "L",
+              "variantId": "42f2de9f-dabc-4668-b7f6-f961d5d518ec",
+              "priceRub": 14990,
+              "available": 1
+            },
+            {
+              "size": "XL",
+              "variantId": "3be70f17-4b1b-4798-9e79-6be6e8d96e43",
+              "priceRub": 14990,
+              "available": 11
+            }
+          ]
+        },
+        {
+          "name": "серый",
+          "productId": "c1f99c12-469a-4f8f-a339-5e24b57e7333",
+          "images": [
+            "/api/product-images/1447a979-a16f-4e9e-ae6d-c6da9b6239a4.webp",
+            "/api/product-images/fb15de7e-8e50-4c69-8be0-299fbcf22252.webp",
+            "/api/product-images/d53e28b5-b7cd-4d84-a8ae-4b1edd444332.webp",
+            "/api/product-images/b16f3a76-6f13-4146-aa48-f6ba49e45c85.webp",
+            "/api/product-images/052446f8-2b73-4e62-adef-96f5825f41b6.webp",
+            "/api/product-images/0d17b9e4-f8b7-4498-98b0-3fda9bb9abf6.webp",
+            "/api/product-images/57354ba1-ca67-44a5-b1b0-22874b23fde8.webp",
+            "/api/product-images/092165c7-efdc-4684-b416-8d526069a571.webp"
+          ],
+          "preorder": {
+            "enabled": true,
+            "shippingText": "Отправка через 5-8 недель.; Отсчет от 21.09",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "65fe4c2c-cbac-4e3b-baf6-225bb6270d3b",
+              "priceRub": 14990,
+              "available": 4
+            },
+            {
+              "size": "M",
+              "variantId": "fcba5ccd-fe28-4559-b822-3d60262b8ed0",
+              "priceRub": 14990,
+              "available": 4
+            },
+            {
+              "size": "L",
+              "variantId": "eb8ee822-5de2-457a-bf6c-f2c417bcf7fc",
+              "priceRub": 14990,
+              "available": 12
+            },
+            {
+              "size": "XL",
+              "variantId": "cbb111a4-1afd-4077-90b2-962df1485e76",
+              "priceRub": 14990,
+              "available": 5
+            }
+          ]
+        },
+        {
+          "name": "черный",
+          "productId": "015745fe-6948-461f-b65b-1c61cc710d52",
+          "images": [
+            "/api/product-images/276d95b3-8d0e-419d-bb46-d2421ab9a462.webp",
+            "/api/product-images/34578b97-0e6e-4236-be93-a045ab56cd6a.webp",
+            "/api/product-images/eff6422c-0388-4194-b548-0f54c28247e8.webp",
+            "/api/product-images/f76ba81c-f634-461d-ae76-f0ff85f94e56.webp",
+            "/api/product-images/2c853bc7-e9b2-407f-8a3a-43a3888e3da2.webp",
+            "/api/product-images/17851c25-ab16-4145-b5fe-21cbcd267372.webp",
+            "/api/product-images/785d547a-8b69-4ad4-852c-8cc96e2dc204.webp",
+            "/api/product-images/a4182fa6-282e-44de-9875-befc0d58419e.webp",
+            "/api/product-images/02206eb0-faba-4237-bac4-290c273799b2.webp",
+            "/api/product-images/97e9fa15-8ddb-4a78-afdc-06365401f1e9.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "Отправка 1-5 дней, кроме размера XL; Размеры XL доступны только для предзаказа; Срок отправки предзаказа 5-8 недель; Отсчет от 21.09",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "201f99e6-45c9-4583-a7e6-f1ea35e2f5dd",
+              "priceRub": 14990,
+              "available": 7
+            },
+            {
+              "size": "M",
+              "variantId": "11521dae-ba6d-49cb-9874-9330a77a8ee5",
+              "priceRub": 14990,
+              "available": 5
+            },
+            {
+              "size": "L",
+              "variantId": "e2f88011-4c06-4cfe-811e-2f75f344656a",
+              "priceRub": 14990,
+              "available": 5
+            },
+            {
+              "size": "XL-предзаказ",
+              "variantId": "53f37f26-3563-4ab4-ab1b-27a90fbf6449",
+              "priceRub": 14990,
+              "available": 29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "baza-puffer-jacket",
+      "name": "BAZA PUFFER JACKET",
+      "category": "Пуховики",
+      "facts": [
+        "Пуховик выполнен из тонкой водоотталкивающей ткани рипстоп плетения, за счёт которой пуховик является прочным. Две из пяти расцветок этого пуховика являются прозрачными.",
+        "Рост модели М - 186 L",
+        "Рост модели Ж - 172 S",
+        "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ"
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "cf18b566-82e4-4949-88ca-9f570ed3f3a4",
+          "images": [
+            "/api/product-images/244adf37-1179-47b6-b464-7c352568934f.webp",
+            "/api/product-images/e3493e5a-b305-4cd3-aa42-7b17ad1d2fed.webp",
+            "/api/product-images/604ed641-76dd-4416-8fb0-cd0358f1171d.webp",
+            "/api/product-images/5c5134da-e1ae-4826-9f4e-f8f7faf7b4de.webp",
+            "/api/product-images/8f72f976-7293-4a1e-91e5-128a16300bc7.webp",
+            "/api/product-images/3abae5bd-f8f8-4311-963d-354e7e65691e.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "40c3d879-5301-4193-b95d-18eb1e3211a6",
+              "priceRub": 12990,
+              "available": 27
+            },
+            {
+              "size": "M",
+              "variantId": "bb15bdcb-82a6-43d9-bb9d-c80f9e53143f",
+              "priceRub": 12990,
+              "available": 46
+            },
+            {
+              "size": "L",
+              "variantId": "4de425d4-7ca2-4351-9c07-cf61ed616d3a",
+              "priceRub": 12990,
+              "available": 56
+            },
+            {
+              "size": "XL",
+              "variantId": "a6067669-6998-4037-af52-25f1adfc97cc",
+              "priceRub": 12990,
+              "available": 22
+            }
+          ]
+        },
+        {
+          "name": "синий",
+          "productId": "669c73a9-a2cb-4a23-9ad3-77c5a8cb1c34",
+          "images": [
+            "/api/product-images/b7696bba-c6d3-428c-8a1d-a85c42e30abf.webp",
+            "/api/product-images/cf664b0d-29cd-4f60-98a3-089538515bd1.webp",
+            "/api/product-images/57357f8a-50e4-4aba-ac02-ecf5b1edaed0.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "8a187956-bd21-4264-b294-93f330505dbb",
+              "priceRub": 12990,
+              "available": 6
+            },
+            {
+              "size": "M",
+              "variantId": "b5523f98-7444-44dd-a459-86923e8a1703",
+              "priceRub": 12990,
+              "available": 17
+            },
+            {
+              "size": "L",
+              "variantId": "c93d44f6-affd-437c-998e-976ef9e2734a",
+              "priceRub": 12990,
+              "available": 24
+            },
+            {
+              "size": "XL",
+              "variantId": "1c59910a-ceaa-449a-9e81-b8452563024b",
+              "priceRub": 12990,
+              "available": 19
+            }
+          ]
+        },
+        {
+          "name": "бордовый",
+          "productId": "ff092319-b5e7-439e-b250-0dc48f401445",
+          "images": [
+            "/api/product-images/8d14eeab-7651-41c7-94e6-b87ab53ff771.webp",
+            "/api/product-images/4e15a11a-6a85-4df6-8c16-898232078662.webp",
+            "/api/product-images/e54bd050-a932-4bd4-8bbe-df1ead8c4ee5.webp",
+            "/api/product-images/a0d46527-7a13-46c5-8316-346e1597b71d.webp",
+            "/api/product-images/95a454e5-d49d-4487-b4f6-3a1ca15a3b18.webp",
+            "/api/product-images/7ce66af4-62a3-41ec-99aa-322aa1d5d8a3.webp",
+            "/api/product-images/55715d62-0937-4270-8341-9e8f956b2662.webp",
+            "/api/product-images/af116ad0-7f55-486f-acde-6ab3193cb525.webp",
+            "/api/product-images/7a77bcff-fe9f-4287-9aba-0e9f058b3421.webp",
+            "/api/product-images/48b68b27-f0d8-4c18-8895-218c77efd956.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "0bc9a878-dd0b-495b-b64a-e33b58b25fe9",
+              "priceRub": 12990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "de0dda53-a219-47b0-8d58-e60b0dd18cc6",
+              "priceRub": 12990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "19a4a1f9-4702-4035-af84-925f3b8c23b6",
+              "priceRub": 12990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "04cf4701-e0a8-4ab7-aa35-a5b25338ecea",
+              "priceRub": 12990,
+              "available": 2
+            }
+          ]
+        },
+        {
+          "name": "скай блу",
+          "productId": "e4958c66-9ad0-43c3-bc8b-eb89a841824e",
+          "images": [
+            "/api/product-images/31e6aac1-bef7-411d-8994-d74f51c5224e.webp",
+            "/api/product-images/49d0134d-19cf-40b3-a7d0-b57c644bdf18.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "8ca3cc7b-a528-4f20-b815-cf7f4017b333",
+              "priceRub": 12990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "b01a4f61-0f40-45ae-8b9c-189dcc06e018",
+              "priceRub": 12990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "f84e2c04-0884-4ab1-b99a-6c3c2f3a9c7b",
+              "priceRub": 12990,
+              "available": 9
+            },
+            {
+              "size": "XL",
+              "variantId": "b8441e07-56ec-4b9e-a2cb-354aa969c250",
+              "priceRub": 12990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "белый",
+          "productId": "fa3605d8-808e-4cfe-9a37-7b0f50802161",
+          "images": [
+            "/api/product-images/fd71598b-c638-4c6c-b596-e0720d653435.webp",
+            "/api/product-images/a4003377-9342-4974-83f4-97d754144e9d.webp",
+            "/api/product-images/7705bf28-17e9-4cbe-931c-a6eda94176a0.webp",
+            "/api/product-images/acfdac28-2449-4c09-9248-23042c77d479.webp",
+            "/api/product-images/5e90617b-93f4-48c0-bcba-e8956db994fe.webp",
+            "/api/product-images/81189695-e78f-49d6-8a90-bd572683985c.webp",
+            "/api/product-images/1038b57a-e403-4110-b847-1b8fe4de66f7.webp",
+            "/api/product-images/f241a403-66c7-458f-9303-7466e470a263.webp",
+            "/api/product-images/b2291c63-957c-4a07-88fc-5c7955b018cb.webp",
+            "/api/product-images/65118f4e-81ff-42a8-9c9c-7608a019ac4a.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "b68476ca-d57d-4c16-b20e-82fcc713af95",
+              "priceRub": 12990,
+              "available": 1
+            },
+            {
+              "size": "M",
+              "variantId": "6f784f7e-b1fd-4166-b612-9d25717956c2",
+              "priceRub": 12990,
+              "available": 20
+            },
+            {
+              "size": "L",
+              "variantId": "3bf857ea-dcfd-4088-8a1a-2cdf5b6d3282",
+              "priceRub": 12990,
+              "available": 22
+            },
+            {
+              "size": "XL",
+              "variantId": "0a13b767-b7f0-47c7-807f-7014656740fa",
+              "priceRub": 12990,
+              "available": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dublya-double-sided-jacket",
+      "name": "DUBLYA DOUBLE-SIDED JACKET",
+      "category": "Куртки",
+      "facts": [
+        "Вашему вниманию представлена двусторонняя дубленка из зимней капсулы.",
+        "Премиальная искусственная кожа с ручным нанесением пигмента",
+        "Премиальная искусственная овчина",
+        "Рост модели М - 186 L",
+        "Рост модели Ж - 172 S",
+        "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ"
+      ],
+      "colors": [
+        {
+          "name": "черно-бежевый",
+          "productId": "08031f34-50a1-4589-b610-1b945b6f7fa8",
+          "images": [
+            "/api/product-images/0bef52b6-9bb0-4977-9e36-d5584320ad1d.webp",
+            "/api/product-images/df3ea518-0686-461a-a183-818a70dd175b.webp",
+            "/api/product-images/987727ab-751b-4e37-a3bf-7b3a6d79df2f.webp",
+            "/api/product-images/b49162ee-892a-450c-95fa-28329c68b7c1.webp",
+            "/api/product-images/adbfed90-5732-48d3-852d-519c4e1e5885.webp",
+            "/api/product-images/66400ca4-b6ef-4f16-85c7-c70ac8b5186f.webp",
+            "/api/product-images/5c870556-9bd3-4b14-9ff1-37654cf9567d.webp",
+            "/api/product-images/7647fbd0-982b-4a65-b432-76718bf7f820.webp",
+            "/api/product-images/1a2b46a9-5278-478d-b03c-044bbcc38917.webp",
+            "/api/product-images/9c6c2b3b-8e98-4365-b003-56cebfaae6c7.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "e1daa04f-b764-40b1-9c92-b68a7ed81077",
+              "priceRub": 14990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "1e015598-6df1-455c-9f5d-5423a82590bf",
+              "priceRub": 14990,
+              "available": 23
+            },
+            {
+              "size": "L",
+              "variantId": "0369c74f-00bd-46bf-a8f5-308b6adc96b2",
+              "priceRub": 14990,
+              "available": 33
+            },
+            {
+              "size": "XL",
+              "variantId": "146c213e-74a6-4a50-8b2d-865961dda08f",
+              "priceRub": 14990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "zamsha-shoulder-bag",
+      "name": "ZAMSHA SHOULDER BAG",
+      "category": "Сумки",
+      "facts": [
+        "Вашему вниманию представлена сумка, выполненная из двух видов натуральной кожи Итальянского происхождения.",
+        "Коровья кожа Личи в комбинации с замшей",
+        "Тиснение монограммы бренда на замше",
+        "Комбинированный ремень из ткани и кожи Личи.",
+        "черный: Отправка через 5-8 недель.",
+        "черный: Отсчет от 19.09.2026",
+        "синий, зеленый: Срок отправки 5-8 недель.",
+        "синий, зеленый: Отсчет от 19.09"
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "28ce91e3-a22a-46bd-99a1-bb9f79f8b9db",
+          "images": [
+            "/api/product-images/80bcdcd3-fc99-4da9-b420-0ffa0424ff19.webp",
+            "/api/product-images/3650576c-e5ca-4358-bbaa-6d320576e84d.webp"
+          ],
+          "preorder": {
+            "enabled": true,
+            "shippingText": "Отправка через 5-8 недель.; Отсчет от 19.09.2026",
+            "startDate": "2026-09-19"
+          },
+          "sizes": [
+            {
+              "size": "one size",
+              "variantId": "5d8a7585-6ee5-43b4-a2a9-bffd3487a61c",
+              "priceRub": 9990,
+              "available": 314
+            }
+          ]
+        },
+        {
+          "name": "синий",
+          "productId": "31e59883-380b-473c-9d04-8497c579225a",
+          "images": [
+            "/api/product-images/c745e23c-4e3e-4151-8727-08431cd1ecae.webp",
+            "/api/product-images/57d135f4-fb14-4d15-a7fa-9950eda9237b.webp"
+          ],
+          "preorder": {
+            "enabled": true,
+            "shippingText": "Срок отправки 5-8 недель.; Отсчет от 19.09",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": null,
+              "variantId": "ffde643f-8512-4658-ab10-6fc6831c6ed1",
+              "priceRub": 9990,
+              "available": 27
+            }
+          ]
+        },
+        {
+          "name": "зеленый",
+          "productId": "d28ab987-c1ba-45f8-9b0a-453f50b43797",
+          "images": [
+            "/api/product-images/94ed818c-8c67-4185-a8ad-a62b9c9e6cbe.webp",
+            "/api/product-images/cc2a0209-f839-4fb0-8d06-1e0da4f78dfe.webp"
+          ],
+          "preorder": {
+            "enabled": true,
+            "shippingText": "Срок отправки 5-8 недель.; Отсчет от 19.09",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "one size",
+              "variantId": "841480f7-bce6-4573-8e64-f4aa7fdab9b2",
+              "priceRub": 9990,
+              "available": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "logo-bag",
+      "name": "LOGO BAG",
+      "category": "Сумки",
+      "facts": [
+        "Сумка из премиальной искусственной кожи.",
+        "черный: Отправка 1-3 дня",
+        "белый, серый: Отправка 1-3 дня."
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "63afc6ad-1f65-461e-872b-467d4899b2ab",
+          "images": [
+            "/api/product-images/9327e088-409f-4003-8cd6-21a09dff499e.webp",
+            "/api/product-images/ef29acb5-dda2-4aeb-9c9c-7cc6827c6296.webp",
+            "/api/product-images/27898b4a-92e4-437e-bb1c-7d9ee64ff765.webp",
+            "/api/product-images/5db5d121-68cb-40d9-8e57-4bbefc3fa922.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "Отправка 1-3 дня",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": null,
+              "variantId": "9648d2ca-d968-41d2-a08d-ef85d7ca9c41",
+              "priceRub": 7990,
+              "available": 444
+            }
+          ]
+        },
+        {
+          "name": "белый",
+          "productId": "d8d15486-e94a-4058-8bd5-9b6fca48ed49",
+          "images": [
+            "/api/product-images/58912864-e2e7-4cfc-bbe5-12b41cbb0e14.webp",
+            "/api/product-images/4ba7be5e-ec0b-4da1-bfeb-d41b75aafd19.webp",
+            "/api/product-images/9c8ba170-829f-4184-be43-c08834d1b1c8.webp",
+            "/api/product-images/8b0ecc99-1d9c-447f-9be7-ab1f3aee2451.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "Отправка 1-3 дня.",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": null,
+              "variantId": "65c94105-9945-436e-98be-d2126aed24cf",
+              "priceRub": 7990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "серый",
+          "productId": "2659bd08-a098-4b2d-a4b4-2d1593a754fd",
+          "images": [
+            "/api/product-images/68d061df-8454-4b9f-84db-238eeeff4c3b.webp",
+            "/api/product-images/8e609f90-afb5-4bcb-8edb-730e56294537.webp",
+            "/api/product-images/1521c043-5226-4fa2-bdbe-f8aec1f73499.webp",
+            "/api/product-images/114decae-fec9-484c-8f3f-ed6eb782e452.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "Отправка 1-3 дня.",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": null,
+              "variantId": "686caf0e-17a6-4f7a-b281-c86d2d1de42e",
+              "priceRub": 7990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "o-u-linen-pants",
+      "name": "O.U. LINEN PANTS",
+      "category": "Штаны",
+      "facts": [
+        "51% лён",
+        "49% хлопок",
+        "Хлопковые плотные шнурки",
+        "Кожаная бирка с отверстием под шнурки"
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "c8465f77-fab0-4594-a973-e607db973e08",
+          "images": [
+            "/api/product-images/4799c30a-2564-4f65-b689-7f40d1a3b099.webp",
+            "/api/product-images/8fe1de0f-6387-4e20-8eb3-35110dfb63d8.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "ac67b25a-683e-4cb2-a272-aaca5f99837e",
+              "priceRub": 7990,
+              "available": 4
+            },
+            {
+              "size": "M",
+              "variantId": "582a64d0-c344-4339-b02e-5201f8658e4a",
+              "priceRub": 7990,
+              "available": 2
+            },
+            {
+              "size": "L",
+              "variantId": "29f2a87b-82d4-4feb-ab61-262c6bac37a5",
+              "priceRub": 7990,
+              "available": 11
+            },
+            {
+              "size": "XL",
+              "variantId": "dc0fc6af-c520-4845-8ebe-c70f20f5894d",
+              "priceRub": 7990,
+              "available": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "baza-cotton-shorts",
+      "name": "BAZA COTTON SHORTS",
+      "category": "Шорты",
+      "facts": [
+        "Шорты из 100% хлопка",
+        "шнурок из 100% хлопка",
+        "Широкие шорты из 100% хлопка"
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "b91feb3f-80c8-4979-8ae7-9421555af4e7",
+          "images": [
+            "/api/product-images/90b6c73d-00ec-4399-9787-54de8c6b0c5c.webp",
+            "/api/product-images/5fedd856-cbeb-48b8-bf20-a7c311ae0b27.webp",
+            "/api/product-images/8414b4a9-c2cd-4470-8643-e44416a20ec8.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "721dd3d5-fb58-4868-9cf6-3cd9f210a53d",
+              "priceRub": 2990,
+              "available": 14
+            },
+            {
+              "size": "M",
+              "variantId": "6e4bd62e-ab6c-49ab-9572-ed5c367ae721",
+              "priceRub": 2990,
+              "available": 21
+            },
+            {
+              "size": "L",
+              "variantId": "3769a1d4-8878-4299-aa99-aa45a9683f86",
+              "priceRub": 2990,
+              "available": 30
+            },
+            {
+              "size": "XL",
+              "variantId": "e1b1abfe-580c-4393-82cc-30e36c6265f8",
+              "priceRub": 2990,
+              "available": 20
+            }
+          ]
+        },
+        {
+          "name": "серый",
+          "productId": "43b4a58d-9cf5-4ad3-8805-fe04a371b7fa",
+          "images": [
+            "/api/product-images/9fd86302-96d4-41fc-96ee-e908ddf98658.webp",
+            "/api/product-images/02e4c987-2f09-4612-8d83-39bf4330bb8d.webp",
+            "/api/product-images/6109ec9a-ecae-46af-9ad4-e75973134d55.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "f17cedf2-2e64-4e4f-909b-8f22bbd4aa1d",
+              "priceRub": 2990,
+              "available": 9
+            },
+            {
+              "size": "M",
+              "variantId": "319a07a5-ede5-41ed-8479-0cf0f2325c20",
+              "priceRub": 2990,
+              "available": 8
+            },
+            {
+              "size": "L",
+              "variantId": "72a5bf55-27c7-45c6-b49f-2291fb219038",
+              "priceRub": 2990,
+              "available": 18
+            },
+            {
+              "size": "XL",
+              "variantId": "e909c807-aa4d-474c-a028-f0443064525d",
+              "priceRub": 2990,
+              "available": 13
+            }
+          ]
+        },
+        {
+          "name": "синий",
+          "productId": "5712258e-7962-4e0b-aa7b-25541f821615",
+          "images": [
+            "/api/product-images/2ca00d5c-04b0-4fd0-8667-0ca3dc191fa9.webp",
+            "/api/product-images/4abf7166-9923-48d3-8b7c-3319619af731.webp",
+            "/api/product-images/70689061-d0ef-4cf1-9898-106bf8bb35df.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "913317f2-bf12-4a80-9a14-ded4e7e71143",
+              "priceRub": 2990,
+              "available": 7
+            },
+            {
+              "size": "M",
+              "variantId": "6c13f72e-d18c-4aee-b78b-075a21dd352b",
+              "priceRub": 2990,
+              "available": 2
+            },
+            {
+              "size": "L",
+              "variantId": "996e1b91-632d-4320-a3d5-4e88f853444e",
+              "priceRub": 2990,
+              "available": 10
+            },
+            {
+              "size": "XL",
+              "variantId": "ec70e071-d40a-4ad6-80d4-5c74bdafde88",
+              "priceRub": 2990,
+              "available": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "washed-cotton-shorts",
+      "name": "WASHED COTTON SHORTS",
+      "category": "Шорты",
+      "facts": [
+        "Шорты из 100% вареного хлопка по технологии Acid Washed",
+        "шнурок из 100% хлопка"
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "51db9fae-b4b6-4fce-9a30-be4f5b18a774",
+          "images": [
+            "/api/product-images/91441a85-107f-4cdf-ade4-58d5f7343068.webp",
+            "/api/product-images/cfd6002c-d9dd-4332-9c24-ec678355efae.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "d177ac49-b9fd-42f7-8b93-f7e88fd97fca",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "4f2150bf-5d31-4081-8859-388403af0712",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "87652b71-b056-47ea-adf0-0140ff10f031",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "78798de1-a085-432e-af16-a8a028d77d2b",
+              "priceRub": 2990,
+              "available": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "washed-cotton-pants",
+      "name": "WASHED COTTON PANTS",
+      "category": "Штаны",
+      "facts": [
+        "Широкие штаны из 100% вареного хлопка по технологии Acid Washed",
+        "шнурок из 100% хлопка"
+      ],
+      "colors": [
+        {
+          "name": "серо-зеленый",
+          "productId": "e64a4aea-b833-4927-9743-4d76add09c20",
+          "images": [
+            "/api/product-images/22d8a853-8da4-4ec1-88e1-e04a66a11b54.webp",
+            "/api/product-images/30f3bb0d-3479-4453-8168-04dc7b3da0d7.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "ce8049b8-3f91-4dce-8f8a-fb7043fe1155",
+              "priceRub": 5990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "d5c9ab57-3e8d-4ddb-8560-20a42821ab9f",
+              "priceRub": 5990,
+              "available": 1
+            },
+            {
+              "size": "L",
+              "variantId": "4f2a06f0-84e9-4d00-936f-757008df0882",
+              "priceRub": 5990,
+              "available": 2
+            },
+            {
+              "size": "XL",
+              "variantId": "c9b60b8c-af2f-4cab-a1e8-1222bb00aa6c",
+              "priceRub": 5990,
+              "available": 2
+            }
+          ]
+        },
+        {
+          "name": "черный",
+          "productId": "e0962c3e-be3d-4890-8a7a-f9944be03222",
+          "images": [
+            "/api/product-images/2615ee36-55f8-4de2-b0c0-0a25a2f3b2cc.webp",
+            "/api/product-images/19ca647d-72ca-4601-a5dd-94acbe23884a.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "dca2ab71-feb2-48c8-aa6e-74552cc4a67a",
+              "priceRub": 5990,
+              "available": 4
+            },
+            {
+              "size": "M",
+              "variantId": "40515b7c-6dee-4664-ba41-8b01800fb535",
+              "priceRub": 5990,
+              "available": 4
+            },
+            {
+              "size": "L",
+              "variantId": "b430be48-8a96-4d63-855b-c47f7cb3851b",
+              "priceRub": 5990,
+              "available": 8
+            },
+            {
+              "size": "XL",
+              "variantId": "4ae421b5-ea09-447c-8f1d-7eb10fdaec44",
+              "priceRub": 5990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ta-tee",
+      "name": "TA TEE",
+      "category": "Футболки",
+      "facts": [
+        "100% хлопок"
+      ],
+      "colors": [
+        {
+          "name": "белый",
+          "productId": "526adf8e-4510-435e-a0fb-35fa438ec0d8",
+          "images": [
+            "/api/product-images/cbfc2a23-4a23-453c-883f-9ed3a99cb510.webp",
+            "/api/product-images/12e58ebc-424e-4aa0-84cd-d2425552ae48.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "27045864-cc2f-43dc-9640-883d90f203d8",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "3338ee02-11d2-44af-99f7-aea91811c9cf",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "c72c7357-480a-491e-8d98-c1b103011b0a",
+              "priceRub": 2990,
+              "available": 6
+            },
+            {
+              "size": "XL",
+              "variantId": "03da8b30-d3c7-4080-9474-ae2537b748db",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "черный",
+          "productId": "3ea44c85-d509-4c3c-8717-4bc2e65a9c6d",
+          "images": [
+            "/api/product-images/f243eef1-a716-41f2-883b-d16c37dd5e5f.webp",
+            "/api/product-images/a5d37d45-645e-4adc-8eec-40b61efd0158.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "ed2a656e-3d64-4410-ba80-ed8762d62b1d",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "ddf58400-01c0-4a33-9695-e6bdc44e3c93",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "c06c1360-1964-4c36-a404-5be7e1d56e6a",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "7aba602c-be9c-4f4d-9560-fd3143035aa2",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "nozhnici-tee",
+      "name": "NOZHNICI TEE",
+      "category": "Футболки",
+      "facts": [
+        "100% хлопок"
+      ],
+      "colors": [
+        {
+          "name": "серый",
+          "productId": "9a5ec99d-9e7e-4b09-960b-598b8d29cb07",
+          "images": [
+            "/api/product-images/ba967f37-335f-49be-9bbf-62c2a505be5a.webp",
+            "/api/product-images/6139a273-02f8-4a35-8df7-989f427775a6.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "a397aede-1f39-4ae4-8c2e-e5c59fb4135f",
+              "priceRub": 2990,
+              "available": 1
+            },
+            {
+              "size": "M",
+              "variantId": "e97cc356-cbfd-4882-8b78-e71bf15bc616",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "288bf32f-ab6a-450e-931d-2552b5b83d2f",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "8419aae4-856f-403c-888b-7f1a8bd095e9",
+              "priceRub": 2990,
+              "available": 1
+            }
+          ]
+        },
+        {
+          "name": "белый",
+          "productId": "ae1db911-a27d-4234-93eb-4e572da64be9",
+          "images": [
+            "/api/product-images/ea4de1b4-2197-4a28-bbc0-1c1331038af1.webp",
+            "/api/product-images/10e0b134-b971-4657-91f5-ed577ba96ed8.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "1e7d8e47-1032-4f29-a0f5-a941deb87704",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "ae92c160-78ca-4a83-8bb8-1e4b770f73c1",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "c6130503-2c49-4aa6-be41-4be05a60d3dd",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "0aa9a2c0-5d6c-4bbd-8baf-3838eafe9665",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "черный",
+          "productId": "655e672a-89ba-4df8-b819-b1155fac4fe2",
+          "images": [
+            "/api/product-images/b1c75ec3-c08b-4bf5-8bf1-702585eeff70.webp",
+            "/api/product-images/70877124-c8e4-4862-8927-6de9c8200aab.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "58eba456-1147-4b4a-a7b7-8cadc04b2ed9",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "2942aa98-c4e9-42c8-8a4e-73e78795d197",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "6376d352-947b-4ed2-9f1b-50115a6323d3",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "b081e5cc-fd89-466a-abbd-f823d30304a3",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "uzor-tee",
+      "name": "UZOR TEE",
+      "category": "Футболки",
+      "facts": [
+        "100% хлопок"
+      ],
+      "colors": [
+        {
+          "name": "белый",
+          "productId": "3fcc66cf-5393-4a3c-b5b6-1cc0c72723ad",
+          "images": [
+            "/api/product-images/b491863a-f75e-45b1-bb25-a57b82985597.webp",
+            "/api/product-images/2c92705d-729e-45e6-b8bd-5f1b41d9d60f.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "62c7be24-4fd6-4874-ba76-cf1618ba24ed",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "03d05ebc-720c-4847-bb36-bdf278d70305",
+              "priceRub": 2990,
+              "available": 1
+            },
+            {
+              "size": "L",
+              "variantId": "c8bd3511-27b7-4b8e-b172-80ada2d690ae",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "e27a63c8-410f-4243-87ac-9495f8df2fec",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "черный",
+          "productId": "4796447d-4574-473f-a55b-fe2bce68fe96",
+          "images": [
+            "/api/product-images/88364a0f-3897-4297-9dc3-c4070c4f751a.webp",
+            "/api/product-images/b5b42160-8c87-4afd-8a68-62de9e79fa92.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "5a441ace-cc89-4909-9257-427d3074396c",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "bec53b12-491f-4000-a575-68f1295ad6b1",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "a4550839-3a5e-45e2-838e-02d799b2b97e",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "69555b72-b54c-4598-9fd4-555ede2efe0a",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "sin-miedo-tee",
+      "name": "SIN MIEDO TEE",
+      "category": "Футболки",
+      "facts": [
+        "100% хлопок"
+      ],
+      "colors": [
+        {
+          "name": "белый",
+          "productId": "004da12a-9cbf-430d-84a6-0798be4b379a",
+          "images": [
+            "/api/product-images/72dcd611-88ab-4792-a844-fbd2285e8384.webp",
+            "/api/product-images/baca0ad6-a273-465a-ba0e-21cbd12c3b1a.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "57c58ae3-e25b-4f01-ac33-dec6d83d3a29",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "0603464e-f889-4769-91ae-f0ba94901704",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "ee0f12df-ac4f-48f4-b60c-02ad802ffcea",
+              "priceRub": 2990,
+              "available": 3
+            },
+            {
+              "size": "XL",
+              "variantId": "c028f3ae-fffd-406a-8632-de2996f2cc67",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "серый",
+          "productId": "6dcb78d2-e9d7-4dd0-88ed-02c135f7cab7",
+          "images": [
+            "/api/product-images/5752e7eb-1abb-4dc2-a6c2-e55e1114b83d.webp",
+            "/api/product-images/10615948-e6a8-4f17-ac4c-178c49837f20.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "b7d1cd44-e2e9-4604-8f22-c1f2c6887352",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "f10dff04-6f1a-4df9-8b1d-f4307b081ec7",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "33962b13-7197-48a8-af9e-08303a295aa1",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "06329181-cfa3-4e0f-b967-5d26eef1a81a",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "game-tee",
+      "name": "GAME TEE",
+      "category": "Футболки",
+      "facts": [
+        "100% хлопок"
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "ef0f94b1-67af-41c8-b2ed-081bcf181f0e",
+          "images": [
+            "/api/product-images/3045159c-9396-4fce-b6a6-44db154b85e8.webp",
+            "/api/product-images/07f24a71-3f5b-45d3-867b-8f62508d9cb3.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "bbdc21d8-f4ae-4884-bc22-9ac0fe089805",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "e1dec13d-047c-4233-a88c-7e328f519f1b",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "f570553c-0e96-4e4a-b97a-e5b5a2f8b865",
+              "priceRub": 2990,
+              "available": 3
+            },
+            {
+              "size": "XL",
+              "variantId": "b1cdae50-804f-421f-955c-bd51dece1665",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "белый",
+          "productId": "da77395d-07d8-4067-8285-c63100d0ab62",
+          "images": [
+            "/api/product-images/6815917f-82bb-48ac-8264-d3effeddda63.webp",
+            "/api/product-images/d87d0c85-1532-4edb-9346-f447643068d3.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "1a4e1c00-92d4-476a-97e8-e330855936ff",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "30290f25-a5e3-431a-9631-c7df4a6cdbb7",
+              "priceRub": 2990,
+              "available": 4
+            },
+            {
+              "size": "L",
+              "variantId": "84158762-37e7-4b66-a723-b5ce382c2d8d",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "ff13450c-9106-494d-977b-194abcaf60d3",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "came-tee",
+      "name": "CAME TEE",
+      "category": "Футболки",
+      "facts": [
+        "100% хлопок"
+      ],
+      "colors": [
+        {
+          "name": "серый",
+          "productId": "a30d9784-6eac-45f8-b1aa-e254f2e6cedb",
+          "images": [
+            "/api/product-images/182cf147-b88c-40e6-8199-7e37c2834b9e.webp",
+            "/api/product-images/13415854-d4aa-410a-ade6-03acf583b47e.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "65609e9d-4b6c-41b8-80a9-2136dfb0a9ff",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "37058d3c-456b-4fbb-9bee-c3416ab3e5e5",
+              "priceRub": 2990,
+              "available": 2
+            },
+            {
+              "size": "L",
+              "variantId": "1003dd37-4e63-47da-bcb3-cecb4e50639a",
+              "priceRub": 2990,
+              "available": 1
+            },
+            {
+              "size": "XL",
+              "variantId": "8fb7e757-41a0-43c0-a684-665a91d5c81c",
+              "priceRub": 2990,
+              "available": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "stripe-zip-hoodie",
+      "name": "STRIPE ZIP-HOODIE",
+      "category": "Худи",
+      "facts": [
+        "Зип-худи, созданное из плотного 460 гр петлевого 100% хлопка. На руках и груши выполнены нашивки из ручной вышивки строчкой. Худи сварено по технологии garment dyed. Бегунок от молнии выполнен из металла в форме лого бренда."
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "2f775449-7015-40a7-8ba4-7c3ed33246a1",
+          "images": [
+            "/api/product-images/2c4fc217-4320-4a2a-9d04-dd34d1adf7f1.webp",
+            "/api/product-images/dd9ecf24-0e22-48c4-97cb-e771fbddd18a.webp",
+            "/api/product-images/f9dcdb42-48a3-4fb3-9c98-e27f5e01d32b.webp",
+            "/api/product-images/30f094e6-10d7-40cc-bfaf-c74d323d5092.webp",
+            "/api/product-images/bc25f7e3-2ba4-41ee-871e-e90067a3062d.webp",
+            "/api/product-images/3c3ddc3b-a9c5-47f2-99f7-863099fadc2d.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "2e37b025-5b79-4107-ba9b-02e29b4dc26f",
+              "priceRub": 7990,
+              "available": 6
+            },
+            {
+              "size": "M",
+              "variantId": "d3bf905f-f6bd-48cc-b7a6-37a31b6ee904",
+              "priceRub": 7990,
+              "available": 7
+            },
+            {
+              "size": "L",
+              "variantId": "69580c60-719d-4342-a1be-b4bcc606fdbc",
+              "priceRub": 7990,
+              "available": 13
+            },
+            {
+              "size": "XL",
+              "variantId": "cbd55057-f6e2-4169-892c-228c80a1d14b",
+              "priceRub": 7990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "серый",
+          "productId": "4b7ab248-e4d6-4348-9f0d-3a7ea0e3ad80",
+          "images": [
+            "/api/product-images/2b87d610-c133-4bd6-8474-054470004c60.webp",
+            "/api/product-images/47ca7ef1-6c0c-40c5-bb73-c2699fd5498c.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "5143b9c1-f5b1-4807-83d9-e70fa2c4e886",
+              "priceRub": 7990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "eb9debef-7581-4e8e-bb80-a813097f854a",
+              "priceRub": 7990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "41cbd142-700d-4d82-bd53-c81c8533909c",
+              "priceRub": 7990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "f0dc3517-cbfa-4f8b-ba56-60ea028cbeaa",
+              "priceRub": 7990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "desert-jeans",
+      "name": "DESERT JEANS",
+      "category": "Джинсы",
+      "facts": [
+        "Джинсы созданные из корейского денима 100% хлопка плотностью 12 унций. Прямая посадка, необработанный выход и уникальная варка."
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "c4a3d206-19d1-499b-b07b-3a8829611323",
+          "images": [
+            "/api/product-images/dc2dd117-1829-4491-83c9-b2dc407d8d23.webp",
+            "/api/product-images/115a9b18-5c28-43db-9fd0-c7154347ee5f.webp",
+            "/api/product-images/0842819e-4bfe-42c5-b9e5-64f2fb480d87.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "L-34",
+              "variantId": "f7ecff23-d2e9-4188-b471-e3beba6f69d6",
+              "priceRub": 7990,
+              "available": 18
+            },
+            {
+              "size": "S-30",
+              "variantId": "8bc90518-e6ae-444e-8225-caf97327b3cf",
+              "priceRub": 7990,
+              "available": 14
+            },
+            {
+              "size": "XL-36",
+              "variantId": "4a2899bc-3a8f-4218-9ccc-9e3369bccfde",
+              "priceRub": 7990,
+              "available": 17
+            },
+            {
+              "size": "M-32",
+              "variantId": "945867c2-2581-4e91-95d4-3fb485372400",
+              "priceRub": 7990,
+              "available": 10
+            }
+          ]
+        },
+        {
+          "name": "серый",
+          "productId": "e2b5fac1-9f2c-4aaf-a6b3-235289de7184",
+          "images": [
+            "/api/product-images/e5cebdee-8095-4f31-bb0d-2de26eaffd6a.webp",
+            "/api/product-images/40ee6eec-5305-4a7c-b2cc-d922570347e2.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "M-32",
+              "variantId": "c6683e55-e3f5-4034-8a10-278d3340cb0f",
+              "priceRub": 7990,
+              "available": 3
+            },
+            {
+              "size": "XL-36",
+              "variantId": "1e19e0e5-d2b0-4f7d-9b93-29e9096b0729",
+              "priceRub": 7990,
+              "available": 10
+            },
+            {
+              "size": "S-30",
+              "variantId": "62cb9eec-134e-4760-971d-62e0db1913de",
+              "priceRub": 7990,
+              "available": 1
+            },
+            {
+              "size": "L-34",
+              "variantId": "4d9c435a-9b2a-42dc-bce8-a1e42a865336",
+              "priceRub": 7990,
+              "available": 4
+            }
+          ]
+        },
+        {
+          "name": "голубой",
+          "productId": "5faf87ee-a80f-4cd5-8c48-55f6a1597a96",
+          "images": [
+            "/api/product-images/9c8dce62-5d6e-4bbe-9448-4d336da776bd.webp",
+            "/api/product-images/ef3015e2-1c11-4983-9d51-d70387e81132.webp",
+            "/api/product-images/5149867b-32ab-4430-b716-ece14fb1fbf9.webp",
+            "/api/product-images/40c4c526-5e5c-4613-a453-ce30331df34f.webp",
+            "/api/product-images/620bfd38-33f2-4ac3-b972-dd3c2ee50573.webp",
+            "/api/product-images/17d6397a-daa6-4422-b13b-611a16724ac2.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S-30",
+              "variantId": "b2324d89-8d6c-4283-998b-e21f95b20f1c",
+              "priceRub": 7990,
+              "available": 0
+            },
+            {
+              "size": "XL-36",
+              "variantId": "8db154be-1740-4a77-8918-e3c8ff497c5d",
+              "priceRub": 7990,
+              "available": 6
+            },
+            {
+              "size": "M-32",
+              "variantId": "4f049bd5-b495-4401-a3eb-d5c84f246997",
+              "priceRub": 7990,
+              "available": 0
+            },
+            {
+              "size": "L-34",
+              "variantId": "f2c18d1f-7eb4-4148-98bb-f89b3d0b3972",
+              "priceRub": 7990,
+              "available": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "disregard-pants",
+      "name": "DISREGARD PANTS",
+      "category": "Штаны",
+      "facts": [
+        "Изделие выполнено из плотного петлевого хлопка, сваренного по технологии acid washed, за счет чего имеет базовый визуальный эффект с еле заметным принтом.",
+        "На изделие добавлены металлические эглеты и металлический логотип с окислением.",
+        "Изделие выполнено из плотного петлевого хлопка, сваренного по технологии garment dyed, за счет чего имеет базовый визуальный эффект с еле заметным принтом."
+      ],
+      "colors": [
+        {
+          "name": "темно-серый",
+          "productId": "0df3a920-c3d5-4692-ae68-877dd0e68947",
+          "images": [
+            "/api/product-images/53e1794d-a76a-4897-9688-88bf123bf69d.webp",
+            "/api/product-images/c50cf42d-26e1-4475-b290-358ecfeebf56.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "b28a97a4-cf4c-4709-a21d-268bfb6f039e",
+              "priceRub": 5990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "10e5d6f8-ff79-4344-b3c0-c8d10d58c2e9",
+              "priceRub": 5990,
+              "available": 6
+            },
+            {
+              "size": "L",
+              "variantId": "95bbcaa4-b0e3-4ab5-b542-981aae99aac1",
+              "priceRub": 5990,
+              "available": 2
+            },
+            {
+              "size": "XL",
+              "variantId": "9bf4ea62-7057-4925-b6dd-71f54244b41f",
+              "priceRub": 5990,
+              "available": 2
+            }
+          ]
+        },
+        {
+          "name": "светло-серый",
+          "productId": "a7309768-96e0-4fe0-89ec-b43a3fddfea5",
+          "images": [
+            "/api/product-images/23beaaf9-3f5f-42d1-ba68-b0efd64646d0.webp",
+            "/api/product-images/2232e366-ddbf-4dc7-9ba0-b612d959bef7.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "10b9352a-4231-4eb7-9a58-1a4de26e7b4d",
+              "priceRub": 5990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "e4df4795-8c7b-4d66-ae38-57e98d91d0ea",
+              "priceRub": 5990,
+              "available": 15
+            },
+            {
+              "size": "L",
+              "variantId": "7e8c1278-57c1-4e4f-9cbc-f4f00b250cac",
+              "priceRub": 5990,
+              "available": 11
+            },
+            {
+              "size": "XL",
+              "variantId": "8ab73882-7070-428e-be60-3f0c88f8bc68",
+              "priceRub": 5990,
+              "available": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "disregard-hoodie",
+      "name": "DISREGARD HOODIE",
+      "category": "Худи",
+      "facts": [
+        "Изделие выполнено из плотного петлевого хлопка, сваренного по технологии garment dyed, за счет чего имеет базовый визуальный эффект с еле заметным принтом.",
+        "На изделие добавлены металлические эглеты и металлический логотип с окислением."
+      ],
+      "colors": [
+        {
+          "name": "темно-серый",
+          "productId": "0cb576b0-1776-424c-a464-44d03be78f2e",
+          "images": [
+            "/api/product-images/a695c775-67de-4f70-bf97-81641ead34fa.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "81d6eed2-0635-4421-af3d-6944b0789641",
+              "priceRub": 6990,
+              "available": 4
+            },
+            {
+              "size": "M",
+              "variantId": "00582cc8-8d36-488e-b6ec-e5aa66beb455",
+              "priceRub": 6990,
+              "available": 27
+            },
+            {
+              "size": "L",
+              "variantId": "09cbff41-876d-45f9-a133-6f290306f002",
+              "priceRub": 6990,
+              "available": 19
+            },
+            {
+              "size": "XL",
+              "variantId": "8d73d73e-3e9e-4e5e-98fd-b9634a2bbe95",
+              "priceRub": 6990,
+              "available": 4
+            }
+          ]
+        },
+        {
+          "name": "светло-серый",
+          "productId": "b80b5870-6a4f-47b5-ad6b-12b4ef494c1b",
+          "images": [
+            "/api/product-images/e84d14ff-233d-44a6-b59f-f7eedc3f47bc.webp",
+            "/api/product-images/ae6ada88-a02f-49d3-85c6-1a7fbff1b69b.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "96006893-e56e-4ffe-90f4-58e592a3751a",
+              "priceRub": 6990,
+              "available": 7
+            },
+            {
+              "size": "M",
+              "variantId": "d50b7dad-36e1-41d8-86ad-bf524190f254",
+              "priceRub": 6990,
+              "available": 32
+            },
+            {
+              "size": "L",
+              "variantId": "d3252cee-8568-454a-b68c-af972462c7ad",
+              "priceRub": 6990,
+              "available": 20
+            },
+            {
+              "size": "XL",
+              "variantId": "ef583777-7298-4286-bd20-bff2af6a4310",
+              "priceRub": 6990,
+              "available": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mg-bomber-jacket",
+      "name": "MG BOMBER JACKET",
+      "category": "Бомберы",
+      "facts": [],
+      "colors": [
+        {
+          "name": "белый",
+          "productId": "b8fa0f4c-c526-4d3b-ad7a-c92ef7b71969",
+          "images": [
+            "/api/product-images/bf5cad5d-7523-43a8-a247-efc9355db839.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "00f7b16a-9369-4f67-8b0c-09d55abc0f25",
+              "priceRub": 7990,
+              "available": 1
+            },
+            {
+              "size": "M",
+              "variantId": "62340d25-4fed-44e9-af56-c018f8f3df6e",
+              "priceRub": 7990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "488993a2-7ebc-4a51-a61a-fb28355260be",
+              "priceRub": 7990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "29fd2570-41c2-4168-b17c-73e321b099c5",
+              "priceRub": 7990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "washed-t-a-tee",
+      "name": "WASHED T.A. TEE",
+      "category": "Футболки",
+      "facts": [
+        "100% хлопок"
+      ],
+      "colors": [
+        {
+          "name": "бордовый",
+          "productId": "82f36520-a9cd-4550-8385-f4d077bf359c",
+          "images": [
+            "/api/product-images/cc334465-aa27-479f-8c65-f17c986f6e86.webp",
+            "/api/product-images/1ff617b3-8895-42c3-a335-b24d6ba661b1.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "53b632dd-2408-4d3f-85b7-ecef3f9b88ab",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "22d15eb9-7783-4d67-978a-5b5e3732c34f",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "7d3dfd26-2aae-4d99-bdd4-7aac9edcabe2",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "c3fdc1b2-18e4-4622-857e-4a0d7b223393",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "серый",
+          "productId": "8f363d49-837f-440d-b76b-3c7d2ff75649",
+          "images": [
+            "/api/product-images/f0549b1d-c18c-42ac-bf89-a9f3cb42b3cc.webp",
+            "/api/product-images/4b0bda3f-e539-48ff-9efd-6f38a9855dce.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "cf492cba-37fa-4e88-b9fc-85f3c3f77bf9",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "d87c892c-d0db-431e-a3e3-6536e5706c18",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "f3750e05-b1a8-40ff-9699-a81ec9b805a4",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "e3602b7b-2d90-418e-baed-2f368aa57b21",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "washed-sin-miedo-tee",
+      "name": "WASHED SIN MIEDO TEE",
+      "category": "Футболки",
+      "facts": [
+        "100% хлопок"
+      ],
+      "colors": [
+        {
+          "name": "бежевый",
+          "productId": "720b74d2-8505-4076-a9d2-8a7165b5132d",
+          "images": [
+            "/api/product-images/a195e1b7-fc5b-445d-a5be-e9540b0b68a9.webp",
+            "/api/product-images/904a058d-156a-4a23-aceb-574166f04e20.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "33f0f517-fad5-40c3-8353-0b7d1bf4df46",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "592765b1-c9e3-4495-a894-c61c9edea14b",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "f0c1e70f-d140-4495-9926-4a0d9422e56c",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "a518f1b9-deec-4783-90c1-c39da918ed24",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "серый",
+          "productId": "be24de60-c317-4610-b8e4-d939c986687f",
+          "images": [
+            "/api/product-images/d00c3327-eeaf-4a6c-9716-76f12f3a029d.webp",
+            "/api/product-images/c59d810d-7b22-4c87-a9a0-13943b173928.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "94aeeb5f-b13e-4300-b6e8-6a265f489f5f",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "46686aa3-91f3-402d-b09a-c2d7de47a7de",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "6a9830ee-76b1-4ad0-bae7-dc5ce600674e",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "935fe060-fdaf-405e-bb58-5d13988c89cd",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "бордовый",
+          "productId": "2624e439-8400-4f94-805c-4c3d80a44b5b",
+          "images": [
+            "/api/product-images/09ccf67b-7158-4809-86e6-e05812e40c9c.webp",
+            "/api/product-images/62255585-87b9-4ad4-9402-ba9b4a6a433c.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "22d4c1e5-c889-4a7a-8afa-1c40857a4394",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "0ffd1f5b-6cbf-462e-8b76-a157c01e18dc",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "2cf8de97-f9b1-48bd-83d5-172a16075fc9",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "a07dc6f7-bb48-42c5-b64d-9d7d09849527",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "team-tee",
+      "name": "TEAM TEE",
+      "category": "Футболки",
+      "facts": [
+        "100% хлопок"
+      ],
+      "colors": [
+        {
+          "name": "серый",
+          "productId": "5aed213d-5f72-490e-af20-0ed918b13f00",
+          "images": [
+            "/api/product-images/2fea439f-b29b-4900-bcb1-5ae73774a867.webp",
+            "/api/product-images/87af31ce-3205-49b5-9b5a-b88e21dfda5c.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "d7b31ea2-ed7a-4c99-95c8-df32a0c8ccc6",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "2b8e4b0d-3813-4cd1-8425-a06097637e70",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "0920b9e1-d653-4a8b-8a64-003fd93c1850",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "4d1a2a6b-b7a2-4be3-831d-0e702030dba9",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "белый",
+          "productId": "8151e029-75cb-442e-a9d6-6a0603e8cf54",
+          "images": [
+            "/api/product-images/61a5b998-c7bf-46eb-8dd6-af92a883091e.webp",
+            "/api/product-images/4db16816-6d78-4711-8eae-baa670796665.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА ЧЕРЕЗ 1-5 ДНЕЙ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "51f164f4-c70f-4827-b750-ca3bd780754e",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "b3922daf-8ac3-48bb-b29d-1ada9f43c6d9",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "f7208eff-3a35-46a5-ae1c-00a1b84f5242",
+              "priceRub": 2990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "4d53ec80-912d-49c1-bb6e-c4f3a93b03ba",
+              "priceRub": 2990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "disregard-jacket",
+      "name": "DISREGARD JACKET",
+      "category": "Куртки",
+      "facts": [
+        "Куртка, созданная из премиальной эко кожи с уникальным нанесением пигмента. На спине выполнено выпуклое тиснение логотипа. Вся куртка имеет уникальную металлическую фурнитуру в форме логотипа бренда."
+      ],
+      "colors": [
+        {
+          "name": "серый",
+          "productId": "a0b9110c-e482-4bd1-abe3-d69482a0ff27",
+          "images": [
+            "/api/product-images/cdee1dbe-4248-4ff5-b22d-157b8a603fd8.webp",
+            "/api/product-images/35b356fa-8b36-43a4-8f4c-bd991a7e501c.webp",
+            "/api/product-images/3cbe90d9-637b-48ff-b400-c5a87333d86c.webp",
+            "/api/product-images/d1da1fa5-41d3-4ea6-ad21-ebac88e45bd0.webp",
+            "/api/product-images/0c4786a2-cf53-4b02-ad7d-0bf7c5b2a7b2.webp",
+            "/api/product-images/4fcaaa67-eed8-4b3a-93ae-a62a1c21bc2f.webp",
+            "/api/product-images/bf203a0f-6bd7-403c-9a70-8f6526544c4b.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "e62cfec4-644c-4ce9-8ff7-da16c2044d26",
+              "priceRub": 10990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "138472d3-3f34-4238-a2ec-9c91685703d8",
+              "priceRub": 10990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "02fbd484-91c7-410d-98ec-8ca1d358f245",
+              "priceRub": 10990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "1cf55a09-1842-45d9-80a0-e64adf790481",
+              "priceRub": 10990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "черный",
+          "productId": "83b7b551-4973-436f-b6d4-8711349a3bab",
+          "images": [
+            "/api/product-images/2d89c053-9290-4658-aefb-6ef7254dd69b.webp",
+            "/api/product-images/1810f486-e15b-4ad4-ab44-78942cb2dd8c.webp",
+            "/api/product-images/acb09474-dde6-47a7-bf20-c667a31bb558.webp",
+            "/api/product-images/7e12e882-650c-4ea6-b731-b86bdc7cfc56.webp",
+            "/api/product-images/c5080072-b57f-4946-95a2-854db47e00e7.webp",
+            "/api/product-images/0012e5a9-5c56-41d5-a047-8e6575964afe.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "a1df9f6e-98c1-4604-a2ce-85c101a1a34b",
+              "priceRub": 10990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "1dce667e-07ed-426f-bfba-f95f98484f94",
+              "priceRub": 10990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "c692d35b-0f10-4fc4-9734-0fd6f50932ff",
+              "priceRub": 10990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "1af8177b-1b00-46c0-9d67-661b83b019b1",
+              "priceRub": 10990,
+              "available": 0
+            }
+          ]
+        },
+        {
+          "name": "коричневый",
+          "productId": "c9639334-f09a-4340-bad7-87c24b0a6689",
+          "images": [
+            "/api/product-images/994f3cee-9eee-49cc-a6da-499ab5ca0398.webp",
+            "/api/product-images/0ece660f-2af0-462a-a103-b863a394c29b.webp",
+            "/api/product-images/14730e59-8042-4a59-81a0-85ae592bcdef.webp",
+            "/api/product-images/97dbb086-b11d-4c75-869f-3c16e7572e0d.webp",
+            "/api/product-images/d365e3d5-a725-4e58-9b57-3ccdd740df99.webp",
+            "/api/product-images/f8bd6d32-2201-4d01-a141-7fccd58bc4a9.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "edad6fe9-8f18-4361-ad0b-233b3ed210fd",
+              "priceRub": 10990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "92569fec-8e1b-472a-b4a7-259c619c4cf8",
+              "priceRub": 10990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "6df9b7df-7c57-4e5e-9406-cddf8c308528",
+              "priceRub": 10990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "f0abc9d0-4e8d-4c90-b16b-bed89dd43870",
+              "priceRub": 10990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "napoleon-dublya-double-sided-jacket",
+      "name": "NAPOLEON DUBLYA DOUBLE-SIDED JACKET",
+      "category": "Куртки",
+      "facts": [
+        "Вашему вниманию представлена двусторонняя дубленка из зимней капсулы.",
+        "Премиальная искусственная кожа с ручным нанесением пигмента",
+        "Премиальный искусственная овчина"
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "0c3cacfa-6db0-45a3-84c3-cb01ab63270a",
+          "images": [
+            "/api/product-images/c5f37840-ec86-48a0-babc-db9838871e85.webp",
+            "/api/product-images/58a592c0-4c4f-4cdc-b06f-24b218976d49.webp",
+            "/api/product-images/b9ba50c2-03ec-46ea-8294-92514a4fa76c.webp",
+            "/api/product-images/754598a6-a4ee-4526-8fa3-e8010305977e.webp",
+            "/api/product-images/8b1c628c-7af8-42d0-995d-4882cdd57fcc.webp",
+            "/api/product-images/9b7dc4d8-c722-4237-ab12-32251587cc59.webp",
+            "/api/product-images/fa71adfc-ee54-4886-a6ff-524e0eb01904.webp",
+            "/api/product-images/c8fa80d5-b580-4808-bb06-2b7e2f525da7.webp",
+            "/api/product-images/8d052424-364d-4756-bc03-c0074dfc2a0f.webp",
+            "/api/product-images/fa496e01-aa07-457a-bedf-81b9349217d5.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "935a2314-0a48-4d09-9c52-0764fc63f3f0",
+              "priceRub": 14990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "739e846d-93e4-4904-8f82-b3891a52c8e2",
+              "priceRub": 14990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "6901646e-fd68-4923-a708-fbcae0e6b485",
+              "priceRub": 14990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "9e52f255-d6cd-443e-b6ed-71e9237b26ca",
+              "priceRub": 14990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "napoleon-jacket",
+      "name": "NAPOLEON JACKET",
+      "category": "Куртки",
+      "facts": [
+        "Куртка, созданная из премиальной эко кожи с визуальным эффектом велюра. Задачу застегивания выполняют металлические матовые клипсы и молния с бегунком в форме нашего логотипа. Вся куртка имеет металлическую абсолютно уникальную фурнитуру."
+      ],
+      "colors": [
+        {
+          "name": "черный",
+          "productId": "f54c494c-203f-44fa-8aab-c55f14c3a5fc",
+          "images": [
+            "/api/product-images/0b3b1611-9f90-4dd8-9cee-dee0198fe4f1.webp",
+            "/api/product-images/2a716274-759c-4b9d-bc2e-b145efcf1345.webp",
+            "/api/product-images/b6ee81e2-ab25-4cd0-8202-56154ec15c2b.webp",
+            "/api/product-images/c4b72bf9-38fa-4dfd-bc79-19371149a84d.webp",
+            "/api/product-images/1653cdfd-ed10-4ed8-a260-75a6dbb574e4.webp",
+            "/api/product-images/6587710b-2cec-4ce5-806e-08dabd22f665.webp",
+            "/api/product-images/6c930c90-5ed1-4237-ab63-eaa369ab3297.webp",
+            "/api/product-images/204285d7-208d-4143-a9a0-b7a5f9924d38.webp",
+            "/api/product-images/bdde15b7-b89f-4d29-808d-e44f6d7cd16a.webp"
+          ],
+          "preorder": {
+            "enabled": false,
+            "shippingText": "ОТПРАВКА 1-3 ДНЯ",
+            "startDate": null
+          },
+          "sizes": [
+            {
+              "size": "S",
+              "variantId": "3453c70a-e0c8-4d01-9d1f-0bd88a1f533a",
+              "priceRub": 12990,
+              "available": 0
+            },
+            {
+              "size": "M",
+              "variantId": "ad5fbf34-e9a8-4c70-a4e3-3c498f890540",
+              "priceRub": 12990,
+              "available": 0
+            },
+            {
+              "size": "L",
+              "variantId": "6d68c0e7-dcd3-46a0-aab0-75d82fa9cb97",
+              "priceRub": 12990,
+              "available": 0
+            },
+            {
+              "size": "XL",
+              "variantId": "872e681c-a98c-468f-9dcd-9cb74d8f83ac",
+              "priceRub": 12990,
+              "available": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

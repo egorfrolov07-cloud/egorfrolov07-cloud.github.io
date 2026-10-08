@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CHINGATE — пуховики X-RAY и BAZA, куртки и сумки</title>
+<meta name="description" content="Концепт витрины CHINGATE от By Egor: пуховик X-RAY из прозрачного рипстопа, двусторонние дублёнки, сумки из итальянской кожи.">
+<!-- концепт для показа клиенту по закрытой ссылке: в поиск не попадает -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#DDE0DA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 114'%3E%3Cpath d='m255 94.92c0-13.65-11.07-26.15-25.47-26.15h-42.24c-2.83 0-4.51 2.2-4.51 4.29 0 2.35 1.95 4.41 4.65 4.41h34.7c7.05 0 9.4 6.31 9.4 11.31 0 4.41-2.82 8.93-6.77 8.93h-119.6l45.23-46.64c6.55-6.28 13.28-6.99 19.77-6.99h32.53c18.36 0 34.46-16.76 47.61-34.13 3.39-4.47-0.1-9.95-4.04-9.95h-62.3c-4.26 0-7.82 2.82-9.82 4.9l-75.97 77.86-16.31 14.95h-10.05c-14.71 0-25.42-12.43-25.42-25.6 0-14.92 12.87-28.03 27.62-28.03h31.08c19.3 0 33.88-12.19 50.05-34.46 3.12-4.23 0-9.62-4.52-9.62h-60.92c-4.59 0-8.53 3.21-10.78 5.46l-76.08 77.93c-3.54 3.54-3.03 7.74-0.38 10.39 2.83 2.83 7.69 2.83 10.94-0.42l16.49-16.49c4.07 18.01 16.43 36.2 40.9 36.2h174.6c7.66 0 9.62-9.11 9.62-18.15z'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/geologica-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="home">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 256 114"><path fill="currentColor" d="m255 94.92c0-13.65-11.07-26.15-25.47-26.15h-42.24c-2.83 0-4.51 2.2-4.51 4.29 0 2.35 1.95 4.41 4.65 4.41h34.7c7.05 0 9.4 6.31 9.4 11.31 0 4.41-2.82 8.93-6.77 8.93h-119.6l45.23-46.64c6.55-6.28 13.28-6.99 19.77-6.99h32.53c18.36 0 34.46-16.76 47.61-34.13 3.39-4.47-0.1-9.95-4.04-9.95h-62.3c-4.26 0-7.82 2.82-9.82 4.9l-75.97 77.86-16.31 14.95h-10.05c-14.71 0-25.42-12.43-25.42-25.6 0-14.92 12.87-28.03 27.62-28.03h31.08c19.3 0 33.88-12.19 50.05-34.46 3.12-4.23 0-9.62-4.52-9.62h-60.92c-4.59 0-8.53 3.21-10.78 5.46l-76.08 77.93c-3.54 3.54-3.03 7.74-0.38 10.39 2.83 2.83 7.69 2.83 10.94-0.42l16.49-16.49c4.07 18.01 16.43 36.2 40.9 36.2h174.6c7.66 0 9.62-9.11 9.62-18.15z"/></symbol></svg>
+<a class="skip" href="#main">К содержимому</a>
+
+<p class="concept-note">Концепт By Egor. Магазин: <a href="https://chingate.store" rel="noopener">chingate.store</a></p>
+
+<header class="hdr" data-hdr>
+  <a class="hdr__link" href="#catalog">Каталог</a>
+  <a class="hdr__logo" href="./" aria-label="CHINGATE, на главную">
+    <svg viewBox="0 0 256 114" aria-hidden="true"><use href="#logo"/></svg>
+  </a>
+  <button class="hdr__link hdr__cart" type="button" data-cart-open>Корзина <span data-cart-count>0</span></button>
+</header>
+
+<main id="main">
+  <!-- первый экран: кадр со съёмки сразу, без заставки -->
+  <section class="hero">
+    <picture class="hero__media">
+      <source media="(max-width: 760px)" srcset="img/f1689ba6-ebee-42b1-aaaf-704db0a3f97d.webp">
+      <img src="img/4ceec99c-3ffe-4964-8691-64005534e181.webp" alt="Девушка в бежевом пуховике X-RAY бежит по чёрному пляжу у моря" width="1800" height="1012" fetchpriority="high" data-hero-img>
+    </picture>
+    <div class="hero__text">
+      <h1 class="hero__title">X-RAY</h1>
+      <p class="hero__lead">Пуховик из прозрачного европейского рипстопа. Прошит в три слоя, держит до −30.</p>
+      <div class="hero__actions">
+        <a class="btn btn--light" href="#xray">Выбрать цвет и размер</a>
+        <a class="btn btn--ghost" href="#xray" data-xray-jump>Посмотреть насквозь</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- рентген: главный момент сайта -->
+  <section class="stage" id="xray" aria-labelledby="stage-title">
+    <div class="stage__view" data-stage>
+      <div class="stage__frame" data-lens-area>
+        <img class="stage__img" data-stage-img alt="" width="1100" height="1100">
+        <div class="stage__film" data-film aria-hidden="true">
+          <img class="stage__img stage__img--xray" data-stage-xray alt="" width="1100" height="1100">
+        </div>
+        <div class="stage__spots" data-spots></div>
+      </div>
+      <div class="stage__tools">
+        <button class="toggle" type="button" aria-pressed="false" data-xray-toggle>Рентген</button>
+        <p class="stage__hint" data-hint>Наведите на куртку, чтобы увидеть её устройство</p>
+      </div>
+    </div>
+
+    <div class="buy" data-buy>
+      <h2 class="buy__name" id="stage-title" data-name>X-RAY PUFFER JACKET</h2>
+      <p class="buy__price" data-price></p>
+      <fieldset class="buy__group">
+        <legend>Цвет: <span data-color-name></span></legend>
+        <div class="swatches" data-colors></div>
+      </fieldset>
+      <fieldset class="buy__group">
+        <legend>Размер</legend>
+        <div class="sizes" data-sizes></div>
+        <p class="buy__fit" data-fit></p>
+      </fieldset>
+      <button class="btn btn--ink btn--wide" type="button" data-add>Добавить в корзину</button>
+      <p class="buy__ship" data-ship></p>
+      <a class="buy__more" data-more href="product.html">Все фото и описание</a>
+    </div>
+  </section>
+
+  <section class="look" aria-labelledby="look-title">
+    <h2 class="look__title" id="look-title">Снято у моря</h2>
+    <div class="look__track" data-look tabindex="0" aria-label="Лукбук, листается вбок"></div>
+  </section>
+
+  <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+    <div class="catalog__head">
+      <h2 class="catalog__title" id="catalog-title">Каталог</h2>
+      <div class="chips" role="group" aria-label="Категории" data-chips></div>
+    </div>
+    <ul class="grid" data-grid></ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <svg class="foot__logo" viewBox="0 0 256 114" aria-hidden="true"><use href="#logo"/></svg>
+  <ul class="foot__links">
+    <li><a href="https://telegram.me/chingatemsk" rel="noopener">Telegram</a></li>
+    <li><a href="https://tiktok.com/@chingate" rel="noopener">TikTok</a></li>
+    <li><a href="https://vk.com/chingate" rel="noopener">VK</a></li>
+    <li><a href="https://telegram.me/chingate_support" rel="noopener">Поддержка</a></li>
+  </ul>
+  <p class="foot__note">Концепт сайта для CHINGATE от <a href="../../">By Egor</a>. Фото, товары и цены — с chingate.store на 8 октября 2026. Корзина здесь только показывает, как это работает: заказать вещи можно на chingate.store.</p>
+</footer>
+
+<div class="drawer" data-drawer hidden>
+  <div class="drawer__shade" data-cart-close></div>
+  <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="drawer__head">
+      <h2 id="drawer-title">Корзина</h2>
+      <button class="drawer__close" type="button" data-cart-close aria-label="Закрыть корзину">Закрыть</button>
+    </div>
+    <ul class="drawer__list" data-cart-list></ul>
+    <div class="drawer__foot">
+      <p class="drawer__total"><span>Итого</span> <b data-cart-total>0 ₽</b></p>
+      <a class="btn btn--ink btn--wide" href="https://chingate.store" rel="noopener">Оформить на chingate.store</a>
+      <p class="drawer__note">Это концепт: заказ оформляется в настоящем магазине.</p>
+    </div>
+  </aside>
+</div>
+
+<p class="toast" role="status" aria-live="polite" data-toast></p>
+
+<script src="../../vendor/gsap/gsap.min.js"></script>
+<script src="../../vendor/lenis/lenis.min.js"></script>
+<script src="app.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

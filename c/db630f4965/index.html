@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Canape Club — фуршеты и кейтеринг в Москве</title>
+<meta name="description" content="Концепт сайта Canape Club от By Egor: калькулятор фуршета на ваших гостей, готовые сеты, кейтеринг с обслуживанием и доставка в день заказа.">
+<!-- концепт для показа клиенту по закрытой ссылке: в поиск не попадает -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#131211">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131211'/%3E%3Cpath d='M16 4v24' stroke='%23F3EDE4' stroke-width='2'/%3E%3Ccircle cx='16' cy='19' r='7' fill='%23F0862A'/%3E%3Cpath d='M16 4h8v5h-8z' fill='%23F3EDE4'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/cormorant-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+<script type="importmap">
+  { "imports": {
+    "three": "../../vendor/three/build/three.module.js",
+    "three/addons/": "../../vendor/three/examples/jsm/"
+  } }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">К содержимому</a>
+
+<p class="concept-note">Концепт By Egor для Canape Club — не официальный сайт. Заказы и настоящие цены: <a href="https://canapeclub.ru" rel="noopener">canapeclub.ru</a></p>
+
+<header class="hdr" data-hdr>
+  <a class="logo" href="./" aria-label="Canape Club, на главную"><span>Canape</span><span>Club</span></a>
+  <nav class="hdr__nav" aria-label="Разделы">
+    <a href="#table">Собрать стол</a>
+    <a href="#kitchen">3D-кухня</a>
+    <a href="#menu">Меню</a>
+    <a href="#formats">Форматы</a>
+    <a href="#delivery">Доставка</a>
+    <a href="#reviews">Отзывы</a>
+  </nav>
+  <a class="hdr__tel" href="tel:+74951202150"><span class="hdr__tel-num">+7 (495) 120-21-50</span><span class="hdr__tel-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" fill="currentColor"/></svg></span><span class="sr">Позвонить</span></a>
+</header>
+
+<main id="main">
+  <!-- первый экран: стол сверху и сразу вопрос «сколько гостей» -->
+  <section class="hero">
+    <picture class="hero__media">
+      <source media="(max-width: 760px)" srcset="img/hero-table-900.webp">
+      <img src="img/hero-table-1600.webp" alt="Фуршетный стол сверху: канапе с лососем, мини-бургеры, тарталетки, брускетты, рулетики, шашлычки и макаронс на тёмных досках" width="1600" height="900" fetchpriority="high">
+    </picture>
+    <div class="hero__text">
+      <p class="eyebrow">Кейтеринг и фуршеты в Москве</p>
+      <h1 class="hero__title">Фуршет на ваших гостей&nbsp;— <em>привезём сегодня</em></h1>
+      <p class="hero__lead">Скажите, сколько будет гостей, — и сразу увидите стол: какой сет подойдёт, сколько еды достанется каждому и сколько это стоит.</p>
+      <form class="hero__form" data-hero-form>
+        <label class="hero__label" for="hero-guests">Сколько гостей?</label>
+        <div class="stepper">
+          <button class="stepper__btn" type="button" data-step="-1" aria-label="На одного гостя меньше">−</button>
+          <input class="stepper__input" id="hero-guests" type="number" inputmode="numeric" min="5" max="150" value="25" data-guests>
+          <button class="stepper__btn" type="button" data-step="1" aria-label="На одного гостя больше">+</button>
+        </div>
+        <button class="btn btn--main" type="submit">Собрать стол</button>
+      </form>
+      <ul class="trust" aria-label="Рейтинги на картах на 12 октября 2026">
+        <li><b>5,0</b> Яндекс Карты</li>
+        <li><b>5,0</b> 2ГИС</li>
+        <li><b>4,9</b> Google</li>
+        <li>команда в кейтеринге с 1993 года</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- калькулятор: сеты считаются по их настоящим ценам, обслуживание — по тарифу «от» на гостя -->
+  <section class="calc" id="table" aria-labelledby="calc-title">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Калькулятор</p>
+        <h2 class="sec-title" id="calc-title">Соберите стол</h2>
+        <p class="sec-lead">Выберите, сколько будет гостей и как проводите вечер. Посчитаем по ценам и составам готовых сетов Canape Club.</p>
+      </header>
+
+      <div class="calc__grid">
+        <div class="calc__controls">
+          <fieldset class="field">
+            <legend class="field__label">Гостей</legend>
+            <div class="stepper stepper--big">
+              <button class="stepper__btn" type="button" data-step="-1" aria-label="На одного гостя меньше">−</button>
+              <input class="stepper__input" type="number" inputmode="numeric" min="5" max="150" value="25" aria-label="Число гостей, от 5 до 150" data-guests>
+              <button class="stepper__btn" type="button" data-step="1" aria-label="На одного гостя больше">+</button>
+            </div>
+            <div class="chips" data-quick>
+              <button class="chip" type="button" data-n="10">10</button>
+              <button class="chip" type="button" data-n="20">20</button>
+              <button class="chip" type="button" data-n="30">30</button>
+              <button class="chip" type="button" data-n="50">50</button>
+              <button class="chip" type="button" data-n="100">100</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend class="field__label">Как проводите</legend>
+            <div class="modes">
+              <label class="mode"><input type="radio" name="mode" value="sets" checked><span><b>Привезти готовые сеты</b><small>Без официантов, в боксах — сразу на стол</small></span></label>
+              <label class="mode"><input type="radio" name="mode" value="service"><span><b>С обслуживанием</b><small>Официанты, посуда, столы</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field" data-for="sets">
+            <legend class="field__label">Повод</legend>
+            <div class="chips chips--radio">
+              <label class="chip"><input type="radio" name="occasion" value="premium" checked><span>Премиум</span></label>
+              <label class="chip"><input type="radio" name="occasion" value="office"><span>Переговоры</span></label>
+              <label class="chip"><input type="radio" name="occasion" value="birthday"><span>День рождения</span></label>
+              <label class="chip"><input type="radio" name="occasion" value="wedding"><span>Свадьба</span></label>
+              <label class="chip"><input type="radio" name="occasion" value="coffee"><span>Кофе-брейк</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field" data-for="service" hidden>
+            <legend class="field__label">Тариф</legend>
+            <div class="tariffs" data-tariffs></div>
+          </fieldset>
+        </div>
+
+        <div class="calc__board" aria-hidden="true">
+          <div class="board" data-board></div>
+          <p class="board__caption" data-board-caption></p>
+        </div>
+
+        <div class="calc__result" id="result" data-result></div>
+        <p class="sr" aria-live="polite" data-live></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- состав сета: доля каждой позиции видна по размеру отсека -->
+  <section class="inside" id="set" aria-labelledby="inside-title">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Что внутри</p>
+        <h2 class="sec-title" id="inside-title">Сет Премиум на 21–25 гостей</h2>
+        <p class="sec-lead">8 позиций, 276 закусок, 5,7 кг. Чем больше отсек, тем больше этой закуски в сете по весу.</p>
+      </header>
+      <div class="inside__grid">
+        <div class="tray rv" data-tray></div>
+        <div class="inside__side">
+          <ol class="parts" data-parts></ol>
+          <p class="inside__sum" data-sum></p>
+          <a class="btn btn--ghost" href="https://canapeclub.ru/buffet-sets/ready-made-kits/set-premium-21-25-person/" rel="noopener" target="_blank">Этот сет на canapeclub.ru <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <p class="ai-note">Фото — AI-визуализация для концепта, не снимок этого сета. Состав, веса и цены — с canapeclub.ru на 12.10.2026.</p>
+    </div>
+  </section>
+
+  <!-- 3D-кухня: закуски в разрезе и конструктор канапе в одной сцене (kitchen.js грузится, когда секция на экране) -->
+  <section class="kitchen" id="kitchen" aria-labelledby="kitchen-title">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">3D-кухня</p>
+        <h2 class="sec-title" id="kitchen-title">Закуска в разрезе</h2>
+        <p class="sec-lead">Покрутите закуску пальцем и разберите её на слои. А во второй вкладке соберите своё канапе.</p>
+      </header>
+      <div class="kitchen__grid">
+        <div class="stage" data-stage>
+          <img class="stage__poster" src="img/cat-canape-720.webp" alt="" width="720" height="900" loading="lazy">
+          <canvas class="stage__canvas" aria-hidden="true"></canvas>
+          <div class="stage__labels" aria-hidden="true" data-labels></div>
+          <button class="btn btn--main stage__start" type="button" data-start hidden>Включить 3D</button>
+          <p class="stage__fallback">3D на этом устройстве не запустилось — состав справа.</p>
+          <div class="stage__bar">
+            <button class="btn btn--ghost btn--sm" type="button" data-explode aria-pressed="false">Разобрать на слои</button>
+            <span class="stage__hint" aria-hidden="true">Тяните, чтобы повернуть</span>
+          </div>
+        </div>
+
+        <div class="kitchen__panel">
+          <div class="tabs" role="tablist" aria-label="Режим">
+            <button class="tab" type="button" role="tab" aria-selected="true" data-tab="anatomy">В разрезе</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="build">Собрать канапе</button>
+          </div>
+
+          <div class="pane" role="tabpanel" data-pane="anatomy">
+            <div class="chips chips--radio">
+              <label class="chip"><input type="radio" name="dish" value="canape" data-dish checked><span>Канапе с лососем</span></label>
+              <label class="chip"><input type="radio" name="dish" value="burger" data-dish><span>Микро-бургер</span></label>
+              <label class="chip"><input type="radio" name="dish" value="tartlet" data-dish><span>Тарталетка</span></label>
+              <label class="chip"><input type="radio" name="dish" value="macaron" data-dish><span>Макаронс</span></label>
+            </div>
+            <p class="pane__label">Слои сверху вниз</p>
+            <ol class="layers" data-layers aria-live="polite">
+              <li>Розочка из слабосолёного чилийского лосося</li><li>Крем-сыр</li><li>Бородинский тост</li>
+            </ol>
+            <button class="btn btn--ghost btn--sm" type="button" data-mac>Макаронс другого вкуса</button>
+            <p class="pane__note">Составы — из описаний на canapeclub.ru: канапе на бородинском тосте с лососем, микро-бургеры №3 (булочка 3,5–4 см, с цыплёнком и соусом цезарь), тарталетки с муссом из куриной печени, макаронс «Градиент» — четыре вкуса в одной гамме.</p>
+          </div>
+
+          <div class="pane" role="tabpanel" data-pane="build" hidden>
+            <p class="pane__lead">Это игра: такую комбинацию не заказать. Похожие — в разделе <a href="https://canapeclub.ru/buffet-sets/canape/" target="_blank" rel="noopener">«Канапе»</a>.</p>
+            <div class="ings">
+              <button class="ing" type="button" data-ing="rye"><i style="--c:#3b2417"></i>Бородинский тост</button>
+              <button class="ing" type="button" data-ing="baguette"><i style="--c:#d7a35c"></i>Багет</button>
+              <button class="ing" type="button" data-ing="cream"><i style="--c:#f3eee4"></i>Крем-сыр</button>
+              <button class="ing" type="button" data-ing="salmon"><i style="--c:#ef7445"></i>Лосось</button>
+              <button class="ing" type="button" data-ing="ham"><i style="--c:#c94a55"></i>Пармская ветчина</button>
+              <button class="ing" type="button" data-ing="mozz"><i style="--c:#f6f3ec"></i>Моцарелла</button>
+              <button class="ing" type="button" data-ing="cherry"><i style="--c:#c8231c"></i>Черри</button>
+              <button class="ing" type="button" data-ing="olive"><i style="--c:#6f7d22"></i>Оливка</button>
+              <button class="ing" type="button" data-ing="grape"><i style="--c:#7b2350"></i>Виноград</button>
+            </div>
+            <p class="pane__label" data-count aria-live="polite">Выберите, с чего начать: обычно с тоста или багета</p>
+            <ol class="layers" data-stack></ol>
+            <fieldset class="field">
+              <legend class="field__label">Надпись на флажке</legend>
+              <div class="chips chips--radio">
+                <label class="chip"><input type="radio" name="flag" value="Canape Club" checked><span>Canape Club</span></label>
+                <label class="chip"><input type="radio" name="flag" value="С днём рождения!"><span>С днём рождения!</span></label>
+                <label class="chip"><input type="radio" name="flag" value="Ура, пятница!"><span>Ура, пятница!</span></label>
+                <label class="chip"><input type="radio" name="flag" value=""><span>Своя</span></label>
+              </div>
+              <input class="flag-own" type="text" maxlength="18" placeholder="До 18 знаков" aria-label="Своя надпись на флажке" data-flag-own hidden>
+            </fieldset>
+            <div class="res__actions">
+              <button class="btn btn--ghost btn--sm" type="button" data-undo>Убрать верхний слой</button>
+              <button class="btn btn--ghost btn--sm" type="button" data-reset>Начать заново</button>
+            </div>
+          </div>
+          <p class="ai-note">Условная 3D-визуализация концепта: внешний вид, размеры и слои могут отличаться от настоящих закусок.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- восемь главных разделов вместо 380 ссылок -->
+  <section class="menu" id="menu" aria-labelledby="menu-title">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Меню</p>
+        <h2 class="sec-title" id="menu-title">Из чего собирается фуршет</h2>
+        <p class="sec-lead">Восемь главных разделов — всё, что удобно есть стоя и одной рукой. Больше 2 000 блюд собственного производства и от партнёров.</p>
+      </header>
+      <ul class="cats" data-cats></ul>
+      <p class="more">Ещё в меню:
+        <a href="https://canapeclub.ru/baking/" rel="noopener">выпечка и пироги</a>,
+        <a href="https://canapeclub.ru/buffet-sets/hot-appetizer/" rel="noopener">горячие закуски</a>,
+        <a href="https://canapeclub.ru/kuhni-mira/" rel="noopener">кухни мира</a>,
+        <a href="https://canapeclub.ru/biznes-lanchi/" rel="noopener">бизнес-ланчи</a>,
+        <a href="https://canapeclub.ru/buffet-sets/drinks/" rel="noopener">напитки и посуда</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- форматы: лестница от коробки с сетом до выездного ресторана -->
+  <section class="formats" id="formats" aria-labelledby="formats-title">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Форматы</p>
+        <h2 class="sec-title" id="formats-title">От коробки на столе до выездного ресторана</h2>
+      </header>
+      <ol class="steps">
+        <li class="step rv">
+          <img src="img/fmt-delivery-1200.webp" alt="Открытый чёрный бокс с канапе, тарталетками и мини-бургерами на столе в офисе" width="1200" height="800" loading="lazy">
+          <div class="step__body">
+            <p class="step__num">01</p>
+            <h3>Готовые сеты с доставкой</h3>
+            <p>65 сетов на 5–120 гостей: переговоры, день рождения, свадьба, кофе-брейк. Привезём в день заказа, в интервал в один час.</p>
+            <p class="step__price">сеты от 7 290 ₽</p>
+          </div>
+        </li>
+        <li class="step rv">
+          <img src="img/fmt-coffee-1200.webp" alt="Стол кофе-брейка на конференции: мини-круассаны, эклеры, макаронс и кофе" width="1200" height="800" loading="lazy">
+          <div class="step__body">
+            <p class="step__num">02</p>
+            <h3>Кофе-брейк</h3>
+            <p>Закуски, выпечка, десерты и напитки для конференции или тренинга. Официант раскладывает и следит за столом.</p>
+            <p class="step__price">от 1 500 ₽ на гостя · от 250 г</p>
+          </div>
+        </li>
+        <li class="step rv">
+          <img src="img/fmt-buffet-1200.webp" alt="Фуршетный стол вечером в лофте: канапе, тарталетки, веррины, фарфор и хрусталь" width="1200" height="800" loading="lazy">
+          <div class="step__body">
+            <p class="step__num">03</p>
+            <h3>Фуршет с официантами</h3>
+            <p>Холодные и горячие закуски, стекло и фарфор, фуршетные столы и официанты. В «Премиуме» — сервировка и комплименты от шефа.</p>
+            <p class="step__price">от 2 100 ₽ на гостя · от 450 г</p>
+          </div>
+        </li>
+        <li class="step rv">
+          <img src="img/fmt-station-1200.webp" alt="Руки повара на живой станции заканчивают мини-тарталетки горелкой и пинцетом" width="1200" height="800" loading="lazy">
+          <div class="step__body">
+            <p class="step__num">04</p>
+            <h3>Банкет и выездной ресторан</h3>
+            <p>Горячие блюда, анимационные станции, где повар готовит при гостях, декор и площадка под ключ.</p>
+            <p class="step__price">банкет «ВИП» от 7 000 ₽ на гостя</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- доставка: схема кольцами и точная таблица рядом -->
+  <section class="delivery" id="delivery" aria-labelledby="delivery-title">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Доставка</p>
+        <h2 class="sec-title" id="delivery-title">Привезём в день заказа</h2>
+        <p class="sec-lead">Интервал — один час. Нужно минута в минуту — точная доставка по Москве за 1 500 ₽.</p>
+      </header>
+      <div class="delivery__grid">
+        <svg class="rings rv" viewBox="0 0 400 400" role="img" aria-labelledby="rings-title" data-rings>
+          <title id="rings-title">Схема зон доставки вокруг МКАД</title>
+        </svg>
+        <div>
+          <table class="zones">
+            <caption class="sr">Стоимость доставки по зонам</caption>
+            <thead><tr><th scope="col">Куда</th><th scope="col">Бесплатно от</th><th scope="col">Иначе</th></tr></thead>
+            <tbody data-zones></tbody>
+          </table>
+          <p class="zones__note">Дальше 70 км за МКАД — по расчёту. Оплата по СБП, картой, наличными, по безналу и цифровым рублём.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- доверие: рейтинги с площадкой и датой, отзывы — с их сайта -->
+  <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <p class="eyebrow">Отзывы</p>
+        <h2 class="sec-title" id="reviews-title">Нас выбирают снова</h2>
+      </header>
+      <ul class="ratings rv">
+        <li><b>5,0</b><span>Яндекс Карты</span></li>
+        <li><b>5,0</b><span>2ГИС</span></li>
+        <li><b>4,9</b><span>Google</span></li>
+        <li><b>5 000</b><span>отзывов — по данным сайта компании</span></li>
+      </ul>
+      <ul class="quotes">
+        <li class="quote rv"><blockquote>Делала заказ фуршета на 40 персон. Мне рассчитали позиции меню, направили на согласование, внесли наши правки. Доставили точно в указанное время.</blockquote><p>Юлия Ф., 4 октября</p></li>
+        <li class="quote rv"><blockquote>Количество гостей варьировало от 20 до 120, и всегда всё проходило на высочайшем уровне.</blockquote><p>Алексей Суров, 23 сентября</p></li>
+        <li class="quote rv"><blockquote>Молодой человек нёс заказ, как хрустальную вазу, предупредив, что всё очень нежное.</blockquote><p>Марина М., 23 сентября</p></li>
+      </ul>
+      <p class="quotes__src">Отзывы — с canapeclub.ru, рейтинги — на 12 октября 2026.</p>
+      <ul class="facts rv">
+        <li><b>С 1993 года</b>команда работает в кейтеринге</li>
+        <li><b>HACCP ISO 22000</b>сертифицированное производство</li>
+        <li><b>1 000+ м²</b>сертифицированных производств</li>
+        <li><b>24/7</b>персональный менеджер на связи</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- компании: то, что важно бухгалтерии и офис-менеджеру -->
+  <section class="business" aria-labelledby="business-title">
+    <div class="wrap business__grid">
+      <header class="sec-head rv">
+        <p class="eyebrow">Для компаний</p>
+        <h2 class="sec-title" id="business-title">Кофе-брейки, переговоры и корпоративы</h2>
+      </header>
+      <ul class="business__list rv">
+        <li>Сеты для переговоров и бизнес-завтраки на 5–30 человек</li>
+        <li>Корпоративное питание и бизнес-ланчи в офис</li>
+        <li>Оплата по безналу: менеджер выставит счёт</li>
+        <li>Один менеджер ведёт заказ от сметы до доставки</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- финал: телефон и заявка с расчётом из калькулятора -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact__grid">
+      <div class="rv">
+        <p class="eyebrow">Заказ</p>
+        <h2 class="sec-title" id="contact-title">Соберём стол вместе</h2>
+        <p class="contact__tel"><a href="tel:+74951202150">+7 (495) 120-21-50</a></p>
+        <p class="contact__meta">Пн–Пт 8:00–20:00, Сб–Вс 9:00–19:00 · <a href="mailto:sale@canapeclub.ru">sale@canapeclub.ru</a></p>
+      </div>
+      <form class="callback rv" data-callback>
+        <label for="cb-phone">Телефон</label>
+        <input id="cb-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__">
+        <label for="cb-note">Что посчитать</label>
+        <textarea id="cb-note" rows="4" data-note></textarea>
+        <button class="btn btn--main" type="submit">Перезвоните мне</button>
+        <p class="callback__msg" role="status" data-callback-msg></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Концепт сайта для Canape Club от <a href="../../">By Egor</a>. Цены, составы сетов, тарифы, рейтинги и отзывы — с <a href="https://canapeclub.ru" rel="noopener">canapeclub.ru</a> на 12 октября 2026. Фото блюд сгенерированы ИИ для концепта. Заказать можно на canapeclub.ru и по телефону.</p>
+  </div>
+</footer>
+
+<!-- телефон: итог расчёта всегда под пальцем -->
+<div class="dock" data-dock hidden>
+  <p class="dock__text" data-dock-text></p>
+  <a class="btn btn--main btn--sm" href="#result">К расчёту</a>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
